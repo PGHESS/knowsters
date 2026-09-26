@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "Knowsters-v22-WebDeploy-small.zip"
+      - "Knowsters-v*-WebDeploy-small.zip"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -27,12 +27,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare static site
+      - name: Prepare latest static site
         run: |
-          rm -rf _site
-          mkdir -p _site
-          unzip -q Knowsters-v22-WebDeploy-small.zip -d _unpacked
-          cp -R _unpacked/Knowsters-v22-WebDeploy/. _site/
+          rm -rf _site _unpacked
+          mkdir -p _site _unpacked
+          ZIP="$(find . -maxdepth 1 -type f -name 'Knowsters-v*-WebDeploy-small.zip' -printf '%f\n' | sort -V | tail -1)"
+          echo "Deploying $ZIP"
+          unzip -q "$ZIP" -d _unpacked
+          BUILD_DIR="$(find _unpacked -mindepth 1 -maxdepth 1 -type d | head -1)"
+          cp -R "$BUILD_DIR"/. _site/
           touch _site/.nojekyll
 
       - name: Configure Pages
