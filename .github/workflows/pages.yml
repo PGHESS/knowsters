@@ -6,6 +6,11 @@ on:
     paths:
       - "Knowsters-v*-WebDeploy-small.zip"
       - ".github/workflows/pages.yml"
+      - "phaser-spike.html"
+      - "phaser-spike.css"
+      - "ks25-core.js"
+      - "ks25-battle.js"
+      - "ks25-boot.js"
   workflow_dispatch:
 
 permissions:
@@ -36,6 +41,7 @@ jobs:
           unzip -q "$ZIP" -d _unpacked
           BUILD_DIR="$(find _unpacked -mindepth 1 -maxdepth 1 -type d | head -1)"
           cp -R "$BUILD_DIR"/. _site/
+          cp phaser-spike.html phaser-spike.css ks25-core.js ks25-battle.js ks25-boot.js _site/
           touch _site/.nojekyll
 
       - name: Configure Pages
