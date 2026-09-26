@@ -1,21 +1,39 @@
 # Knowsters – Safari-Test über GitHub Pages
 
-Das Repository ist für GitHub Pages vorbereitet.
+Das Repository ist bereits für einen GitHub-Pages-Test vorbereitet.
 
 ## Einmalig in GitHub
 1. Repository **PGHESS/knowsters** öffnen.
 2. **Settings → Pages**.
 3. Unter **Build and deployment** als Quelle **GitHub Actions** auswählen.
 
-## Spielversion aktualisieren
-Die komplette Safari-Testversion liegt als einzelne Datei vor.
+## Aktuelle Spielversion hochladen
+Für den Test wird nur **eine Datei** benötigt:
 
-1. Die aktuelle Testdatei als **index.html** in das Repository hochladen.
-2. In den Branch **main** committen.
-3. Der Workflow **Deploy Knowsters to GitHub Pages** startet automatisch.
-4. Danach ist das Spiel unter der GitHub-Pages-Adresse des Repositories erreichbar.
+`Knowsters-v22-WebDeploy.zip`
 
-Der Ein-Datei-Build enthält HTML, CSS, JavaScript und komprimierte Bilder und benötigt keine weiteren Web-Dateien.
+Diese ZIP enthält den kompletten Web-Build mit HTML, CSS, JavaScript, Bildern, Icons und Manifest.
 
-## Entwicklungsprinzip
-Der GitHub-Pages-Build dient zunächst als Testversion. Der vollständige modulare Entwicklungsstand wird separat versioniert weitergeführt.
+### Upload
+1. Im Repository **Add file → Upload files**.
+2. `Knowsters-v22-WebDeploy.zip` auswählen.
+3. Auf den Branch **main** committen.
+
+Danach startet automatisch der Workflow **Deploy Knowsters to GitHub Pages**.
+
+Der Workflow:
+- entpackt die ZIP,
+- übernimmt den enthaltenen Ordner `Knowsters-v22-WebDeploy`,
+- erstellt daraus die statische Site,
+- veröffentlicht sie über GitHub Pages.
+
+## Erwartete Testadresse
+Nach erfolgreichem Deployment liegt die Site typischerweise unter:
+
+`https://pghess.github.io/knowsters/`
+
+## Spätere Updates
+Für einen neuen Teststand wird nur die ZIP im Repository ersetzt. Der Pages-Workflow veröffentlicht danach automatisch die neue Version.
+
+---
+Aktueller Teststand: **Knowsters v22**
