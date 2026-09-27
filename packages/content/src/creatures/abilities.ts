@@ -1,4 +1,4 @@
-import type { AttributeId } from './attributes';
+import type { AttributeId } from '../attributes';
 
 export type TargetKind = 'enemy' | 'ally' | 'tile' | 'self';
 

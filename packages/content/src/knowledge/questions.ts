@@ -1,4 +1,4 @@
-import legacyJson from './data/questions-legacy.json';
+import legacyJson from '../data/questions-legacy.json';
 import type { SubjectId } from './curriculum';
 
 /**
