@@ -1,6 +1,7 @@
-import { encounterDef } from '@knowsters/content';
+import { encounterDef, type AgeBandId } from '@knowsters/content';
 import {
   KeyValueSaveAdapter,
+  applyAgeBand,
   createBattle,
   createFreshSave,
   hydrateBattle,
@@ -91,6 +92,14 @@ export class GameStore {
   setFlag(key: string, value: string | number | boolean): void {
     this.update((s) => {
       s.flags[key] = value;
+    });
+  }
+
+  /** Alter ist nur die Startschätzung; bearbeitete Fächer behalten ihren Stand. */
+  setAgeBand(band: AgeBandId | null): void {
+    this.update((s) => {
+      s.player.ageBand = band;
+      applyAgeBand(s.player.knowledge, band);
     });
   }
 

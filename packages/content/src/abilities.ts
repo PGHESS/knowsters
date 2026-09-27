@@ -38,7 +38,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
   'pyro-trail': {
     id: 'pyro-trail', name: 'Glutspur', icon: '♨', target: 'tile', range: 2, resonanceCost: 1,
     desc: 'Erzeugt 2 Runden lang gefährliches Gelände. Kostet 1 Resonanz.',
-    requirements: { attributes: { attack: 480 }, skillPoints: 1, knowledgeProof: 'math-percent', requiresAbility: 'pyro-flame' },
+    requirements: { attributes: { attack: 460 }, skillPoints: 1, knowledgeProof: 'math-percent', requiresAbility: 'pyro-flame' },
   },
 
   'terra-stand': { id: 'terra-stand', name: 'Standhalten', icon: '◆', target: 'self', range: 0, resonanceCost: 0, desc: 'Erhält 4 Schild und kann bis zur nächsten Runde nicht verschoben werden.' },

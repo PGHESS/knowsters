@@ -1,8 +1,13 @@
 import { CURRICULUM, type QuestionItem, type SubjectId } from '@knowsters/content';
 import { grantProof, type PlayerKnowledge } from './knowledge';
+import { trainAttribute, type TrainResult } from './attributes';
+import type { CreatureInstance } from './creature';
+import type { AttributeId } from '@knowsters/content';
 
 export const EXAM_SIZE = 5;
 export const EXAM_PASS = 4;
+/** Entwicklungspunkte für das gewählte Attribut nach bestandener Prüfung. */
+export const EXAM_DEVELOPMENT_BONUS = 10;
 
 export interface ExamState {
   subject: SubjectId;
@@ -50,4 +55,9 @@ export function normalize(value: string): string {
   const n = Number(v);
   if (v !== '' && Number.isFinite(n) && /^-?\d*(\.\d+)?$/.test(v)) return String(n);
   return v.toLowerCase();
+}
+
+/** Nach bestandener Prüfung: spürbare Entwicklung für das gewählte, zum Fach passende Attribut. */
+export function applyExamReward(creature: CreatureInstance, attributeId: AttributeId): TrainResult {
+  return trainAttribute(creature.attributes, attributeId, EXAM_DEVELOPMENT_BONUS);
 }

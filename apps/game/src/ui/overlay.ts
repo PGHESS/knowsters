@@ -18,11 +18,19 @@ export interface SheetOptions {
 export const esc = (v: unknown): string => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string);
 
 let dismissHandler: ((e: Event) => void) | null = null;
+let inputGate: ((open: boolean) => void) | null = null;
+
+/** Wird von main.ts gesetzt: Phaser-Input sperren, solange ein Sheet offen ist (sonst sickern
+ *  Pointer-Up-Events des Overlays über die Window-Events auf Canvas-Buttons durch). */
+export function setInputGate(fn: (open: boolean) => void): void {
+  inputGate = fn;
+}
 
 export function showSheet(html: string, opts: SheetOptions = {}): HTMLElement {
   const ui = root();
   ui.innerHTML = `<section class="sheet ${opts.center ? 'center' : ''}" role="dialog" aria-modal="true">${html}</section>`;
   ui.hidden = false;
+  inputGate?.(true);
   if (dismissHandler) ui.removeEventListener('pointerdown', dismissHandler);
   dismissHandler = (e: Event) => {
     if (e.target === ui && opts.dismissible) {
@@ -38,6 +46,7 @@ export function hideSheet(): void {
   const ui = root();
   ui.hidden = true;
   ui.innerHTML = '';
+  inputGate?.(false);
 }
 
 export const isSheetOpen = (): boolean => !root().hidden;

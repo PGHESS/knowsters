@@ -8,6 +8,7 @@ import { BootScene } from './scenes/BootScene';
 import { HomeScene } from './scenes/HomeScene';
 import { WorldScene } from './scenes/WorldScene';
 import { GameStore } from './store/store';
+import { setInputGate } from './ui/overlay';
 
 installDiagnostics();
 void cleanupLegacyServiceWorkers();
@@ -22,10 +23,13 @@ try {
     backgroundColor: '#07131f',
     antialias: true,
     scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH, width: W, height: H },
-    input: { activePointers: 2 },
+    input: { activePointers: 2, windowEvents: false },
     scene: [BootScene, HomeScene, WorldScene, BattleScene],
   });
   const router = new Router(game, store);
+  setInputGate((open) => {
+    game.input.enabled = !open;
+  });
   game.registry.set('store', store);
   game.registry.set('router', router);
   game.events.once('ready', () => {

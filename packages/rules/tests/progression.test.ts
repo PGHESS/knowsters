@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { ABILITIES, ATTRIBUTE_ORDER, GUARDIAN_ORDER, POTENTIAL_TOTAL, guardianDef } from '@knowsters/content';
 import {
   answerExam,
+  applyExamReward,
+  EXAM_DEVELOPMENT_BONUS,
   attributeCost,
   awardLearning,
   checkUnlock,
@@ -115,8 +117,14 @@ describe('exam and skill gating', () => {
     expect(exam2.passed).toBe(false);
     expect(k2.proofs).toHaveLength(0);
     expect(() => startExam('math', 5, items.slice(0, 3))).toThrow();
+    // Nachweis-Bonus: eine bestandene Prüfung entwickelt das gewählte Attribut spürbar
+    const c = createCreature('pyro', 'p', seededRng(4));
+    const before = c.attributes.attack.value;
+    const reward = applyExamReward(c, 'attack');
+    expect(reward.development).toBe(EXAM_DEVELOPMENT_BONUS);
+    expect(c.attributes.attack.value).toBeGreaterThan(before);
   });
-  it('Glutspur needs attack ≥ 480, a skill point and the math-percent proof', () => {
+  it('Glutspur needs attack ≥ 460, a skill point and the math-percent proof', () => {
     const c = createCreature('pyro', 'p', seededRng(2));
     const k = createKnowledge('14-15');
     c.attributes.attack.value = 450;
@@ -125,7 +133,7 @@ describe('exam and skill gating', () => {
     expect(check.attributeGaps[0]?.attributeId).toBe('attack');
     expect(check.needsProof).toBe('math-percent');
     expect(check.needsSkillPoints).toBe(1);
-    c.attributes.attack.value = 480;
+    c.attributes.attack.value = 460;
     c.skillPoints = 1;
     grantProof(k, 'math', 'math-percent');
     check = unlockAbility(c, k, 'pyro-trail');
