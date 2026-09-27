@@ -4,6 +4,10 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#040a10;fon
 body{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 #game-shell,#game{width:100%;height:100%;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(circle at 50% 15%,#102c3f,#040a10 62%)}
 #game canvas{display:block;max-width:100%;max-height:100%;outline:none;touch-action:none}
+/* M0-Fix: Die Autorenregel mit ID-Selektor hatte das UA-Stylesheet `[hidden]{display:none}` überschrieben.
+   Das Overlay lag deshalb auf jedem Gerät über dem laufenden Spiel. */
 #load-error{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:32px;color:#eefbff;background:#06121d;font-size:16px;line-height:1.5}
+#load-error[hidden]{display:none}
 #load-error strong{font-size:22px}
+#load-error span{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;opacity:.9}
 @media (min-width:720px){#game canvas{border-radius:26px;box-shadow:0 20px 80px #000a}}

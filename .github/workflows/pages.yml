@@ -1,16 +1,9 @@
-name: Deploy Knowsters to GitHub Pages
+name: Verify and deploy Knowsters
 
 on:
   push:
-    branches: ["main"]
-    paths:
-      - "Knowsters-v*-WebDeploy-small.zip"
-      - ".github/workflows/pages.yml"
-      - "phaser-spike.html"
-      - "phaser-spike.css"
-      - "ks25-core.js"
-      - "ks25-battle.js"
-      - "ks25-boot.js"
+    branches: ["main", "claude/**"]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -23,37 +16,59 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install
+        run: npm ci --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests (vitest)
+        run: npm test
+      - name: Legacy tests (v22 reference)
+        run: npm run test:legacy
+      - name: Build
+        run: npm run build
+      - name: Assemble site (app at /, reference stands at /legacy/)
+        run: |
+          rm -rf _site
+          cp -R apps/game/dist _site
+          mkdir -p _site/legacy
+          cp -R legacy/v22 _site/legacy/v22
+          cp -R legacy/v25-spike _site/legacy/v25-spike
+          cp node_modules/phaser/dist/phaser.min.js _site/legacy/v25-spike/phaser.min.js
+          cp legacy/README.md _site/legacy/README.md
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=legacy/v25-spike/phaser-spike.html"><title>Knowsters Spike</title><a href="legacy/v25-spike/phaser-spike.html">Weiter zum v25-Spike</a>' > _site/phaser-spike.html
+          touch _site/.nojekyll
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 7
+
+  # Pages-Deploy nur von main: Die Umgebung github-pages erlaubt per Schutzregel standardmäßig
+  # nur den Default-Branch. Für Branch-Deploys unter Settings → Environments → github-pages
+  # den Branch-Pattern "claude/*" freigeben und die Bedingung hier erweitern.
   deploy:
+    needs: verify
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Prepare latest static site
-        run: |
-          rm -rf _site _unpacked
-          mkdir -p _site _unpacked
-          ZIP="$(find . -maxdepth 1 -type f -name 'Knowsters-v*-WebDeploy-small.zip' -printf '%f\n' | sort -V | tail -1)"
-          echo "Deploying $ZIP"
-          unzip -q "$ZIP" -d _unpacked
-          BUILD_DIR="$(find _unpacked -mindepth 1 -maxdepth 1 -type d | head -1)"
-          cp -R "$BUILD_DIR"/. _site/
-          cp phaser-spike.html phaser-spike.css ks25-core.js ks25-battle.js ks25-boot.js _site/
-          curl -L --fail --retry 3 --retry-delay 2 https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.min.js -o _site/phaser.min.js
-          test -s _site/phaser.min.js
-          touch _site/.nojekyll
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: "_site"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

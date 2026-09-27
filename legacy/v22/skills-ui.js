@@ -1,0 +1,19 @@
+(()=>{'use strict';
+const basic={strike:{name:'Grundangriff',icon:'⚔',description:'Ein verlässlicher Treffer. Gibt 1 Fokus.'},guard:{name:'Schützen',icon:'◇',description:'Baut Schild auf und gibt 1 Fokus.'},focus:{name:'Beobachten',icon:'◎',description:'Sammelt 2 Fokus, ohne anzugreifen.'}};
+function render({id,name,profile,slot,origin,notice}){
+ const P=window.KnowstersProgress,all=P.abilities[id],set=P.prepareSets(profile,id),choices=[...Object.entries(basic).map(([id,a])=>({id,...a})),...all.filter(a=>profile.unlocked.includes(a.id))];
+ const label=value=>choices.find(a=>a.id===value);
+ return `<div class="screen-top"><div><div class="kicker">${origin==='house'?'Lichtquell · Haus der Talente':'Unterwegs · Reiseübung'}</div><h1>Talente von ${name}</h1></div><button class="secondary" data-action="world">Zur Welt</button></div>
+ <div class="mentor-banner">${window.KnowstersNarrative.portrait('guide')}<p>„Du darfst alle drei Wege lernen. Für einen Kampf nimmst du vier Aktionen mit. Tausche sie hier in Ruhe aus.“ <strong>– Eno</strong></p></div>
+ ${notice?`<div class="world-notice" role="status">${notice}</div>`:''}
+ <section class="loadout-panel"><div class="loadout-heading"><h2>Dein Kampfset</h2><span>✦ ${profile.skillPoints} Fähigkeitspunkte</span></div>
+ <div class="set-tabs" aria-label="Gespeicherte Kampfsets">${[0,1,2].map(i=>`<button data-action="select-set" data-index="${i}" aria-pressed="${profile.activeSet===i}">Set ${i+1}${profile.activeSet===i?' · aktiv':''}</button>`).join('')}</div>
+ <p>Vier Plätze für Grundaktionen und gelernte Fähigkeiten. Der Grundangriff gibt 1 Fokus. Atemholen bleibt auch bei vier Spezialfähigkeiten als freie Aktion verfügbar.</p>
+ <div class="loadout-slots">${set.map((value,i)=>{const a=label(value);return `<button data-action="select-slot" data-index="${i}" aria-pressed="${slot===i}"><small>Platz ${i+1}</small><strong>${a?a.icon+' '+a.name:'Noch frei'}</strong></button>`;}).join('')}</div>
+ <p class="slot-instruction">Wähle eine Aktion für <strong>Platz ${slot+1}</strong>. Ist sie schon im Set, werden die Plätze getauscht.</p>
+ <div class="loadout-options">${choices.map(a=>`<button data-action="equip" data-id="${a.id}" aria-pressed="${set[slot]===a.id}"><strong>${a.icon} ${a.name}</strong><small>${a.focus!==undefined?a.focus+' Fokus · ':''}${a.description}</small></button>`).join('')}<button data-action="unequip">Platz freimachen</button></div><p class="note">Das aktive Set wird gespeichert und beim nächsten Kampf übernommen. Im Kampf bleibt es fest.</p></section>
+ <div class="ability-tabs"><span>${profile.total%5} / 5 Aufgaben bis zum nächsten Fähigkeitspunkt</span><span>${profile.unlocked.length} / ${all.length} Fähigkeiten gelernt</span></div>
+ <div class="skill-tree">${['Angriff','Schutz','Gefährte'].map((branch,i)=>`<section class="skill-branch talent-path"><div class="kicker">${branch}</div><h2>${P.trees[id][i]}</h2>${all.filter(a=>a.branch===branch).map(a=>{const learned=profile.unlocked.includes(a.id),parent=all.find(x=>x.id===a.requires),missing=parent&&!profile.unlocked.includes(parent.id),can=profile.skillPoints>=a.cost&&!missing;return `<article class="ability-card ${learned?'known':can?'':'locked'}"><span class="ability-icon">${a.icon}</span><h3>${a.name}</h3>${parent?`<small class="tree-link">Voraussetzung: ${parent.name}</small>`:'<small class="tree-link">Einstieg in diesen Weg</small>'}<p>${a.description}</p><small>${a.focus} Fokus im Kampf</small>${learned?`<div class="learned-label">✓ Dauerhaft gelernt</div><button class="secondary" data-action="equip" data-id="${a.id}">Auf Platz ${slot+1} legen</button>`:`<button class="${can?'primary':'secondary'}" data-action="unlock" data-id="${a.id}" ${can?'':'disabled'}>${missing?'Zuerst '+parent.name:'Für '+a.cost+' Punkte lernen'}</button>`}</article>`;}).join('')}</section>`).join('')}</div>`;
+}
+window.KnowstersSkillsUI={render,basic};
+})();

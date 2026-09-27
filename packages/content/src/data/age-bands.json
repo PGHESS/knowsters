@@ -1,0 +1,82 @@
+{
+ "12-13": {
+  "label": "12–13 Jahre",
+  "hint": "mittlere Grundlagen",
+  "base": {
+   "math": 4,
+   "logic": 2,
+   "language": 3,
+   "english": 2,
+   "nature": 2,
+   "history": 2,
+   "civics": 1,
+   "media": 2,
+   "geography": 2,
+   "economy": 1
+  }
+ },
+ "14-15": {
+  "label": "14–15 Jahre",
+  "hint": "Aufbau & Anwendung",
+  "base": {
+   "math": 5,
+   "logic": 3,
+   "language": 4,
+   "english": 3,
+   "nature": 3,
+   "history": 3,
+   "civics": 2,
+   "media": 3,
+   "geography": 3,
+   "economy": 2
+  }
+ },
+ "16-17": {
+  "label": "16–17 Jahre",
+  "hint": "Transfer & Vertiefung",
+  "base": {
+   "math": 6,
+   "logic": 4,
+   "language": 5,
+   "english": 4,
+   "nature": 4,
+   "history": 4,
+   "civics": 3,
+   "media": 4,
+   "geography": 4,
+   "economy": 3
+  }
+ },
+ "18-24": {
+  "label": "18–24 Jahre",
+  "hint": "anspruchsvoller Einstieg",
+  "base": {
+   "math": 6,
+   "logic": 5,
+   "language": 5,
+   "english": 5,
+   "nature": 5,
+   "history": 5,
+   "civics": 5,
+   "media": 5,
+   "geography": 5,
+   "economy": 5
+  }
+ },
+ "25-40": {
+  "label": "25–40 Jahre",
+  "hint": "anspruchsvoller Einstieg",
+  "base": {
+   "math": 6,
+   "logic": 5,
+   "language": 5,
+   "english": 5,
+   "nature": 5,
+   "history": 5,
+   "civics": 5,
+   "media": 5,
+   "geography": 5,
+   "economy": 5
+  }
+ }
+}

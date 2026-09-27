@@ -1,0 +1,502 @@
+{
+ "math": [
+  {
+   "id": "math-arithmetic",
+   "title": "Plus & Minus",
+   "goal": "Zahlen sicher zerlegen, addieren und subtrahieren.",
+   "scope": "Grundrechnen · Zahlverständnis · Überschlag"
+  },
+  {
+   "id": "math-multiply",
+   "title": "Mal & Geteilt",
+   "goal": "Multiplikation und Division flexibel anwenden.",
+   "scope": "Produkte · Quotienten · Umkehroperationen"
+  },
+  {
+   "id": "math-order",
+   "title": "Punkt vor Strich",
+   "goal": "Rechenregeln sicher in mehrschrittigen Aufgaben nutzen.",
+   "scope": "Reihenfolge · Terme · Rechenwege"
+  },
+  {
+   "id": "math-brackets",
+   "title": "Klammern",
+   "goal": "Terme mit Klammern strukturiert auflösen.",
+   "scope": "Klammern · Rechenstrategien · Terme"
+  },
+  {
+   "id": "math-fractions",
+   "title": "Brüche",
+   "goal": "Anteile verstehen, vergleichen und berechnen.",
+   "scope": "Brüche · Anteile · Verhältnisdenken"
+  },
+  {
+   "id": "math-percent",
+   "title": "Prozentrechnung",
+   "goal": "Prozentwerte in Alltag, Preisen und Veränderungen berechnen.",
+   "scope": "Prozent · Rabatt · Anteile"
+  },
+  {
+   "id": "math-mixed",
+   "title": "Gemischte Rechnungen",
+   "goal": "Mehrere Rechenideen kombinieren und passende Wege auswählen.",
+   "scope": "Transfer · Größen · gemischte Operationen"
+  },
+  {
+   "id": "math-equations",
+   "title": "Gleichungen",
+   "goal": "Unbekannte Größen aus Beziehungen und Gleichungen bestimmen.",
+   "scope": "Variablen · Umformen · Modellieren"
+  }
+ ],
+ "logic": [
+  {
+   "id": "logic-sequences",
+   "title": "Zahlenmuster",
+   "goal": "Einfache Regeln in Folgen erkennen und fortsetzen.",
+   "scope": "Muster · Reihen · Regel erkennen"
+  },
+  {
+   "id": "logic-alternating",
+   "title": "Wechselnde Muster",
+   "goal": "Mehrere abwechselnde Regeln auseinanderhalten.",
+   "scope": "Wechselregeln · Aufmerksamkeit · Struktur"
+  },
+  {
+   "id": "logic-rules",
+   "title": "Reihen & Regeln",
+   "goal": "Regeln verallgemeinern und auf neue Fälle übertragen.",
+   "scope": "Verdopplung · Struktur · Transfer"
+  },
+  {
+   "id": "logic-spatial",
+   "title": "Räumliches Denken",
+   "goal": "Richtungen, Positionen und räumliche Veränderungen mental verfolgen.",
+   "scope": "Orientierung · Drehung · Raumvorstellung"
+  },
+  {
+   "id": "logic-statements",
+   "title": "Aussagenlogik",
+   "goal": "Aus gegebenen Aussagen nur das ableiten, was sicher folgt.",
+   "scope": "Wenn–dann · Kategorien · Schlussfolgern"
+  },
+  {
+   "id": "logic-conditions",
+   "title": "Mehrere Bedingungen",
+   "goal": "Mehrere Bedingungen gleichzeitig berücksichtigen.",
+   "scope": "Reihenfolgen · Bedingungen · Ausschluss"
+  },
+  {
+   "id": "logic-combine",
+   "title": "Planen & Kombinieren",
+   "goal": "Möglichkeiten systematisch zählen und Entscheidungen planen.",
+   "scope": "Kombinationen · Planung · Varianten"
+  },
+  {
+   "id": "logic-deduction",
+   "title": "Logische Schlüsse",
+   "goal": "Komplexere Schlüsse prüfen und Fehlschlüsse vermeiden.",
+   "scope": "Deduktion · Gegenbeispiel · Schlussregeln"
+  }
+ ],
+ "language": [
+  {
+   "id": "de-vocabulary",
+   "title": "Wörter verstehen",
+   "goal": "Bedeutungen, Gegensätze und passende Formulierungen erkennen.",
+   "scope": "Wortschatz · Bedeutung · Kontext"
+  },
+  {
+   "id": "de-spelling",
+   "title": "Rechtschreibung",
+   "goal": "Häufige und anspruchsvollere Schreibweisen sicher unterscheiden.",
+   "scope": "Rechtschreibung · Wortformen · dass/das"
+  },
+  {
+   "id": "de-syntax",
+   "title": "Satzbau",
+   "goal": "Satzarten und Nebensätze korrekt verstehen.",
+   "scope": "Satzbau · Verbposition · Satzarten"
+  },
+  {
+   "id": "de-grammar",
+   "title": "Grammatik",
+   "goal": "Fälle, Satzglieder und Formen im Kontext bestimmen.",
+   "scope": "Kasus · Satzglieder · Flexion"
+  },
+  {
+   "id": "de-punctuation",
+   "title": "Zeichensetzung",
+   "goal": "Satzstruktur durch passende Zeichensetzung verständlich machen.",
+   "scope": "Komma · direkte Rede · Satzgrenzen"
+  },
+  {
+   "id": "de-reading",
+   "title": "Texte verstehen",
+   "goal": "Aussagen, Bezüge und Kernaussagen aus Texten herausarbeiten.",
+   "scope": "Lesen · Kernaussage · Textbezug"
+  },
+  {
+   "id": "de-precision",
+   "title": "Genau formulieren",
+   "goal": "Missverständnisse vermeiden und Aussagen präzise formulieren.",
+   "scope": "Stil · Präzision · adressatengerecht"
+  },
+  {
+   "id": "de-arguments",
+   "title": "Argumente prüfen",
+   "goal": "Behauptung, Beleg und Schluss sauber voneinander unterscheiden.",
+   "scope": "Argumentation · Belege · Schlussfolgerung"
+  }
+ ],
+ "english": [
+  {
+   "id": "en-everyday",
+   "title": "Everyday words",
+   "goal": "Alltagswortschatz und häufige Gegensätze sicher verstehen.",
+   "scope": "Vocabulary · everyday situations"
+  },
+  {
+   "id": "en-sentences",
+   "title": "Simple sentences",
+   "goal": "Einfache Sätze, Fragen und laufende Handlungen korrekt verstehen.",
+   "scope": "Present simple · present continuous · questions"
+  },
+  {
+   "id": "en-tenses",
+   "title": "Tenses",
+   "goal": "Zeitformen und zeitliche Signale in typischen Situationen unterscheiden.",
+   "scope": "Past · present · future"
+  },
+  {
+   "id": "en-context",
+   "title": "Reading context",
+   "goal": "Bedeutung aus Satz- und Textzusammenhang erschließen.",
+   "scope": "Context · reference · main idea"
+  },
+  {
+   "id": "en-nuance",
+   "title": "Nuance",
+   "goal": "Verknüpfungen, Einschränkungen und Bedeutungsnuancen erkennen.",
+   "scope": "Contrast · consequence · probability"
+  },
+  {
+   "id": "en-communication",
+   "title": "Communication",
+   "goal": "Höflich, klar und situationsgerecht kommunizieren.",
+   "scope": "Register · requests · clarification"
+  },
+  {
+   "id": "en-inference",
+   "title": "Inference",
+   "goal": "Zwischen belegter Aussage und Interpretation unterscheiden.",
+   "scope": "Sources · inference · evidence"
+  },
+  {
+   "id": "en-precision",
+   "title": "Precise meaning",
+   "goal": "Komplexere Aussagen präzise lesen und sprachliche Unsicherheit erkennen.",
+   "scope": "Claims · evidence · ambiguity"
+  }
+ ],
+ "nature": [
+  {
+   "id": "nature-basics",
+   "title": "Naturwissenschaftliche Grundlagen",
+   "goal": "Lebewesen, Lebensräume, Stoffe und grundlegende Kräfte einordnen.",
+   "scope": "Biologie · Stoffe · Gravitation"
+  },
+  {
+   "id": "nature-body",
+   "title": "Körper & Stoffe",
+   "goal": "Körperfunktionen und Stoffeigenschaften mit einfachen Modellen erklären.",
+   "scope": "Körper · Aggregatzustände · Wärme"
+  },
+  {
+   "id": "nature-energy",
+   "title": "Energie & Wechselwirkungen",
+   "goal": "Energieumwandlungen und Kräfte in Alltag und Natur verstehen.",
+   "scope": "Energie · Kräfte · Bewegung"
+  },
+  {
+   "id": "nature-ecosystems",
+   "title": "Ökosysteme",
+   "goal": "Nahrungsnetze, Stoffkreisläufe und Wechselwirkungen beschreiben.",
+   "scope": "Ökosystem · Nahrung · Kreisläufe"
+  },
+  {
+   "id": "nature-chemistry",
+   "title": "Stoffe & chemische Grundlagen",
+   "goal": "Stoffeigenschaften, pH und chemische Veränderungen unterscheiden.",
+   "scope": "pH · Teilchen · Reaktionen"
+  },
+  {
+   "id": "nature-climate",
+   "title": "Klima & Kreisläufe",
+   "goal": "Klima, Kohlenstoff- und Wasserkreisläufe miteinander verknüpfen.",
+   "scope": "Klima · Treibhauseffekt · Kreisläufe"
+  },
+  {
+   "id": "nature-models",
+   "title": "Systeme & Modelle",
+   "goal": "Modelle, Daten und Zusammenhänge kritisch interpretieren.",
+   "scope": "Modelle · Korrelation · Systemdenken"
+  },
+  {
+   "id": "nature-evidence",
+   "title": "Wissenschaftlich urteilen",
+   "goal": "Versuche, Unsicherheit und Evidenz methodisch bewerten.",
+   "scope": "Kontrollvariablen · Stichprobe · Evidenz"
+  }
+ ],
+ "history": [
+  {
+   "id": "history-time",
+   "title": "Zeit & Quellen",
+   "goal": "Ereignisse zeitlich und räumlich einordnen und Quellen erkennen.",
+   "scope": "Chronologie · Quelle · Kontext"
+  },
+  {
+   "id": "history-causes",
+   "title": "Ursache & Folge",
+   "goal": "Auslöser, längerfristige Ursachen und Folgen unterscheiden.",
+   "scope": "Kausalität · Anlass · Folge"
+  },
+  {
+   "id": "history-life",
+   "title": "Alltag & Gesellschaft früher",
+   "goal": "Lebensbedingungen verschiedener Gruppen historisch vergleichen.",
+   "scope": "Alltag · Gesellschaft · Wandel"
+  },
+  {
+   "id": "history-change",
+   "title": "Wandel & Erfindungen",
+   "goal": "Technische, wirtschaftliche und gesellschaftliche Veränderungen verbinden.",
+   "scope": "Innovation · Industrialisierung · Veränderung"
+  },
+  {
+   "id": "history-sources",
+   "title": "Quellen lesen",
+   "goal": "Urheber, Zweck, Entstehungssituation und Grenzen einer Quelle prüfen.",
+   "scope": "Quellenkritik · Kontext · Absicht"
+  },
+  {
+   "id": "history-perspectives",
+   "title": "Perspektiven",
+   "goal": "Unterschiedliche historische Perspektiven vergleichen, ohne sie gleichzusetzen.",
+   "scope": "Perspektive · Interessen · Vergleich"
+  },
+  {
+   "id": "history-connections",
+   "title": "Zusammenhänge",
+   "goal": "Mehrere Ursachen und Entwicklungen zu einer begründeten Erklärung verbinden.",
+   "scope": "Mehrursächlichkeit · Kontinuität · Wandel"
+  },
+  {
+   "id": "history-judgement",
+   "title": "Historisch urteilen",
+   "goal": "Historische Deutungen mit Quellen, Kontext und offengelegten Maßstäben bewerten.",
+   "scope": "Urteil · Erinnerung · Evidenz"
+  }
+ ],
+ "civics": [
+  {
+   "id": "civics-together",
+   "title": "Zusammenleben",
+   "goal": "Regeln, Interessen und gegenseitige Rücksicht im Alltag einordnen.",
+   "scope": "Zusammenleben · Konflikte · Verantwortung"
+  },
+  {
+   "id": "civics-rights",
+   "title": "Regeln & Rechte",
+   "goal": "Rechte, Pflichten und begründete Grenzen von Regeln unterscheiden.",
+   "scope": "Rechte · Pflichten · Regeln"
+  },
+  {
+   "id": "civics-democracy",
+   "title": "Demokratische Grundlagen",
+   "goal": "Mehrheit, Minderheit, Beteiligung und Gewaltenteilung grundsätzlich verstehen.",
+   "scope": "Demokratie · Beteiligung · Gewaltenteilung"
+  },
+  {
+   "id": "civics-institutions",
+   "title": "Institutionen",
+   "goal": "Aufgaben verschiedener staatlicher Ebenen und Institutionen auseinanderhalten.",
+   "scope": "Bund · Länder · Kommune · Institutionen"
+  },
+  {
+   "id": "civics-interests",
+   "title": "Interessen abwägen",
+   "goal": "Konfligierende Interessen erkennen und faire Verfahren beurteilen.",
+   "scope": "Interessen · Kompromiss · Verfahren"
+  },
+  {
+   "id": "civics-society",
+   "title": "Gesellschaft & Wirtschaft",
+   "goal": "Zusammenhänge zwischen Arbeit, öffentlicher Infrastruktur und gesellschaftlicher Teilhabe verstehen.",
+   "scope": "Gesellschaft · Arbeit · öffentliche Güter"
+  },
+  {
+   "id": "civics-conflicts",
+   "title": "Konflikte einordnen",
+   "goal": "Fakten, Werte, Interessen und mögliche Folgen in Konflikten trennen.",
+   "scope": "Konfliktanalyse · Beteiligung · Perspektiven"
+  },
+  {
+   "id": "civics-judgement",
+   "title": "Begründet urteilen",
+   "goal": "Politische und gesellschaftliche Aussagen anhand transparenter Kriterien bewerten.",
+   "scope": "Fakten · Werte · Begründung · Minderheitenschutz"
+  }
+ ],
+ "media": [
+  {
+   "id": "media-basics",
+   "title": "Digitale Grundlagen",
+   "goal": "Grundbegriffe zu Geräten, Daten, Netzen und Konten verstehen.",
+   "scope": "Daten · Browser · Konto · Netzwerk"
+  },
+  {
+   "id": "media-security",
+   "title": "Sicher online",
+   "goal": "Konten, Geräte und persönliche Daten mit grundlegenden Maßnahmen schützen.",
+   "scope": "Passwörter · 2FA · Phishing · Updates"
+  },
+  {
+   "id": "media-sources",
+   "title": "Quellen prüfen",
+   "goal": "Urheber, Belege, Datum und Primärquelle einer Behauptung prüfen.",
+   "scope": "Quelle · Beleg · Rückwärtssuche · Kontext"
+  },
+  {
+   "id": "media-platforms",
+   "title": "Plattformen verstehen",
+   "goal": "Empfehlungssysteme, öffentliche Reichweite und Privatsphäre auseinanderhalten.",
+   "scope": "Feeds · Plattformen · Datenschutz · Aufmerksamkeit"
+  },
+  {
+   "id": "media-algorithms",
+   "title": "Algorithmen & Daten",
+   "goal": "Verstehen, wie Daten und Optimierungsziele digitale Ausgaben beeinflussen.",
+   "scope": "Algorithmus · Daten · Personalisierung"
+  },
+  {
+   "id": "media-ai",
+   "title": "KI & Manipulation",
+   "goal": "Generative KI, Deepfakes und überzeugend klingende Fehlinformation kritisch prüfen.",
+   "scope": "KI · Deepfake · Halluzination · Verifikation"
+  },
+  {
+   "id": "media-statistics",
+   "title": "Statistiken & Wirkung",
+   "goal": "Diagramme, Prozentangaben und Aufmerksamkeitsmechanismen kritisch lesen.",
+   "scope": "Statistik · Basisrate · Engagement · Wirkung"
+  },
+  {
+   "id": "media-judgement",
+   "title": "Digitale Urteilskraft",
+   "goal": "Informationsqualität, Sicherheit, Privatsphäre und Aufmerksamkeit bewusst abwägen.",
+   "scope": "Urteil · Informationshygiene · Privatsphäre"
+  }
+ ],
+ "geography": [
+  {
+   "id": "geo-maps",
+   "title": "Karten & Räume",
+   "goal": "Karten, Maßstab und grundlegende räumliche Begriffe nutzen.",
+   "scope": "Karte · Maßstab · Äquator"
+  },
+  {
+   "id": "geo-climate",
+   "title": "Länder, Wetter & Klima",
+   "goal": "Wetter, Klima, Klimazonen und räumliche Unterschiede unterscheiden.",
+   "scope": "Wetter · Klima · Regionen"
+  },
+  {
+   "id": "geo-coordinates",
+   "title": "Koordinaten & Orientierung",
+   "goal": "Positionen mit Koordinaten, Himmelsrichtungen und Zeitzonen beschreiben.",
+   "scope": "Breite · Länge · Orientierung"
+  },
+  {
+   "id": "geo-forces",
+   "title": "Naturkräfte",
+   "goal": "Plattentektonik, Wasser und Landschaftsbildung als Prozesse verstehen.",
+   "scope": "Erdbeben · Vulkanismus · Erosion"
+  },
+  {
+   "id": "geo-cities",
+   "title": "Bevölkerung & Städte",
+   "goal": "Urbanisierung, Migration und Infrastruktur als räumliche Prozesse einordnen.",
+   "scope": "Stadt · Bevölkerung · Migration"
+  },
+  {
+   "id": "geo-global",
+   "title": "Globale Verflechtung",
+   "goal": "Lieferketten, Handel und Verkehr als räumliche Netzwerke verstehen.",
+   "scope": "Lieferketten · Verkehr · Globalisierung"
+  },
+  {
+   "id": "geo-resources",
+   "title": "Ressourcen & Wandel",
+   "goal": "Ressourcennutzung, Wasser, Energie und Nachhaltigkeitskonflikte räumlich betrachten.",
+   "scope": "Ressourcen · Nutzung · Nachhaltigkeit"
+  },
+  {
+   "id": "geo-systems",
+   "title": "Räumliche Systeme",
+   "goal": "Wechselwirkungen zwischen Natur, Infrastruktur, Wirtschaft und Gesellschaft abwägen.",
+   "scope": "Systemdenken · Planung · räumliche Folgen"
+  }
+ ],
+ "economy": [
+  {
+   "id": "eco-budget",
+   "title": "Geld & Budget",
+   "goal": "Einnahmen, Ausgaben und begrenzte Mittel planen.",
+   "scope": "Budget · Bedarf · Reserve"
+  },
+  {
+   "id": "eco-prices",
+   "title": "Preise & Prozent",
+   "goal": "Rabatte, Grundpreise und Preisvergleiche korrekt berechnen.",
+   "scope": "Prozent · Stückpreis · Vergleich"
+  },
+  {
+   "id": "eco-contracts",
+   "title": "Verträge & Konsum",
+   "goal": "Kosten, Laufzeiten, Pflichten und Verbraucherentscheidungen einordnen.",
+   "scope": "Vertrag · Konsum · Folgekosten"
+  },
+  {
+   "id": "eco-inflation",
+   "title": "Zinsen & Inflation",
+   "goal": "Zinsen, Preisniveau und Kaufkraft grundsätzlich verstehen.",
+   "scope": "Zins · Inflation · Kaufkraft"
+  },
+  {
+   "id": "eco-business",
+   "title": "Arbeit & Unternehmen",
+   "goal": "Kosten, Erlöse, Produktivität und Unternehmensentscheidungen unterscheiden.",
+   "scope": "Arbeit · Kosten · Erlös · Produktivität"
+  },
+  {
+   "id": "eco-market",
+   "title": "Angebot & Nachfrage",
+   "goal": "Knappheit, Preise und Marktreaktionen als vereinfachte Modelle verstehen.",
+   "scope": "Angebot · Nachfrage · Knappheit"
+  },
+  {
+   "id": "eco-risk",
+   "title": "Risiko & Entscheidungen",
+   "goal": "Risiko, Streuung, Versicherungsprinzip und Unsicherheit unterscheiden.",
+   "scope": "Risiko · Diversifikation · Absicherung"
+  },
+  {
+   "id": "eco-judgement",
+   "title": "Wirtschaftlich abwägen",
+   "goal": "Kosten, Nutzen, Alternativen, externe Effekte und Verteilung gemeinsam betrachten.",
+   "scope": "Opportunitätskosten · Folgen · Abwägung"
+  }
+ ]
+}

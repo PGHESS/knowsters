@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+    <meta name="theme-color" content="#07131f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Knowsters" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <link rel="icon" href="./icons/icon-192.png" />
+    <title>Knowsters</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="game" aria-label="Knowsters Spielfläche"></div>
+      <div id="ui" hidden></div>
+      <div id="diag" hidden>
+        <strong>Knowsters konnte nicht starten.</strong>
+        <pre id="diag-detail"></pre>
+        <button id="diag-reset" type="button">Spielstand zurücksetzen und neu laden</button>
+      </div>
+    </div>
+    <noscript>Für Knowsters muss JavaScript aktiviert sein.</noscript>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
