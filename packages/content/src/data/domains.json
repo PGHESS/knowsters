@@ -1,0 +1,92 @@
+{
+ "math": {
+  "label": "Mathematik",
+  "icon": "∑",
+  "attributes": [
+   "attack",
+   "focus",
+   "resonance"
+  ]
+ },
+ "logic": {
+  "label": "Logik & Denken",
+  "icon": "◇",
+  "attributes": [
+   "initiative",
+   "defense",
+   "focus"
+  ]
+ },
+ "language": {
+  "label": "Deutsch & Sprache",
+  "icon": "Aa",
+  "attributes": [
+   "charisma",
+   "focus",
+   "willpower"
+  ]
+ },
+ "english": {
+  "label": "Englisch",
+  "icon": "EN",
+  "attributes": [
+   "charisma",
+   "initiative",
+   "intuition"
+  ]
+ },
+ "nature": {
+  "label": "Natur & Umwelt",
+  "icon": "⌁",
+  "attributes": [
+   "vitality",
+   "defense",
+   "resonance"
+  ]
+ },
+ "history": {
+  "label": "Geschichte",
+  "icon": "⌛",
+  "attributes": [
+   "willpower",
+   "intuition",
+   "charisma"
+  ]
+ },
+ "civics": {
+  "label": "Gesellschaft & Sozialkunde",
+  "icon": "◎",
+  "attributes": [
+   "charisma",
+   "willpower",
+   "intuition"
+  ]
+ },
+ "media": {
+  "label": "IT, KI & Social Media",
+  "icon": "⌘",
+  "attributes": [
+   "focus",
+   "initiative",
+   "intuition"
+  ]
+ },
+ "geography": {
+  "label": "Geografie & Welt",
+  "icon": "◉",
+  "attributes": [
+   "agility",
+   "intuition",
+   "vitality"
+  ]
+ },
+ "economy": {
+  "label": "Alltag & Wirtschaft",
+  "icon": "¤",
+  "attributes": [
+   "focus",
+   "charisma",
+   "willpower"
+  ]
+ }
+}

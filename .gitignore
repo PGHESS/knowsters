@@ -7,3 +7,4 @@ legacy/v25-spike/phaser.min.js
 Thumbs.db
 .vite/
 coverage/
+dist-types/

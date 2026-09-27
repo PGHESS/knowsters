@@ -1,0 +1,3118 @@
+[
+ {
+  "id": "language-L1-01",
+  "subject": "language",
+  "level": 0,
+  "topicId": "de-vocabulary",
+  "type": "choice",
+  "prompt": "Welches Wort bedeutet ungefähr „mutig“?",
+  "answers": [
+   "tapfer",
+   "laut",
+   "müde",
+   "hastig"
+  ],
+  "correctAnswer": "tapfer",
+  "explanation": "„Tapfer“ und „mutig“ beschreiben, dass jemand trotz Angst handelt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L1-02",
+  "subject": "language",
+  "level": 0,
+  "topicId": "de-vocabulary",
+  "type": "choice",
+  "prompt": "Was ist das Gegenteil von „vorsichtig“?",
+  "answers": [
+   "unbedacht",
+   "achtsam",
+   "behutsam",
+   "umsichtig"
+  ],
+  "correctAnswer": "unbedacht",
+  "explanation": "„Unbedacht“ bedeutet, ohne ausreichendes Nachdenken zu handeln.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L1-03",
+  "subject": "language",
+  "level": 0,
+  "topicId": "de-vocabulary",
+  "type": "choice",
+  "prompt": "Welches Wort passt? „Wir lösen das Rätsel ___.“",
+  "answers": [
+   "gemeinsam",
+   "gemeinsamer",
+   "Gemeinschaft",
+   "gemeinsamen"
+  ],
+  "correctAnswer": "gemeinsam",
+  "explanation": "Das Adverb „gemeinsam“ beschreibt, wie wir etwas tun.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L2-01",
+  "subject": "language",
+  "level": 1,
+  "topicId": "de-spelling",
+  "type": "choice",
+  "prompt": "Welches Wort ist richtig geschrieben?",
+  "answers": [
+   "Rhythmus",
+   "Rytmus",
+   "Rythmuß",
+   "Rhytmus"
+  ],
+  "correctAnswer": "Rhythmus",
+  "explanation": "Das Wort schreibt man „Rhythmus“: mit h nach R und nach t.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L2-02",
+  "subject": "language",
+  "level": 1,
+  "topicId": "de-spelling",
+  "type": "choice",
+  "prompt": "Welche Schreibung stimmt?",
+  "answers": [
+   "nämlich",
+   "nähmlich",
+   "nämlih",
+   "nemlich"
+  ],
+  "correctAnswer": "nämlich",
+  "explanation": "„Nämlich“ schreibt man ohne h.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L2-03",
+  "subject": "language",
+  "level": 1,
+  "topicId": "de-spelling",
+  "type": "choice",
+  "prompt": "Ergänze: „Ich weiß, ___ du helfen willst.“",
+  "answers": [
+   "dass",
+   "das",
+   "daß",
+   "dahs"
+  ],
+  "correctAnswer": "dass",
+  "explanation": "Die Konjunktion „dass“ leitet hier einen Nebensatz ein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L3-01",
+  "subject": "language",
+  "level": 2,
+  "topicId": "de-syntax",
+  "type": "choice",
+  "prompt": "Welcher Satz hat einen korrekten Nebensatz?",
+  "answers": [
+   "Moos wartet, weil Welle noch lernt.",
+   "Moos wartet, weil Welle lernt noch.",
+   "Moos wartet weil, Welle noch lernt.",
+   "Weil Welle noch, lernt Moos wartet."
+  ],
+  "correctAnswer": "Moos wartet, weil Welle noch lernt.",
+  "explanation": "Im Nebensatz mit „weil“ steht das gebeugte Verb am Ende.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L3-02",
+  "subject": "language",
+  "level": 2,
+  "topicId": "de-syntax",
+  "type": "choice",
+  "prompt": "Welcher Satz steht im Perfekt?",
+  "answers": [
+   "Funke hat den Pfad gefunden.",
+   "Funke findet den Pfad.",
+   "Funke fand den Pfad.",
+   "Funke wird den Pfad finden."
+  ],
+  "correctAnswer": "Funke hat den Pfad gefunden.",
+  "explanation": "Das Perfekt besteht hier aus „hat“ und dem Partizip „gefunden“.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L3-03",
+  "subject": "language",
+  "level": 2,
+  "topicId": "de-syntax",
+  "type": "choice",
+  "prompt": "Welcher Satz ist eine Frage?",
+  "answers": [
+   "Warum leuchtet die Quelle?",
+   "Die Quelle leuchtet hell.",
+   "Lass die Quelle in Ruhe!",
+   "Wenn die Quelle leuchtet."
+  ],
+  "correctAnswer": "Warum leuchtet die Quelle?",
+  "explanation": "„Warum“ leitet eine Frage nach einem Grund ein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L4-01",
+  "subject": "language",
+  "level": 3,
+  "topicId": "de-grammar",
+  "type": "choice",
+  "prompt": "Welcher Fall steht in „mit dem kleinen Wesen“?",
+  "answers": [
+   "Dativ",
+   "Nominativ",
+   "Akkusativ",
+   "Genitiv"
+  ],
+  "correctAnswer": "Dativ",
+  "explanation": "Die Präposition „mit“ verlangt den Dativ: mit wem?",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L4-02",
+  "subject": "language",
+  "level": 3,
+  "topicId": "de-grammar",
+  "type": "choice",
+  "prompt": "Was ist das Subjekt in „Am Morgen öffnet Welle das Tor“?",
+  "answers": [
+   "Welle",
+   "Am Morgen",
+   "das Tor",
+   "öffnet"
+  ],
+  "correctAnswer": "Welle",
+  "explanation": "Wer öffnet das Tor? Welle. Das Subjekt steht im Nominativ.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L4-03",
+  "subject": "language",
+  "level": 3,
+  "topicId": "de-grammar",
+  "type": "choice",
+  "prompt": "Welche Form passt? „Wegen ___ blieb der Pfad leer.“",
+  "answers": [
+   "des starken Regens",
+   "dem starken Regenes",
+   "den starken Regens",
+   "der starke Regen"
+  ],
+  "correctAnswer": "des starken Regens",
+  "explanation": "In der Standardsprache steht „wegen“ hier mit Genitiv: wegen des Regens.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L5-01",
+  "subject": "language",
+  "level": 4,
+  "topicId": "de-punctuation",
+  "type": "choice",
+  "prompt": "Welcher Satz ist korrekt gesetzt?",
+  "answers": [
+   "Als es dunkel wurde, gingen wir zurück.",
+   "Als es dunkel wurde gingen, wir zurück.",
+   "Als, es dunkel wurde gingen wir zurück.",
+   "Als es dunkel, wurde gingen wir zurück."
+  ],
+  "correctAnswer": "Als es dunkel wurde, gingen wir zurück.",
+  "explanation": "Ein vorangestellter Nebensatz wird durch ein Komma vom Hauptsatz getrennt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L5-02",
+  "subject": "language",
+  "level": 4,
+  "topicId": "de-punctuation",
+  "type": "choice",
+  "prompt": "Welche Schreibung passt?",
+  "answers": [
+   "Sie blieb, um das Rätsel zu lösen.",
+   "Sie blieb um, das Rätsel zu lösen.",
+   "Sie, blieb um das Rätsel zu lösen.",
+   "Sie blieb um das Rätsel, zu lösen."
+  ],
+  "correctAnswer": "Sie blieb, um das Rätsel zu lösen.",
+  "explanation": "Eine Infinitivgruppe mit „um“ wird durch ein Komma abgetrennt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L5-03",
+  "subject": "language",
+  "level": 4,
+  "topicId": "de-punctuation",
+  "type": "choice",
+  "prompt": "Welche Aussage ist korrekt?",
+  "answers": [
+   "Das Haus, das am See steht, ist leer.",
+   "Das Haus dass am See steht ist leer.",
+   "Das Haus, dass am See steht ist leer.",
+   "Das Haus das, am See steht, ist leer."
+  ],
+  "correctAnswer": "Das Haus, das am See steht, ist leer.",
+  "explanation": "Der Relativsatz wird durch zwei Kommas eingeschlossen. „Das“ ist hier ein Relativpronomen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L6-01",
+  "subject": "language",
+  "level": 5,
+  "topicId": "de-reading",
+  "type": "choice",
+  "prompt": "„Funke griff nach der Fackel, legte sie aber wieder hin, als sie das trockene Gras sah.“ Was lässt sich am besten erschließen?",
+  "answers": [
+   "Sie wollte einen Brand vermeiden.",
+   "Sie konnte die Fackel nicht sehen.",
+   "Sie vergaß, wo sie war.",
+   "Sie hatte bereits ein Feuer gelegt."
+  ],
+  "correctAnswer": "Sie wollte einen Brand vermeiden.",
+  "explanation": "Das trockene Gras erklärt, warum sie auf das Feuer verzichtet.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L6-02",
+  "subject": "language",
+  "level": 5,
+  "topicId": "de-reading",
+  "type": "choice",
+  "prompt": "„Welle kannte den Weg. Trotzdem fragte sie Moos nach seiner Meinung.“ Was passt am besten?",
+  "answers": [
+   "Sie bezog Moos in die Entscheidung ein.",
+   "Sie hatte den Weg vergessen.",
+   "Sie wollte Moos wegschicken.",
+   "Sie konnte nicht sprechen."
+  ],
+  "correctAnswer": "Sie bezog Moos in die Entscheidung ein.",
+  "explanation": "„Trotzdem“ zeigt: Obwohl sie den Weg kannte, war ihr seine Meinung wichtig.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L6-03",
+  "subject": "language",
+  "level": 5,
+  "topicId": "de-reading",
+  "type": "choice",
+  "prompt": "„Der Nebel lichtete sich. Erst jetzt entdeckten sie den schmalen Steg.“ Welche Ursache wird nahegelegt?",
+  "answers": [
+   "Der Nebel hatte die Sicht auf den Steg verdeckt.",
+   "Der Steg wurde gerade gebaut.",
+   "Sie hatten vorher die Augen geschlossen.",
+   "Der Nebel zerstörte den Steg."
+  ],
+  "correctAnswer": "Der Nebel hatte die Sicht auf den Steg verdeckt.",
+  "explanation": "„Erst jetzt“ verknüpft die bessere Sicht mit der Entdeckung.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L7-01",
+  "subject": "language",
+  "level": 6,
+  "topicId": "de-precision",
+  "type": "choice",
+  "prompt": "Welche Bitte ist am klarsten formuliert?",
+  "answers": [
+   "Bitte bring morgen zwei leere Flaschen zur Quelle.",
+   "Bring vielleicht irgendwann etwas mit.",
+   "Mach das dann mal dort.",
+   "Die Sachen sollten irgendwie kommen."
+  ],
+  "correctAnswer": "Bitte bring morgen zwei leere Flaschen zur Quelle.",
+  "explanation": "Die Bitte benennt Handlung, Zeitpunkt, Menge und Ziel.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L7-02",
+  "subject": "language",
+  "level": 6,
+  "topicId": "de-precision",
+  "type": "choice",
+  "prompt": "Welche Aussage trennt Beobachtung und Vermutung?",
+  "answers": [
+   "Die Tür ist offen. Vielleicht ist jemand im Haus.",
+   "Weil die Tür offen ist, wohnt sicher ein Dieb dort.",
+   "Offene Türen bedeuten immer Gefahr.",
+   "Niemand schließt hier je eine Tür."
+  ],
+  "correctAnswer": "Die Tür ist offen. Vielleicht ist jemand im Haus.",
+  "explanation": "Der erste Satz nennt eine Beobachtung; „vielleicht“ kennzeichnet die Schlussfolgerung als unsicher.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L7-03",
+  "subject": "language",
+  "level": 6,
+  "topicId": "de-precision",
+  "type": "choice",
+  "prompt": "Welche Formulierung ist sachlich?",
+  "answers": [
+   "Der Versuch gelang in drei von fünf Durchgängen.",
+   "Der Versuch war einfach unfassbar perfekt.",
+   "Jeder weiß, dass der Versuch nutzlos ist.",
+   "So etwas klappt selbstverständlich immer."
+  ],
+  "correctAnswer": "Der Versuch gelang in drei von fünf Durchgängen.",
+  "explanation": "Die Formulierung liefert eine überprüfbare Angabe ohne Übertreibung.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L8-01",
+  "subject": "language",
+  "level": 7,
+  "topicId": "de-arguments",
+  "type": "choice",
+  "prompt": "Welche Aussage ist ein begründetes Argument?",
+  "answers": [
+   "Wir nehmen den beleuchteten Weg, weil wir dort Hindernisse besser erkennen.",
+   "Wir nehmen ihn, weil das eben so ist.",
+   "Alle anderen Wege sind bestimmt schlecht.",
+   "Wer anders geht, versteht nichts."
+  ],
+  "correctAnswer": "Wir nehmen den beleuchteten Weg, weil wir dort Hindernisse besser erkennen.",
+  "explanation": "Die Begründung erklärt nachvollziehbar, warum die vorgeschlagene Handlung nützlich ist.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L8-02",
+  "subject": "language",
+  "level": 7,
+  "topicId": "de-arguments",
+  "type": "choice",
+  "prompt": "„Zwei Wesen scheiterten am Rätsel. Also kann niemand es lösen.“ Was ist das Problem?",
+  "answers": [
+   "Aus zwei Fällen wird eine Aussage über alle abgeleitet.",
+   "Die Aussage enthält zu viele Belege.",
+   "Es fehlen Namen, sonst wäre der Schluss sicher.",
+   "Jeder Schluss aus Beobachtungen ist falsch."
+  ],
+  "correctAnswer": "Aus zwei Fällen wird eine Aussage über alle abgeleitet.",
+  "explanation": "Zwei erfolglose Versuche beweisen nicht, dass niemand eine Lösung finden kann.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "language-L8-03",
+  "subject": "language",
+  "level": 7,
+  "topicId": "de-arguments",
+  "type": "choice",
+  "prompt": "Welche Aussage berücksichtigt ein Gegenargument?",
+  "answers": [
+   "Der kurze Weg spart Zeit; bei Regen ist der längere befestigte Weg aber sicherer.",
+   "Der kurze Weg ist immer richtig.",
+   "Wer den langen Weg nimmt, hat keine Ahnung.",
+   "Über den Weg muss man nie nachdenken."
+  ],
+  "correctAnswer": "Der kurze Weg spart Zeit; bei Regen ist der längere befestigte Weg aber sicherer.",
+  "explanation": "Die Aussage wägt Zeitersparnis und Sicherheit unter verschiedenen Bedingungen ab.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L1-01",
+  "subject": "english",
+  "level": 0,
+  "topicId": "en-everyday",
+  "type": "choice",
+  "prompt": "What does “careful” mean?",
+  "answers": [
+   "vorsichtig",
+   "laut",
+   "schnell",
+   "hungrig"
+  ],
+  "correctAnswer": "vorsichtig",
+  "explanation": "“Careful” bedeutet vorsichtig oder aufmerksam.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L1-02",
+  "subject": "english",
+  "level": 0,
+  "topicId": "en-everyday",
+  "type": "choice",
+  "prompt": "Choose the correct sentence.",
+  "answers": [
+   "She goes to school every day.",
+   "She go to school every day.",
+   "She going to school every day.",
+   "She gone to school every day."
+  ],
+  "correctAnswer": "She goes to school every day.",
+  "explanation": "Bei “she” erhält das Verb im Simple Present meistens ein -s.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L1-03",
+  "subject": "english",
+  "level": 0,
+  "topicId": "en-everyday",
+  "type": "choice",
+  "prompt": "What is the opposite of “early”?",
+  "answers": [
+   "late",
+   "near",
+   "slow",
+   "small"
+  ],
+  "correctAnswer": "late",
+  "explanation": "“Late” ist das Gegenteil von “early”.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L2-01",
+  "subject": "english",
+  "level": 1,
+  "topicId": "en-sentences",
+  "type": "choice",
+  "prompt": "Which question is correct?",
+  "answers": [
+   "Where do you live?",
+   "Where you do live?",
+   "Where does you live?",
+   "Where living you?"
+  ],
+  "correctAnswer": "Where do you live?",
+  "explanation": "In einer Frage mit „do“ steht danach die Grundform: Where do you live?",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L2-02",
+  "subject": "english",
+  "level": 1,
+  "topicId": "en-sentences",
+  "type": "choice",
+  "prompt": "Choose the sentence about something happening now.",
+  "answers": [
+   "They are waiting for the bus.",
+   "They wait for the bus every day.",
+   "They waited for the bus yesterday.",
+   "They will wait tomorrow."
+  ],
+  "correctAnswer": "They are waiting for the bus.",
+  "explanation": "„Are waiting“ ist Present Continuous und beschreibt hier eine laufende Handlung.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L3-01",
+  "subject": "english",
+  "level": 2,
+  "topicId": "en-tenses",
+  "type": "choice",
+  "prompt": "Which sentence is in the past?",
+  "answers": [
+   "They visited the museum yesterday.",
+   "They visit the museum every week.",
+   "They are visiting the museum now.",
+   "They will visit the museum tomorrow."
+  ],
+  "correctAnswer": "They visited the museum yesterday.",
+  "explanation": "“Visited” und “yesterday” markieren hier die Vergangenheit.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L3-02",
+  "subject": "english",
+  "level": 2,
+  "topicId": "en-tenses",
+  "type": "choice",
+  "prompt": "What does “although” signal?",
+  "answers": [
+   "a contrast",
+   "a place",
+   "a number",
+   "a command"
+  ],
+  "correctAnswer": "a contrast",
+  "explanation": "“Although” leitet einen Gegensatz oder eine Einschränkung ein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L3-03",
+  "subject": "english",
+  "level": 2,
+  "topicId": "en-tenses",
+  "type": "choice",
+  "prompt": "Choose the natural phrase.",
+  "answers": [
+   "I am looking forward to the trip.",
+   "I am looking forward the trip.",
+   "I look forward at the trip.",
+   "I am forward looking to the trip."
+  ],
+  "correctAnswer": "I am looking forward to the trip.",
+  "explanation": "Die feste Wendung lautet “look forward to”.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L4-01",
+  "subject": "english",
+  "level": 3,
+  "topicId": "en-context",
+  "type": "choice",
+  "prompt": "In “Mia lost her key, so she called Sam”, what does “she” refer to?",
+  "answers": [
+   "Mia",
+   "the key",
+   "Sam",
+   "nobody"
+  ],
+  "correctAnswer": "Mia",
+  "explanation": "Das Pronomen „she“ bezieht sich im Satz auf Mia.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L4-02",
+  "subject": "english",
+  "level": 3,
+  "topicId": "en-context",
+  "type": "choice",
+  "prompt": "Which sentence gives a reason?",
+  "answers": [
+   "We stayed inside because it was raining.",
+   "We stayed inside, but it was raining.",
+   "We stayed inside after lunch.",
+   "We stayed inside near the door."
+  ],
+  "correctAnswer": "We stayed inside because it was raining.",
+  "explanation": "„Because“ leitet einen Grund ein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L5-01",
+  "subject": "english",
+  "level": 4,
+  "topicId": "en-nuance",
+  "type": "choice",
+  "prompt": "“The shop was closed, so we came back later.” What does “so” express?",
+  "answers": [
+   "a consequence",
+   "a question",
+   "a comparison",
+   "a location"
+  ],
+  "correctAnswer": "a consequence",
+  "explanation": "“So” verbindet hier Ursache und Folge.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L5-02",
+  "subject": "english",
+  "level": 4,
+  "topicId": "en-nuance",
+  "type": "choice",
+  "prompt": "Which sentence is the most polite request?",
+  "answers": [
+   "Could you please send me the details?",
+   "Send the details.",
+   "You must send details now.",
+   "Details!"
+  ],
+  "correctAnswer": "Could you please send me the details?",
+  "explanation": "“Could you please …?” formuliert eine höfliche Bitte.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L5-03",
+  "subject": "english",
+  "level": 4,
+  "topicId": "en-nuance",
+  "type": "choice",
+  "prompt": "What does “reliable source” mean?",
+  "answers": [
+   "a source that can be trusted after checking",
+   "a source with the biggest headline",
+   "a source shared most often",
+   "a source that never names evidence"
+  ],
+  "correctAnswer": "a source that can be trusted after checking",
+  "explanation": "“Reliable” bedeutet verlässlich; entscheidend sind überprüfbare Informationen und nachvollziehbare Belege.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L6-01",
+  "subject": "english",
+  "level": 5,
+  "topicId": "en-communication",
+  "type": "choice",
+  "prompt": "Which phrase is best for asking someone to explain again?",
+  "answers": [
+   "Could you explain that in another way, please?",
+   "Say it again now.",
+   "That makes no sense.",
+   "You are wrong."
+  ],
+  "correctAnswer": "Could you explain that in another way, please?",
+  "explanation": "Die Formulierung bittet klar und höflich um eine andere Erklärung.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L6-02",
+  "subject": "english",
+  "level": 5,
+  "topicId": "en-communication",
+  "type": "choice",
+  "prompt": "“The result might change” means …",
+  "answers": [
+   "the change is possible but not certain",
+   "the change is impossible",
+   "the change is guaranteed",
+   "the result already changed"
+  ],
+  "correctAnswer": "the change is possible but not certain",
+  "explanation": "„Might“ drückt eine Möglichkeit aus, keine Gewissheit.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L7-01",
+  "subject": "english",
+  "level": 6,
+  "topicId": "en-inference",
+  "type": "choice",
+  "prompt": "Which statement is best supported?",
+  "answers": [
+   "The report says sales rose by 8%, but it does not explain why.",
+   "Sales rose because the new logo was blue.",
+   "Everyone prefers the product now.",
+   "The company will certainly keep growing forever."
+  ],
+  "correctAnswer": "The report says sales rose by 8%, but it does not explain why.",
+  "explanation": "Die erste Aussage trennt berichtete Daten von einer nicht belegten Ursache.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L7-02",
+  "subject": "english",
+  "level": 6,
+  "topicId": "en-inference",
+  "type": "choice",
+  "prompt": "What does “to weigh up options” mean?",
+  "answers": [
+   "to compare advantages and disadvantages",
+   "to measure physical weight only",
+   "to refuse every option",
+   "to decide without information"
+  ],
+  "correctAnswer": "to compare advantages and disadvantages",
+  "explanation": "Die Wendung bedeutet, verschiedene Möglichkeiten gegeneinander abzuwägen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L7-03",
+  "subject": "english",
+  "level": 6,
+  "topicId": "en-inference",
+  "type": "choice",
+  "prompt": "“Hardly any” means …",
+  "answers": [
+   "almost none",
+   "almost all",
+   "exactly half",
+   "more than expected"
+  ],
+  "correctAnswer": "almost none",
+  "explanation": "“Hardly any” drückt eine sehr kleine Menge aus.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L8-01",
+  "subject": "english",
+  "level": 7,
+  "topicId": "en-precision",
+  "type": "choice",
+  "prompt": "Which sentence separates evidence from interpretation best?",
+  "answers": [
+   "The chart shows a decline; the reason for it is not given.",
+   "The chart proves the manager caused the decline.",
+   "The decline must continue forever.",
+   "Everyone clearly wanted the decline."
+  ],
+  "correctAnswer": "The chart shows a decline; the reason for it is not given.",
+  "explanation": "Die Aussage nennt, was die Grafik zeigt, ohne eine unbelegte Ursache hinzuzufügen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "english-L8-02",
+  "subject": "english",
+  "level": 7,
+  "topicId": "en-precision",
+  "type": "choice",
+  "prompt": "What does “the wording is ambiguous” mean?",
+  "answers": [
+   "it can reasonably be understood in more than one way",
+   "it is written in capital letters",
+   "it is definitely false",
+   "it contains no verbs"
+  ],
+  "correctAnswer": "it can reasonably be understood in more than one way",
+  "explanation": "„Ambiguous“ bedeutet mehrdeutig.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L1-01",
+  "subject": "nature",
+  "level": 0,
+  "topicId": "nature-basics",
+  "type": "choice",
+  "prompt": "Welche Aufgabe haben Pflanzen bei der Fotosynthese?",
+  "answers": [
+   "Sie wandeln Lichtenergie in chemisch gespeicherte Energie um.",
+   "Sie erzeugen Energie aus dem Nichts.",
+   "Sie verbrauchen grundsätzlich keinen Kohlenstoffdioxid.",
+   "Sie ersetzen den gesamten Wasserkreislauf."
+  ],
+  "correctAnswer": "Sie wandeln Lichtenergie in chemisch gespeicherte Energie um.",
+  "explanation": "Bei der Fotosynthese werden mit Licht unter anderem Wasser und Kohlenstoffdioxid in energiereiche Stoffe umgewandelt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L1-02",
+  "subject": "nature",
+  "level": 0,
+  "topicId": "nature-basics",
+  "type": "choice",
+  "prompt": "Was ist ein Lebensraum?",
+  "answers": [
+   "Ein Gebiet mit Bedingungen, in denen bestimmte Organismen leben.",
+   "Nur ein Gebäude für Menschen.",
+   "Ausschließlich ein Wald.",
+   "Ein Gebiet ohne Wechselwirkungen."
+  ],
+  "correctAnswer": "Ein Gebiet mit Bedingungen, in denen bestimmte Organismen leben.",
+  "explanation": "Ein Lebensraum wird durch biotische und abiotische Bedingungen geprägt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L1-03",
+  "subject": "nature",
+  "level": 0,
+  "topicId": "nature-basics",
+  "type": "choice",
+  "prompt": "Welche Kraft zieht Gegenstände zur Erde?",
+  "answers": [
+   "Gravitation",
+   "Magnetismus bei jedem Material",
+   "Reibung ohne Kontakt",
+   "Schall"
+  ],
+  "correctAnswer": "Gravitation",
+  "explanation": "Die Gravitation bewirkt die gegenseitige Anziehung von Massen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L2-01",
+  "subject": "nature",
+  "level": 1,
+  "topicId": "nature-body",
+  "type": "choice",
+  "prompt": "Warum nimmt der Körper beim Atmen Sauerstoff auf?",
+  "answers": [
+   "Zellen benötigen ihn für wichtige Schritte der Energiegewinnung.",
+   "Damit Knochen magnetisch werden.",
+   "Weil Sauerstoff nur die Stimme erzeugt.",
+   "Damit Wasser im Körper gefriert."
+  ],
+  "correctAnswer": "Zellen benötigen ihn für wichtige Schritte der Energiegewinnung.",
+  "explanation": "Sauerstoff wird unter anderem bei der Zellatmung genutzt, um Energie aus Nährstoffen verfügbar zu machen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L2-02",
+  "subject": "nature",
+  "level": 1,
+  "topicId": "nature-body",
+  "type": "choice",
+  "prompt": "Was geschieht beim Schmelzen von Eis?",
+  "answers": [
+   "Ein Stoff wechselt vom festen in den flüssigen Zustand.",
+   "Ein neues chemisches Element entsteht.",
+   "Die Masse muss verschwinden.",
+   "Wasser wird zu einem Gas."
+  ],
+  "correctAnswer": "Ein Stoff wechselt vom festen in den flüssigen Zustand.",
+  "explanation": "Schmelzen ist eine Änderung des Aggregatzustands, keine neue Stoffart.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L3-01",
+  "subject": "nature",
+  "level": 2,
+  "topicId": "nature-energy",
+  "type": "choice",
+  "prompt": "Warum schwitzt der menschliche Körper?",
+  "answers": [
+   "Verdunstung kann den Körper kühlen.",
+   "Damit das Blut gefriert.",
+   "Um Licht zu speichern.",
+   "Damit Muskeln ohne Energie arbeiten."
+  ],
+  "correctAnswer": "Verdunstung kann den Körper kühlen.",
+  "explanation": "Beim Verdunsten von Schweiß wird Wärme abgeführt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L3-02",
+  "subject": "nature",
+  "level": 2,
+  "topicId": "nature-energy",
+  "type": "choice",
+  "prompt": "Was beschreibt eine Nahrungskette?",
+  "answers": [
+   "Wer in einem Ökosystem von wem Energie erhält.",
+   "Nur die Größe von Tieren.",
+   "Die Reihenfolge von Jahreszeiten.",
+   "Eine Liste aller Mineralien."
+  ],
+  "correctAnswer": "Wer in einem Ökosystem von wem Energie erhält.",
+  "explanation": "Nahrungsketten zeigen Energie- und Stoffbeziehungen zwischen Organismen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L3-03",
+  "subject": "nature",
+  "level": 2,
+  "topicId": "nature-energy",
+  "type": "choice",
+  "prompt": "Welche Aussage zu Energie ist richtig?",
+  "answers": [
+   "Energie kann umgewandelt werden.",
+   "Energie verschwindet bei jeder Nutzung vollständig.",
+   "Energie kann nur als Wärme vorkommen.",
+   "Lebewesen benötigen keine Energie."
+  ],
+  "correctAnswer": "Energie kann umgewandelt werden.",
+  "explanation": "Energie tritt in verschiedenen Formen auf und kann zwischen ihnen umgewandelt werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L4-01",
+  "subject": "nature",
+  "level": 3,
+  "topicId": "nature-ecosystems",
+  "type": "choice",
+  "prompt": "Warum ist ein Nahrungsnetz oft aussagekräftiger als eine einzelne Nahrungskette?",
+  "answers": [
+   "Viele Organismen haben mehrere Nahrungsbeziehungen.",
+   "Jedes Tier frisst nur genau eine Art.",
+   "Nahrungsnetze zeigen nur Pflanzen.",
+   "Energie fließt in Ökosystemen nicht."
+  ],
+  "correctAnswer": "Viele Organismen haben mehrere Nahrungsbeziehungen.",
+  "explanation": "In realen Ökosystemen sind Nahrungsketten miteinander zu Netzen verbunden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L4-02",
+  "subject": "nature",
+  "level": 3,
+  "topicId": "nature-ecosystems",
+  "type": "choice",
+  "prompt": "Welche Rolle spielen Zersetzer im Stoffkreislauf?",
+  "answers": [
+   "Sie bauen organisches Material ab und machen Stoffe wieder verfügbar.",
+   "Sie stoppen jeden Stoffkreislauf.",
+   "Sie erzeugen Materie aus dem Nichts.",
+   "Sie sind ausschließlich Räuber."
+  ],
+  "correctAnswer": "Sie bauen organisches Material ab und machen Stoffe wieder verfügbar.",
+  "explanation": "Zersetzer tragen dazu bei, gebundene Nährstoffe wieder in Kreisläufe zurückzuführen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L5-01",
+  "subject": "nature",
+  "level": 4,
+  "topicId": "nature-chemistry",
+  "type": "choice",
+  "prompt": "Warum kann Biodiversität ein Ökosystem stabiler machen?",
+  "answers": [
+   "Unterschiedliche Arten können verschiedene Funktionen übernehmen.",
+   "Weil dann jede Art genau gleich ist.",
+   "Weil Konkurrenz vollständig verschwindet.",
+   "Weil Wetter keinen Einfluss mehr hat."
+  ],
+  "correctAnswer": "Unterschiedliche Arten können verschiedene Funktionen übernehmen.",
+  "explanation": "Vielfalt kann Funktionen und Reaktionsmöglichkeiten eines Systems verbreitern; sie garantiert aber keine Unverwundbarkeit.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L5-02",
+  "subject": "nature",
+  "level": 4,
+  "topicId": "nature-chemistry",
+  "type": "choice",
+  "prompt": "Was bedeutet pH 7 bei reinem Wasser ungefähr?",
+  "answers": [
+   "neutral",
+   "stark sauer",
+   "stark alkalisch",
+   "radioaktiv"
+  ],
+  "correctAnswer": "neutral",
+  "explanation": "Auf der üblichen pH-Skala gilt 7 bei Raumtemperatur ungefähr als neutral.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L5-03",
+  "subject": "nature",
+  "level": 4,
+  "topicId": "nature-chemistry",
+  "type": "choice",
+  "prompt": "Warum erwärmt zusätzliches Treibhausgas die bodennahe Atmosphäre?",
+  "answers": [
+   "Es verändert, wie Wärmestrahlung aufgenommen und abgegeben wird.",
+   "Es schaltet die Sonne heller.",
+   "Es stoppt jede Wolkenbildung.",
+   "Es erzeugt Wärme ohne Energiefluss."
+  ],
+  "correctAnswer": "Es verändert, wie Wärmestrahlung aufgenommen und abgegeben wird.",
+  "explanation": "Treibhausgase beeinflussen den Strahlungshaushalt der Erde.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L6-01",
+  "subject": "nature",
+  "level": 5,
+  "topicId": "nature-climate",
+  "type": "choice",
+  "prompt": "Welche Aussage zum Kohlenstoffkreislauf ist richtig?",
+  "answers": [
+   "Kohlenstoff wird zwischen Atmosphäre, Lebewesen, Böden und Gewässern ausgetauscht.",
+   "Kohlenstoff kommt nur in der Atmosphäre vor.",
+   "Pflanzen enthalten keinen Kohlenstoff.",
+   "Der Kreislauf hat keine Verbindung zum Klima."
+  ],
+  "correctAnswer": "Kohlenstoff wird zwischen Atmosphäre, Lebewesen, Böden und Gewässern ausgetauscht.",
+  "explanation": "Kohlenstoff ist in mehreren Speichern gebunden und wird durch natürliche und menschliche Prozesse ausgetauscht.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L6-02",
+  "subject": "nature",
+  "level": 5,
+  "topicId": "nature-climate",
+  "type": "choice",
+  "prompt": "Warum kann Verdunstung Teil des Wasserkreislaufs sein?",
+  "answers": [
+   "Flüssiges Wasser gelangt als Wasserdampf in die Atmosphäre.",
+   "Wasser wird dabei vernichtet.",
+   "Verdunstung findet nur im Winter statt.",
+   "Wasserdampf ist kein Wasser."
+  ],
+  "correctAnswer": "Flüssiges Wasser gelangt als Wasserdampf in die Atmosphäre.",
+  "explanation": "Bei der Verdunstung wechselt Wasser in den gasförmigen Zustand und kann später wieder kondensieren.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L7-01",
+  "subject": "nature",
+  "level": 6,
+  "topicId": "nature-models",
+  "type": "choice",
+  "prompt": "Warum ist eine einzelne Wetterwoche kein ausreichender Beleg für einen langfristigen Klimatrend?",
+  "answers": [
+   "Klima beschreibt statistische Muster über längere Zeiträume.",
+   "Wetter und Klima sind exakt dasselbe.",
+   "Klima kann nur im Sommer gemessen werden.",
+   "Ein einzelner Tag enthält immer alle Klimainformationen."
+  ],
+  "correctAnswer": "Klima beschreibt statistische Muster über längere Zeiträume.",
+  "explanation": "Wetter beschreibt kurzfristige Zustände, Klima längerfristige statistische Eigenschaften.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L7-02",
+  "subject": "nature",
+  "level": 6,
+  "topicId": "nature-models",
+  "type": "choice",
+  "prompt": "Was ist bei einem wissenschaftlichen Modell wichtig?",
+  "answers": [
+   "Es vereinfacht Wirklichkeit und muss an Beobachtungen geprüft werden.",
+   "Es ist automatisch wahr, sobald es kompliziert aussieht.",
+   "Es darf nie verändert werden.",
+   "Es benötigt keine Annahmen."
+  ],
+  "correctAnswer": "Es vereinfacht Wirklichkeit und muss an Beobachtungen geprüft werden.",
+  "explanation": "Modelle sind Werkzeuge mit Annahmen und Grenzen; sie werden anhand von Daten geprüft.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L7-03",
+  "subject": "nature",
+  "level": 6,
+  "topicId": "nature-models",
+  "type": "choice",
+  "prompt": "Warum sind Korrelation und Ursache nicht dasselbe?",
+  "answers": [
+   "Zwei Größen können gemeinsam auftreten, ohne dass eine die andere verursacht.",
+   "Weil Ursachen nie messbar sind.",
+   "Weil Korrelation immer Zufall bedeutet.",
+   "Weil jede Korrelation eine Ursache beweist."
+  ],
+  "correctAnswer": "Zwei Größen können gemeinsam auftreten, ohne dass eine die andere verursacht.",
+  "explanation": "Für Kausalität braucht es mehr als einen statistischen Zusammenhang.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L8-01",
+  "subject": "nature",
+  "level": 7,
+  "topicId": "nature-evidence",
+  "type": "choice",
+  "prompt": "Warum verwendet ein Experiment möglichst eine Kontrollgruppe?",
+  "answers": [
+   "Damit sich der Einfluss der untersuchten Veränderung besser vergleichen lässt.",
+   "Damit jedes Ergebnis automatisch richtig ist.",
+   "Damit keine Messung mehr nötig ist.",
+   "Damit alle Bedingungen gleichzeitig verändert werden."
+  ],
+  "correctAnswer": "Damit sich der Einfluss der untersuchten Veränderung besser vergleichen lässt.",
+  "explanation": "Eine geeignete Kontrollbedingung hilft, Unterschiede auf die untersuchte Variable zurückzuführen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "nature-L8-02",
+  "subject": "nature",
+  "level": 7,
+  "topicId": "nature-evidence",
+  "type": "choice",
+  "prompt": "Warum erhöht eine größere geeignete Stichprobe oft die Aussagekraft?",
+  "answers": [
+   "Zufällige Besonderheiten einzelner Beobachtungen fallen weniger stark ins Gewicht.",
+   "Weil große Stichproben jede Verzerrung ausschließen.",
+   "Weil dann keine Unsicherheit mehr existiert.",
+   "Weil nur große Zahlen wissenschaftlich sind."
+  ],
+  "correctAnswer": "Zufällige Besonderheiten einzelner Beobachtungen fallen weniger stark ins Gewicht.",
+  "explanation": "Mehr geeignete Beobachtungen können Zufallsschwankungen reduzieren, beseitigen aber nicht automatisch systematische Fehler.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L1-01",
+  "subject": "history",
+  "level": 0,
+  "topicId": "history-time",
+  "type": "choice",
+  "prompt": "Was hilft zuerst, historische Ereignisse einzuordnen?",
+  "answers": [
+   "Zeit, Ort und beteiligte Akteure klären.",
+   "Nur die heutige Meinung übernehmen.",
+   "Jede Quelle gleich behandeln.",
+   "Den Ausgang kennen und Ursachen ignorieren."
+  ],
+  "correctAnswer": "Zeit, Ort und beteiligte Akteure klären.",
+  "explanation": "Historische Einordnung beginnt mit Kontext: Wann, wo, wer und unter welchen Bedingungen?",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L1-02",
+  "subject": "history",
+  "level": 0,
+  "topicId": "history-time",
+  "type": "choice",
+  "prompt": "Was ist eine historische Quelle?",
+  "answers": [
+   "Ein Zeugnis aus oder über die untersuchte Vergangenheit.",
+   "Nur ein modernes Schulbuch.",
+   "Jede erfundene Geschichte.",
+   "Ausschließlich ein Gesetz."
+  ],
+  "correctAnswer": "Ein Zeugnis aus oder über die untersuchte Vergangenheit.",
+  "explanation": "Quellen können Texte, Bilder, Gegenstände, Tonaufnahmen und vieles mehr sein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L1-03",
+  "subject": "history",
+  "level": 0,
+  "topicId": "history-time",
+  "type": "choice",
+  "prompt": "Was bedeutet Chronologie?",
+  "answers": [
+   "Ereignisse zeitlich zu ordnen.",
+   "Orte nach Größe sortieren.",
+   "Meinungen zählen.",
+   "Nur Jahreszahlen auswendig lernen."
+  ],
+  "correctAnswer": "Ereignisse zeitlich zu ordnen.",
+  "explanation": "Chronologie beschreibt die zeitliche Abfolge.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L2-01",
+  "subject": "history",
+  "level": 1,
+  "topicId": "history-causes",
+  "type": "choice",
+  "prompt": "Warum haben historische Ereignisse oft mehrere Ursachen?",
+  "answers": [
+   "Politische, wirtschaftliche, soziale und andere Faktoren können zusammenwirken.",
+   "Jedes Ereignis hat genau eine Ursache.",
+   "Nur einzelne Personen können Geschichte verändern.",
+   "Folgen entstehen immer vor ihren Ursachen."
+  ],
+  "correctAnswer": "Politische, wirtschaftliche, soziale und andere Faktoren können zusammenwirken.",
+  "explanation": "Historische Erklärungen berücksichtigen häufig mehrere miteinander verbundene Faktoren.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L2-02",
+  "subject": "history",
+  "level": 1,
+  "topicId": "history-causes",
+  "type": "choice",
+  "prompt": "Was ist der Unterschied zwischen Ursache und Folge?",
+  "answers": [
+   "Die Ursache trägt zum Entstehen eines Ereignisses bei; die Folge tritt daraus hervor.",
+   "Beides bedeutet dasselbe.",
+   "Folgen liegen immer zeitlich davor.",
+   "Ursachen können nie untersucht werden."
+  ],
+  "correctAnswer": "Die Ursache trägt zum Entstehen eines Ereignisses bei; die Folge tritt daraus hervor.",
+  "explanation": "Die Unterscheidung hilft, zeitliche und sachliche Zusammenhänge sauber zu erklären.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L3-01",
+  "subject": "history",
+  "level": 2,
+  "topicId": "history-life",
+  "type": "choice",
+  "prompt": "Warum begann die Industrialisierung nicht überall gleichzeitig?",
+  "answers": [
+   "Regionen hatten unterschiedliche Ressourcen, Infrastruktur und politische Bedingungen.",
+   "Alle Menschen entschieden am selben Tag darüber.",
+   "Maschinen funktionierten nur in einem Land.",
+   "Geografie spielte grundsätzlich keine Rolle."
+  ],
+  "correctAnswer": "Regionen hatten unterschiedliche Ressourcen, Infrastruktur und politische Bedingungen.",
+  "explanation": "Historischer Wandel hängt meist von mehreren Bedingungen ab.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L3-02",
+  "subject": "history",
+  "level": 2,
+  "topicId": "history-life",
+  "type": "choice",
+  "prompt": "Was ist bei einer Quelle wichtig?",
+  "answers": [
+   "Zu fragen, wer sie wann und mit welchem Zweck erstellt hat.",
+   "Nur die Länge des Textes.",
+   "Ob sie die eigene Meinung bestätigt.",
+   "Ob sie besonders alt aussieht."
+  ],
+  "correctAnswer": "Zu fragen, wer sie wann und mit welchem Zweck erstellt hat.",
+  "explanation": "Urheber, Entstehungssituation und Zweck helfen, Aussagekraft und Grenzen einzuschätzen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L3-03",
+  "subject": "history",
+  "level": 2,
+  "topicId": "history-life",
+  "type": "choice",
+  "prompt": "Was bedeutet Ursache und Anlass zu unterscheiden?",
+  "answers": [
+   "Ein Anlass kann etwas auslösen, während Ursachen tiefer und länger wirken können.",
+   "Beides ist immer identisch.",
+   "Anlässe gibt es nur in der Gegenwart.",
+   "Ursachen sind grundsätzlich unwichtig."
+  ],
+  "correctAnswer": "Ein Anlass kann etwas auslösen, während Ursachen tiefer und länger wirken können.",
+  "explanation": "Historische Ereignisse haben oft längerfristige Ursachen und konkrete Auslöser.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L4-01",
+  "subject": "history",
+  "level": 3,
+  "topicId": "history-change",
+  "type": "choice",
+  "prompt": "Warum können technische Erfindungen Gesellschaften verändern?",
+  "answers": [
+   "Sie können Arbeit, Kommunikation, Produktion und Alltag beeinflussen.",
+   "Erfindungen wirken grundsätzlich nur in Laboren.",
+   "Technik verändert nie wirtschaftliche Abläufe.",
+   "Jede Erfindung hat überall dieselbe Wirkung."
+  ],
+  "correctAnswer": "Sie können Arbeit, Kommunikation, Produktion und Alltag beeinflussen.",
+  "explanation": "Technik wirkt zusammen mit sozialen, wirtschaftlichen und politischen Bedingungen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L4-02",
+  "subject": "history",
+  "level": 3,
+  "topicId": "history-change",
+  "type": "choice",
+  "prompt": "Was bedeutet historischer Wandel?",
+  "answers": [
+   "Bestimmte Strukturen oder Lebensweisen verändern sich über die Zeit.",
+   "Alles verändert sich gleichzeitig vollständig.",
+   "Vergangenheit bleibt immer unverändert sichtbar.",
+   "Nur Jahreszahlen können sich ändern."
+  ],
+  "correctAnswer": "Bestimmte Strukturen oder Lebensweisen verändern sich über die Zeit.",
+  "explanation": "Geschichte untersucht sowohl Veränderungen als auch Kontinuitäten.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L5-01",
+  "subject": "history",
+  "level": 4,
+  "topicId": "history-sources",
+  "type": "choice",
+  "prompt": "Warum können zwei Quellen dasselbe Ereignis unterschiedlich darstellen?",
+  "answers": [
+   "Menschen haben unterschiedliche Perspektiven, Interessen und Informationsstände.",
+   "Eine der beiden Quellen muss immer gefälscht sein.",
+   "Vergangenheit verändert sich nachträglich.",
+   "Nur kurze Quellen können stimmen."
+  ],
+  "correctAnswer": "Menschen haben unterschiedliche Perspektiven, Interessen und Informationsstände.",
+  "explanation": "Unterschiedliche Perspektiven sind normal; deshalb werden Quellen verglichen und kontextualisiert.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L5-02",
+  "subject": "history",
+  "level": 4,
+  "topicId": "history-sources",
+  "type": "choice",
+  "prompt": "Was ist ein Anachronismus?",
+  "answers": [
+   "Etwas wird einer Zeit zugeordnet, in die es historisch nicht passt.",
+   "Eine besonders genaue Datierung.",
+   "Eine übereinstimmende Quelle.",
+   "Ein moderner Begriff für Statistik."
+  ],
+  "correctAnswer": "Etwas wird einer Zeit zugeordnet, in die es historisch nicht passt.",
+  "explanation": "Anachronismen vermischen Zeitstände, die historisch nicht zusammengehören.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L5-03",
+  "subject": "history",
+  "level": 4,
+  "topicId": "history-sources",
+  "type": "choice",
+  "prompt": "Welche Frage hilft beim Quellenvergleich?",
+  "answers": [
+   "Welche Aussagen stimmen überein und wo widersprechen sich die Quellen?",
+   "Welche Quelle gefällt mir optisch besser?",
+   "Welche ist am längsten?",
+   "Welche wurde zuletzt geöffnet?"
+  ],
+  "correctAnswer": "Welche Aussagen stimmen überein und wo widersprechen sich die Quellen?",
+  "explanation": "Vergleich macht Gemeinsamkeiten, Widersprüche und Ergänzungen sichtbar.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L6-01",
+  "subject": "history",
+  "level": 5,
+  "topicId": "history-perspectives",
+  "type": "choice",
+  "prompt": "Warum ist eine zeitgenössische Quelle nicht automatisch objektiv?",
+  "answers": [
+   "Auch Zeitzeugen haben Perspektiven, Interessen und begrenzte Informationen.",
+   "Zeitzeugen können sich nie irren.",
+   "Alte Texte enthalten automatisch alle Fakten.",
+   "Objektivität hängt nur vom Alter der Quelle ab."
+  ],
+  "correctAnswer": "Auch Zeitzeugen haben Perspektiven, Interessen und begrenzte Informationen.",
+  "explanation": "Nähe zum Ereignis kann wertvoll sein, ersetzt aber keine Quellenkritik.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L6-02",
+  "subject": "history",
+  "level": 5,
+  "topicId": "history-perspectives",
+  "type": "choice",
+  "prompt": "Was hilft, unterschiedliche historische Perspektiven fair zu vergleichen?",
+  "answers": [
+   "Entstehungssituation, Interessen und Wissensstand der Beteiligten berücksichtigen.",
+   "Nur die heutige Lieblingsmeinung auswählen.",
+   "Alle Aussagen als gleich gut belegt behandeln.",
+   "Widersprüche grundsätzlich ignorieren."
+  ],
+  "correctAnswer": "Entstehungssituation, Interessen und Wissensstand der Beteiligten berücksichtigen.",
+  "explanation": "Perspektiven werden im jeweiligen Kontext untersucht und mit Belegen abgeglichen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L7-01",
+  "subject": "history",
+  "level": 6,
+  "topicId": "history-connections",
+  "type": "choice",
+  "prompt": "Was ist eine faire historische Bewertung?",
+  "answers": [
+   "Handlungen im damaligen Kontext untersuchen und zugleich begründete Maßstäbe offenlegen.",
+   "Nur heutige Erwartungen rückwirkend voraussetzen.",
+   "Jede Handlung mit dem Zeitgeist entschuldigen.",
+   "Auf Belege verzichten, wenn eine Geschichte plausibel klingt."
+  ],
+  "correctAnswer": "Handlungen im damaligen Kontext untersuchen und zugleich begründete Maßstäbe offenlegen.",
+  "explanation": "Historisches Urteilen braucht Kontext, Quellen und transparent begründete Maßstäbe.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L7-02",
+  "subject": "history",
+  "level": 6,
+  "topicId": "history-connections",
+  "type": "choice",
+  "prompt": "Warum ist Erinnerungskultur nicht dasselbe wie Geschichtswissenschaft?",
+  "answers": [
+   "Erinnerung erfüllt gesellschaftliche Funktionen; Geschichtswissenschaft untersucht Vergangenheit methodisch.",
+   "Beides hat nie miteinander zu tun.",
+   "Erinnerung ist immer falsch.",
+   "Geschichtswissenschaft besteht nur aus Gedenktagen."
+  ],
+  "correctAnswer": "Erinnerung erfüllt gesellschaftliche Funktionen; Geschichtswissenschaft untersucht Vergangenheit methodisch.",
+  "explanation": "Beide können sich überschneiden, verfolgen aber unterschiedliche Aufgaben und Methoden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L7-03",
+  "subject": "history",
+  "level": 6,
+  "topicId": "history-connections",
+  "type": "choice",
+  "prompt": "Was stärkt eine historische Erklärung?",
+  "answers": [
+   "Mehrere unabhängige Quellen und nachvollziehbare Begründungen.",
+   "Nur eine sehr selbstsichere Formulierung.",
+   "Viele Wiederholungen derselben Behauptung.",
+   "Das Weglassen widersprechender Belege."
+  ],
+  "correctAnswer": "Mehrere unabhängige Quellen und nachvollziehbare Begründungen.",
+  "explanation": "Erklärungen werden belastbarer, wenn Quellenlage und Argumentation transparent sind.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L8-01",
+  "subject": "history",
+  "level": 7,
+  "topicId": "history-judgement",
+  "type": "choice",
+  "prompt": "Was ist „Presentism“ in der Geschichtsbetrachtung am ehesten?",
+  "answers": [
+   "Vergangenheit ausschließlich mit heutigen Erwartungen zu beurteilen, ohne ihren Kontext zu beachten.",
+   "Historische Quellen zeitlich zu ordnen.",
+   "Mehrere Quellen miteinander zu vergleichen.",
+   "Datierungen genauer zu machen."
+  ],
+  "correctAnswer": "Vergangenheit ausschließlich mit heutigen Erwartungen zu beurteilen, ohne ihren Kontext zu beachten.",
+  "explanation": "Heutige Werte können Teil eines Urteils sein; problematisch wird es, wenn der historische Kontext dabei ausgeblendet wird.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "history-L8-02",
+  "subject": "history",
+  "level": 7,
+  "topicId": "history-judgement",
+  "type": "choice",
+  "prompt": "Was macht eine historische These belastbarer?",
+  "answers": [
+   "Sie nennt Belege, berücksichtigt Gegenargumente und macht ihre Schlussfolgerung nachvollziehbar.",
+   "Sie wird möglichst oft wiederholt.",
+   "Sie vermeidet jede Quelle.",
+   "Sie erklärt Widersprüche für bedeutungslos."
+  ],
+  "correctAnswer": "Sie nennt Belege, berücksichtigt Gegenargumente und macht ihre Schlussfolgerung nachvollziehbar.",
+  "explanation": "Belastbare historische Argumentation verbindet überprüfbare Belege mit transparenter Begründung.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L1-01",
+  "subject": "civics",
+  "level": 0,
+  "topicId": "civics-together",
+  "type": "choice",
+  "prompt": "Warum gibt es Regeln für gemeinsames Zusammenleben?",
+  "answers": [
+   "Sie schaffen Orientierung und helfen, Interessen und Rechte miteinander abzustimmen.",
+   "Damit niemand Entscheidungen treffen muss.",
+   "Damit immer die stärkste Person gewinnt.",
+   "Damit Konflikte unmöglich werden."
+  ],
+  "correctAnswer": "Sie schaffen Orientierung und helfen, Interessen und Rechte miteinander abzustimmen.",
+  "explanation": "Regeln lösen nicht jeden Konflikt, schaffen aber einen gemeinsamen Rahmen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L1-02",
+  "subject": "civics",
+  "level": 0,
+  "topicId": "civics-together",
+  "type": "choice",
+  "prompt": "Was ist ein Recht?",
+  "answers": [
+   "Ein anerkannter Anspruch oder eine geschützte Freiheit innerhalb einer Rechtsordnung.",
+   "Eine persönliche Vorliebe, die alle erfüllen müssen.",
+   "Eine beliebige Empfehlung.",
+   "Nur eine Belohnung für gutes Verhalten."
+  ],
+  "correctAnswer": "Ein anerkannter Anspruch oder eine geschützte Freiheit innerhalb einer Rechtsordnung.",
+  "explanation": "Rechte schützen Freiheiten oder Ansprüche und sind an eine Rechtsordnung gebunden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L1-03",
+  "subject": "civics",
+  "level": 0,
+  "topicId": "civics-together",
+  "type": "choice",
+  "prompt": "Was bedeutet Kompromiss?",
+  "answers": [
+   "Beteiligte nähern sich an und akzeptieren eine für sie tragbare Lösung.",
+   "Eine Seite bekommt immer alles.",
+   "Niemand darf seine Meinung erklären.",
+   "Der Konflikt wird ignoriert."
+  ],
+  "correctAnswer": "Beteiligte nähern sich an und akzeptieren eine für sie tragbare Lösung.",
+  "explanation": "Ein Kompromiss versucht unterschiedliche Interessen praktisch auszugleichen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L2-01",
+  "subject": "civics",
+  "level": 1,
+  "topicId": "civics-rights",
+  "type": "choice",
+  "prompt": "Warum können Regeln in einer Gemeinschaft sinnvoll sein?",
+  "answers": [
+   "Sie können Erwartungen klären und Rechte sowie Sicherheit verschiedener Personen schützen.",
+   "Weil Regeln immer jede Freiheit abschaffen.",
+   "Weil Regeln grundsätzlich nicht begründet werden müssen.",
+   "Damit Konflikte nicht mehr existieren können."
+  ],
+  "correctAnswer": "Sie können Erwartungen klären und Rechte sowie Sicherheit verschiedener Personen schützen.",
+  "explanation": "Regeln können Zusammenleben ordnen; ihre Begründung und Verhältnismäßigkeit bleiben wichtig.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L2-02",
+  "subject": "civics",
+  "level": 1,
+  "topicId": "civics-rights",
+  "type": "choice",
+  "prompt": "Was bedeutet ein Recht im Alltag?",
+  "answers": [
+   "Eine geschützte Möglichkeit oder ein Anspruch, der durch Regeln oder Gesetze anerkannt wird.",
+   "Eine Garantie, immer den eigenen Willen durchzusetzen.",
+   "Nur eine freundliche Bitte.",
+   "Etwas, das ausschließlich Behörden besitzen."
+  ],
+  "correctAnswer": "Eine geschützte Möglichkeit oder ein Anspruch, der durch Regeln oder Gesetze anerkannt wird.",
+  "explanation": "Rechte schützen Handlungsmöglichkeiten oder Ansprüche und stehen oft neben Rechten anderer.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L3-01",
+  "subject": "civics",
+  "level": 2,
+  "topicId": "civics-democracy",
+  "type": "choice",
+  "prompt": "Warum ist Gewaltenteilung in einer Demokratie wichtig?",
+  "answers": [
+   "Macht wird auf verschiedene Institutionen verteilt und kontrolliert.",
+   "Damit Gesetze geheim bleiben.",
+   "Damit niemand Verantwortung trägt.",
+   "Damit Wahlen überflüssig werden."
+  ],
+  "correctAnswer": "Macht wird auf verschiedene Institutionen verteilt und kontrolliert.",
+  "explanation": "Geteilte und kontrollierte Macht soll Machtmissbrauch erschweren.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L3-02",
+  "subject": "civics",
+  "level": 2,
+  "topicId": "civics-democracy",
+  "type": "choice",
+  "prompt": "Was bedeutet Mehrheitsentscheidung nicht?",
+  "answers": [
+   "Dass Minderheiten deshalb keine Rechte mehr haben.",
+   "Dass Stimmen gezählt werden.",
+   "Dass Entscheidungen Regeln brauchen.",
+   "Dass Ergebnisse überprüfbar sein sollten."
+  ],
+  "correctAnswer": "Dass Minderheiten deshalb keine Rechte mehr haben.",
+  "explanation": "Demokratische Mehrheiten wirken innerhalb von Grund- und Minderheitenrechten.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L3-03",
+  "subject": "civics",
+  "level": 2,
+  "topicId": "civics-democracy",
+  "type": "choice",
+  "prompt": "Was ist eine öffentliche Institution?",
+  "answers": [
+   "Eine Einrichtung, die öffentliche Aufgaben auf Grundlage festgelegter Regeln wahrnimmt.",
+   "Jede private Freundesgruppe.",
+   "Nur ein Geschäft.",
+   "Ein zufälliger Internetkanal."
+  ],
+  "correctAnswer": "Eine Einrichtung, die öffentliche Aufgaben auf Grundlage festgelegter Regeln wahrnimmt.",
+  "explanation": "Öffentliche Institutionen übernehmen Aufgaben für Staat oder Gemeinwesen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L4-01",
+  "subject": "civics",
+  "level": 3,
+  "topicId": "civics-institutions",
+  "type": "choice",
+  "prompt": "Wozu dient Gewaltenteilung grundsätzlich?",
+  "answers": [
+   "Staatliche Macht wird auf verschiedene Bereiche verteilt und gegenseitig kontrollierbar.",
+   "Damit eine Stelle alle Entscheidungen allein trifft.",
+   "Damit Gerichte Gesetze beliebig ignorieren.",
+   "Damit Wahlen unnötig werden."
+  ],
+  "correctAnswer": "Staatliche Macht wird auf verschiedene Bereiche verteilt und gegenseitig kontrollierbar.",
+  "explanation": "Die Verteilung staatlicher Funktionen soll Macht begrenzen und Kontrolle ermöglichen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L4-02",
+  "subject": "civics",
+  "level": 3,
+  "topicId": "civics-institutions",
+  "type": "choice",
+  "prompt": "Warum ist Minderheitenschutz in einer Demokratie wichtig?",
+  "answers": [
+   "Mehrheitsentscheidungen sollen grundlegende Rechte von Minderheiten nicht beliebig aufheben.",
+   "Weil Mehrheiten nie entscheiden dürfen.",
+   "Weil Minderheiten automatisch jede Entscheidung bestimmen.",
+   "Weil Rechte nur bei Einstimmigkeit gelten."
+  ],
+  "correctAnswer": "Mehrheitsentscheidungen sollen grundlegende Rechte von Minderheiten nicht beliebig aufheben.",
+  "explanation": "Demokratie verbindet Mehrheitsentscheidungen mit rechtsstaatlichen Grenzen und Grundrechten.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L5-01",
+  "subject": "civics",
+  "level": 4,
+  "topicId": "civics-interests",
+  "type": "choice",
+  "prompt": "Warum ist Interessenabwägung nötig?",
+  "answers": [
+   "Politische und gesellschaftliche Entscheidungen betreffen oft mehrere legitime Ziele gleichzeitig.",
+   "Weil Fakten keine Rolle spielen.",
+   "Weil jede Meinung gleich gut begründet ist.",
+   "Damit Entscheidungen möglichst unklar bleiben."
+  ],
+  "correctAnswer": "Politische und gesellschaftliche Entscheidungen betreffen oft mehrere legitime Ziele gleichzeitig.",
+  "explanation": "Abwägung macht Zielkonflikte sichtbar und verlangt Begründungen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L5-02",
+  "subject": "civics",
+  "level": 4,
+  "topicId": "civics-interests",
+  "type": "choice",
+  "prompt": "Welche Aussage beschreibt Rechtsstaatlichkeit am besten?",
+  "answers": [
+   "Auch staatliches Handeln ist an Recht und überprüfbare Verfahren gebunden.",
+   "Regeln gelten nur für Bürger.",
+   "Entscheidungen brauchen keine Begründung.",
+   "Macht ersetzt Gerichte."
+  ],
+  "correctAnswer": "Auch staatliches Handeln ist an Recht und überprüfbare Verfahren gebunden.",
+  "explanation": "Rechtsstaatlichkeit begrenzt öffentliche Macht durch Recht und Verfahren.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L5-03",
+  "subject": "civics",
+  "level": 4,
+  "topicId": "civics-interests",
+  "type": "choice",
+  "prompt": "Warum sind freie Medien für öffentliche Debatten wichtig?",
+  "answers": [
+   "Sie können Informationen recherchieren, Macht beobachten und unterschiedliche Perspektiven sichtbar machen.",
+   "Weil jede Veröffentlichung automatisch wahr ist.",
+   "Weil Kritik dann verboten werden kann.",
+   "Weil nur eine Quelle gebraucht wird."
+  ],
+  "correctAnswer": "Sie können Informationen recherchieren, Macht beobachten und unterschiedliche Perspektiven sichtbar machen.",
+  "explanation": "Freie Medien sind wichtig, müssen aber wie andere Quellen kritisch geprüft werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L6-01",
+  "subject": "civics",
+  "level": 5,
+  "topicId": "civics-society",
+  "type": "choice",
+  "prompt": "Was kann ein fairer Kompromiss leisten?",
+  "answers": [
+   "Er berücksichtigt wichtige Interessen mehrerer Seiten, ohne jeden Wunsch vollständig zu erfüllen.",
+   "Er macht automatisch alle Beteiligten glücklich.",
+   "Er bedeutet, dass nur die stärkere Seite gewinnt.",
+   "Er verhindert jede spätere Meinungsänderung."
+  ],
+  "correctAnswer": "Er berücksichtigt wichtige Interessen mehrerer Seiten, ohne jeden Wunsch vollständig zu erfüllen.",
+  "explanation": "Kompromisse versuchen, konkurrierende Interessen in einer tragfähigen Lösung zusammenzuführen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L6-02",
+  "subject": "civics",
+  "level": 5,
+  "topicId": "civics-society",
+  "type": "choice",
+  "prompt": "Warum ist ein transparentes Verfahren bei Interessenkonflikten wichtig?",
+  "answers": [
+   "Beteiligte können Regeln und Gründe einer Entscheidung nachvollziehen.",
+   "Damit das Ergebnis geheim bleibt.",
+   "Damit Belege keine Rolle spielen.",
+   "Damit nur eine Gruppe sprechen darf."
+  ],
+  "correctAnswer": "Beteiligte können Regeln und Gründe einer Entscheidung nachvollziehen.",
+  "explanation": "Nachvollziehbare Verfahren können Legitimität und Kontrolle verbessern, auch wenn nicht alle mit dem Ergebnis einverstanden sind.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L7-01",
+  "subject": "civics",
+  "level": 6,
+  "topicId": "civics-conflicts",
+  "type": "choice",
+  "prompt": "Welche Frage hilft bei einem gesellschaftlichen Konflikt besonders?",
+  "answers": [
+   "Welche Interessen, Rechte, Folgen und belastbaren Informationen stehen gegenüber?",
+   "Welche Seite klingt am lautesten?",
+   "Wer hat die meisten Follower?",
+   "Wie lässt sich die Gegenseite möglichst schnell abwerten?"
+  ],
+  "correctAnswer": "Welche Interessen, Rechte, Folgen und belastbaren Informationen stehen gegenüber?",
+  "explanation": "Strukturierte Abwägung trennt Interessen, Rechte, Fakten und Folgen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L7-02",
+  "subject": "civics",
+  "level": 6,
+  "topicId": "civics-conflicts",
+  "type": "choice",
+  "prompt": "Warum ist Beteiligung mehr als Abstimmen?",
+  "answers": [
+   "Sie kann auch Information, Diskussion, Engagement und Mitgestaltung umfassen.",
+   "Weil Abstimmungen nie demokratisch sind.",
+   "Weil nur Amtsträger beteiligt sein dürfen.",
+   "Weil Beteiligung keine Regeln benötigt."
+  ],
+  "correctAnswer": "Sie kann auch Information, Diskussion, Engagement und Mitgestaltung umfassen.",
+  "explanation": "Demokratische Beteiligung kann viele Formen haben.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L7-03",
+  "subject": "civics",
+  "level": 6,
+  "topicId": "civics-conflicts",
+  "type": "choice",
+  "prompt": "Was unterscheidet eine Tatsachenbehauptung von einem Werturteil?",
+  "answers": [
+   "Eine Tatsachenbehauptung ist grundsätzlich überprüfbar; ein Werturteil beruht zusätzlich auf Maßstäben.",
+   "Werturteile enthalten nie Gründe.",
+   "Tatsachen sind immer Meinungen.",
+   "Beide sind exakt dasselbe."
+  ],
+  "correctAnswer": "Eine Tatsachenbehauptung ist grundsätzlich überprüfbar; ein Werturteil beruht zusätzlich auf Maßstäben.",
+  "explanation": "Gute Debatten machen kenntlich, was empirisch prüfbar und was normativ bewertet wird.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L8-01",
+  "subject": "civics",
+  "level": 7,
+  "topicId": "civics-judgement",
+  "type": "choice",
+  "prompt": "Welche Frage trennt Fakten und Werte in einer Debatte am besten?",
+  "answers": [
+   "Was ist überprüfbar passiert, und welche Ziele oder Maßstäbe bewerten wir anschließend?",
+   "Welche Meinung klingt am lautesten?",
+   "Welche Seite hat mehr Follower?",
+   "Welche Behauptung passt besser zu mir?"
+  ],
+  "correctAnswer": "Was ist überprüfbar passiert, und welche Ziele oder Maßstäbe bewerten wir anschließend?",
+  "explanation": "Sachfragen und Werturteile können zusammengehören, sollten aber nicht miteinander verwechselt werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "civics-L8-02",
+  "subject": "civics",
+  "level": 7,
+  "topicId": "civics-judgement",
+  "type": "choice",
+  "prompt": "Was gehört zu einem begründeten gesellschaftlichen Urteil?",
+  "answers": [
+   "Kriterien offenlegen, relevante Fakten prüfen und Folgen für verschiedene Gruppen berücksichtigen.",
+   "Nur die eigene Betroffenheit nennen.",
+   "Gegenargumente ausblenden.",
+   "Eine Behauptung oft genug wiederholen."
+  ],
+  "correctAnswer": "Kriterien offenlegen, relevante Fakten prüfen und Folgen für verschiedene Gruppen berücksichtigen.",
+  "explanation": "Ein begründetes Urteil macht Maßstäbe und Belege nachvollziehbar.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L1-01",
+  "subject": "media",
+  "level": 0,
+  "topicId": "media-basics",
+  "type": "choice",
+  "prompt": "Was bringt Zwei-Faktor-Authentisierung zusätzlich?",
+  "answers": [
+   "Neben dem Passwort wird ein weiterer unabhängiger Nachweis verlangt.",
+   "Das Passwort wird öffentlich.",
+   "Man braucht nie wieder Updates.",
+   "Jede Phishing-Mail wird automatisch gelöscht."
+  ],
+  "correctAnswer": "Neben dem Passwort wird ein weiterer unabhängiger Nachweis verlangt.",
+  "explanation": "Ein zweiter Faktor erschwert Kontoübernahmen, wenn nur das Passwort bekannt wird.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L1-02",
+  "subject": "media",
+  "level": 0,
+  "topicId": "media-basics",
+  "type": "choice",
+  "prompt": "Woran erkennst du eine belastbarere Online-Information?",
+  "answers": [
+   "Autor, Quelle, Datum und Belege lassen sich nachvollziehen.",
+   "Sie wurde sehr oft geteilt.",
+   "Die Überschrift ist besonders emotional.",
+   "Sie passt genau zu meiner Meinung."
+  ],
+  "correctAnswer": "Autor, Quelle, Datum und Belege lassen sich nachvollziehen.",
+  "explanation": "Nachvollziehbarkeit und Belege sind stärkere Kriterien als Reichweite oder Zustimmung.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L1-03",
+  "subject": "media",
+  "level": 0,
+  "topicId": "media-basics",
+  "type": "choice",
+  "prompt": "Was ist Phishing?",
+  "answers": [
+   "Der Versuch, über Täuschung Zugangsdaten oder andere sensible Informationen zu stehlen.",
+   "Eine sichere Verschlüsselungsmethode.",
+   "Ein normales Softwareupdate.",
+   "Eine Suchmaschine für Bilder."
+  ],
+  "correctAnswer": "Der Versuch, über Täuschung Zugangsdaten oder andere sensible Informationen zu stehlen.",
+  "explanation": "Phishing nutzt häufig gefälschte Nachrichten oder Webseiten, um Vertrauen auszunutzen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L2-01",
+  "subject": "media",
+  "level": 1,
+  "topicId": "media-security",
+  "type": "choice",
+  "prompt": "Warum erhöht Zwei-Faktor-Authentisierung den Kontoschutz?",
+  "answers": [
+   "Zusätzlich zum ersten Faktor wird ein weiterer unabhängiger Faktor verlangt.",
+   "Weil Passwörter dadurch öffentlich werden.",
+   "Weil danach keine Phishing-Angriffe mehr möglich sind.",
+   "Weil jedes Gerät automatisch vertrauenswürdig ist."
+  ],
+  "correctAnswer": "Zusätzlich zum ersten Faktor wird ein weiterer unabhängiger Faktor verlangt.",
+  "explanation": "Ein zweiter Faktor erschwert den Zugriff, wenn nur das Passwort bekannt geworden ist; er ersetzt dennoch nicht jede weitere Vorsicht.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L2-02",
+  "subject": "media",
+  "level": 1,
+  "topicId": "media-security",
+  "type": "choice",
+  "prompt": "Warum sollte dasselbe Passwort nicht für viele Dienste verwendet werden?",
+  "answers": [
+   "Wird es bei einem Dienst bekannt, können sonst mehrere Konten gefährdet sein.",
+   "Weil Passwörter nur einmal eingetippt werden dürfen.",
+   "Weil lange Passwörter nur für ein Konto funktionieren.",
+   "Weil Browser identische Passwörter verbieten."
+  ],
+  "correctAnswer": "Wird es bei einem Dienst bekannt, können sonst mehrere Konten gefährdet sein.",
+  "explanation": "Einzigartige Passwörter begrenzen den Schaden, wenn Zugangsdaten eines Dienstes kompromittiert werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L3-01",
+  "subject": "media",
+  "level": 2,
+  "topicId": "media-sources",
+  "type": "choice",
+  "prompt": "Warum zeigen soziale Plattformen nicht allen Nutzern exakt dieselben Inhalte?",
+  "answers": [
+   "Auswahl- und Empfehlungssysteme berücksichtigen Signale und Plattformziele.",
+   "Weil das Internet für jede Person andere Naturgesetze hat.",
+   "Weil alle Beiträge zufällig gelöscht werden.",
+   "Weil nur bezahlte Beiträge technisch angezeigt werden können."
+  ],
+  "correctAnswer": "Auswahl- und Empfehlungssysteme berücksichtigen Signale und Plattformziele.",
+  "explanation": "Feeds werden typischerweise gefiltert und personalisiert; Auswahlkriterien können sich ändern.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L3-02",
+  "subject": "media",
+  "level": 2,
+  "topicId": "media-sources",
+  "type": "choice",
+  "prompt": "Was ist ein guter erster Schritt bei einer überraschenden Behauptung?",
+  "answers": [
+   "Die ursprüngliche Quelle suchen und unabhängige Berichte vergleichen.",
+   "Sofort weiterleiten.",
+   "Nur die Kommentare lesen.",
+   "Die Aussage glauben, wenn sie oft wiederholt wird."
+  ],
+  "correctAnswer": "Die ursprüngliche Quelle suchen und unabhängige Berichte vergleichen.",
+  "explanation": "Quellenvergleich hilft, Kontextfehler und falsche Zuschreibungen zu erkennen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L3-03",
+  "subject": "media",
+  "level": 2,
+  "topicId": "media-sources",
+  "type": "choice",
+  "prompt": "Warum sind lange, unterschiedliche Passwörter sinnvoll?",
+  "answers": [
+   "Ein kompromittiertes Passwort gefährdet dann nicht automatisch mehrere Konten.",
+   "Lange Passwörter machen 2FA unmöglich.",
+   "Passwörter sollten auf allen Seiten identisch sein.",
+   "Nur Sonderzeichen bestimmen Sicherheit."
+  ],
+  "correctAnswer": "Ein kompromittiertes Passwort gefährdet dann nicht automatisch mehrere Konten.",
+  "explanation": "Einzigartige Passwörter begrenzen den Schaden eines einzelnen Datenlecks.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L4-01",
+  "subject": "media",
+  "level": 3,
+  "topicId": "media-platforms",
+  "type": "choice",
+  "prompt": "Warum kann ein personalisierter Feed ein verzerrtes Bild der Welt erzeugen?",
+  "answers": [
+   "Er zeigt nur einen ausgewählten Ausschnitt, der nach Plattformsignalen sortiert wird.",
+   "Weil jeder Nutzer exakt dieselben Inhalte sieht.",
+   "Weil Personalisierung automatisch Fakten prüft.",
+   "Weil Algorithmen keine Auswahl treffen können."
+  ],
+  "correctAnswer": "Er zeigt nur einen ausgewählten Ausschnitt, der nach Plattformsignalen sortiert wird.",
+  "explanation": "Empfehlungssysteme priorisieren Inhalte nach bestimmten Signalen und Zielen; das ist keine vollständige Abbildung aller verfügbaren Informationen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L4-02",
+  "subject": "media",
+  "level": 3,
+  "topicId": "media-platforms",
+  "type": "choice",
+  "prompt": "Was ist vor dem öffentlichen Teilen eines Fotos besonders sinnvoll?",
+  "answers": [
+   "Prüfen, welche persönlichen Informationen darauf erkennbar sind und wer es sehen kann.",
+   "Immer den genauen Wohnort dazuschreiben.",
+   "Privatsphäre-Einstellungen grundsätzlich ignorieren.",
+   "Das Bild mehrfach hochladen, damit es sicherer wird."
+  ],
+  "correctAnswer": "Prüfen, welche persönlichen Informationen darauf erkennbar sind und wer es sehen kann.",
+  "explanation": "Fotos können mehr Informationen preisgeben als beabsichtigt; Sichtbarkeit und Inhalt sollten bewusst gewählt werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L5-01",
+  "subject": "media",
+  "level": 4,
+  "topicId": "media-algorithms",
+  "type": "choice",
+  "prompt": "Was ist ein Deepfake?",
+  "answers": [
+   "Synthetisch erzeugtes oder verändertes Medienmaterial, das reale Darstellung vortäuschen kann.",
+   "Jede unscharfe Aufnahme.",
+   "Ein besonders langer Text.",
+   "Ein verschlüsseltes Backup."
+  ],
+  "correctAnswer": "Synthetisch erzeugtes oder verändertes Medienmaterial, das reale Darstellung vortäuschen kann.",
+  "explanation": "Generative Verfahren können Bild, Video oder Audio täuschend verändern; Kontext und Herkunft sollten geprüft werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L5-02",
+  "subject": "media",
+  "level": 4,
+  "topicId": "media-algorithms",
+  "type": "choice",
+  "prompt": "Was bedeutet Bestätigungsfehler (confirmation bias)?",
+  "answers": [
+   "Informationen, die die eigene Sicht stützen, werden leichter beachtet oder akzeptiert.",
+   "Man erinnert sich immer an alles korrekt.",
+   "Algorithmen sind grundsätzlich neutral.",
+   "Widerspruch beweist automatisch eine Lüge."
+  ],
+  "correctAnswer": "Informationen, die die eigene Sicht stützen, werden leichter beachtet oder akzeptiert.",
+  "explanation": "Menschen neigen dazu, bestätigende Informationen stärker zu gewichten; bewusster Quellenvergleich kann gegensteuern.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L5-03",
+  "subject": "media",
+  "level": 4,
+  "topicId": "media-algorithms",
+  "type": "choice",
+  "prompt": "Warum ist eine Prozentangabe ohne Bezugsgröße problematisch?",
+  "answers": [
+   "Man weiß nicht, auf welche Ausgangsmenge sie sich bezieht.",
+   "Prozentwerte sind immer falsch.",
+   "Nur absolute Zahlen sind erlaubt.",
+   "Bezugsgrößen spielen bei Prozenten keine Rolle."
+  ],
+  "correctAnswer": "Man weiß nicht, auf welche Ausgangsmenge sie sich bezieht.",
+  "explanation": "„50 % mehr“ ist ohne Ausgangswert und Kontext schwer einzuordnen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L6-01",
+  "subject": "media",
+  "level": 5,
+  "topicId": "media-ai",
+  "type": "choice",
+  "prompt": "Warum kann ein Deepfake überzeugend wirken und trotzdem falsch sein?",
+  "answers": [
+   "Bild oder Ton können künstlich erzeugt oder verändert sein, ohne das dargestellte Ereignis zu belegen.",
+   "Digitale Bilder können nie bearbeitet werden.",
+   "Ein realistisches Gesicht beweist immer die Quelle.",
+   "Deepfakes enthalten grundsätzlich ein sichtbares Warnzeichen."
+  ],
+  "correctAnswer": "Bild oder Ton können künstlich erzeugt oder verändert sein, ohne das dargestellte Ereignis zu belegen.",
+  "explanation": "Realistische Darstellung ist kein Beleg dafür, dass ein Ereignis tatsächlich so stattgefunden hat.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L6-02",
+  "subject": "media",
+  "level": 5,
+  "topicId": "media-ai",
+  "type": "choice",
+  "prompt": "Was ist bei einer wichtigen KI-Antwort ein guter nächster Schritt?",
+  "answers": [
+   "Zentrale Tatsachen mit geeigneten unabhängigen Quellen überprüfen.",
+   "Nur auf selbstbewusste Formulierungen achten.",
+   "Die Antwort ungeprüft weiterleiten.",
+   "Davon ausgehen, dass Fehler technisch ausgeschlossen sind."
+  ],
+  "correctAnswer": "Zentrale Tatsachen mit geeigneten unabhängigen Quellen überprüfen.",
+  "explanation": "Generative Systeme können plausible, aber falsche Angaben erzeugen; wichtige Fakten brauchen Verifikation.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L7-01",
+  "subject": "media",
+  "level": 6,
+  "topicId": "media-statistics",
+  "type": "choice",
+  "prompt": "Warum kann ein Empfehlungssystem Aufmerksamkeit verstärken, ohne die Wahrheit einer Aussage zu prüfen?",
+  "answers": [
+   "Optimierungsziele wie Interaktion sind nicht automatisch Wahrheitsprüfungen.",
+   "Weil Computer keine Zahlen verarbeiten.",
+   "Weil jede Empfehlung manuell geschrieben wird.",
+   "Weil wahre Inhalte nie Interaktionen auslösen."
+  ],
+  "correctAnswer": "Optimierungsziele wie Interaktion sind nicht automatisch Wahrheitsprüfungen.",
+  "explanation": "Reichweite oder Engagement und inhaltliche Verlässlichkeit sind unterschiedliche Ziele.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L7-02",
+  "subject": "media",
+  "level": 6,
+  "topicId": "media-statistics",
+  "type": "choice",
+  "prompt": "Welche Aussage zu KI-Ausgaben ist am vernünftigsten?",
+  "answers": [
+   "Auch überzeugend formulierte Antworten sollten bei wichtigen Fakten überprüft werden.",
+   "KI kann prinzipiell keine Fehler machen.",
+   "Nur kurze KI-Antworten sind wahr.",
+   "Eine Quelle ist unnötig, wenn der Text professionell klingt."
+  ],
+  "correctAnswer": "Auch überzeugend formulierte Antworten sollten bei wichtigen Fakten überprüft werden.",
+  "explanation": "Sprachliche Sicherheit ist kein Beleg für sachliche Richtigkeit.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L7-03",
+  "subject": "media",
+  "level": 6,
+  "topicId": "media-statistics",
+  "type": "choice",
+  "prompt": "Was hilft gegen Informationsüberlastung?",
+  "answers": [
+   "Quellen bewusst auswählen, Benachrichtigungen begrenzen und Zeit zum Prüfen einplanen.",
+   "Möglichst viele Feeds gleichzeitig öffnen.",
+   "Jede Meldung sofort beantworten.",
+   "Nur Überschriften lesen."
+  ],
+  "correctAnswer": "Quellen bewusst auswählen, Benachrichtigungen begrenzen und Zeit zum Prüfen einplanen.",
+  "explanation": "Aufmerksamkeitsmanagement schafft Raum für Einordnung und vertieftes Verstehen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L8-01",
+  "subject": "media",
+  "level": 7,
+  "topicId": "media-judgement",
+  "type": "choice",
+  "prompt": "Warum ist die ursprüngliche Quelle einer Statistik wichtig?",
+  "answers": [
+   "Dort lassen sich Definition, Zeitraum, Stichprobe und Methode besser prüfen.",
+   "Weil Weiterverbreitung Zahlen automatisch verändert.",
+   "Weil nur Primärquellen Diagramme enthalten dürfen.",
+   "Weil Prozentwerte ohne Quelle immer falsch sind."
+  ],
+  "correctAnswer": "Dort lassen sich Definition, Zeitraum, Stichprobe und Methode besser prüfen.",
+  "explanation": "Der Ursprung liefert Kontext, der in Screenshots oder Kurzposts häufig fehlt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "media-L8-02",
+  "subject": "media",
+  "level": 7,
+  "topicId": "media-judgement",
+  "type": "choice",
+  "prompt": "Welche Strategie hilft, Aufmerksamkeit bewusster zu steuern?",
+  "answers": [
+   "Benachrichtigungen und Feeds gezielt begrenzen und feste Zeiten für wichtige Informationen wählen.",
+   "Jede Meldung sofort öffnen.",
+   "Mehrere Feeds parallel laufen lassen.",
+   "Nur anhand der Zahl neuer Meldungen entscheiden."
+  ],
+  "correctAnswer": "Benachrichtigungen und Feeds gezielt begrenzen und feste Zeiten für wichtige Informationen wählen.",
+  "explanation": "Bewusste Auswahl und Unterbrechungen reduzieren unnötige Reize und schaffen Zeit für vertieftes Prüfen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L1-01",
+  "subject": "geography",
+  "level": 0,
+  "topicId": "geo-maps",
+  "type": "choice",
+  "prompt": "Was zeigt eine Karte mit Maßstab?",
+  "answers": [
+   "Wie Kartenentfernungen zu realen Entfernungen stehen.",
+   "Nur die Höhe von Bergen.",
+   "Welche Sprache Menschen sprechen.",
+   "Wie alt eine Stadt ist."
+  ],
+  "correctAnswer": "Wie Kartenentfernungen zu realen Entfernungen stehen.",
+  "explanation": "Der Maßstab beschreibt das Verhältnis zwischen Darstellung und Wirklichkeit.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L1-02",
+  "subject": "geography",
+  "level": 0,
+  "topicId": "geo-maps",
+  "type": "choice",
+  "prompt": "Was ist der Äquator?",
+  "answers": [
+   "Eine gedachte Linie um die Erde bei 0° geografischer Breite.",
+   "Die Grenze zwischen allen Staaten.",
+   "Der höchste Gebirgszug.",
+   "Die Linie des Nullmeridians."
+  ],
+  "correctAnswer": "Eine gedachte Linie um die Erde bei 0° geografischer Breite.",
+  "explanation": "Der Äquator teilt die Erde in Nord- und Südhalbkugel.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L1-03",
+  "subject": "geography",
+  "level": 0,
+  "topicId": "geo-maps",
+  "type": "choice",
+  "prompt": "Was beschreibt Wetter?",
+  "answers": [
+   "Den kurzfristigen Zustand der Atmosphäre an einem Ort.",
+   "Nur langfristige Klimamittel.",
+   "Ausschließlich Temperatur.",
+   "Die Lage von Kontinenten."
+  ],
+  "correctAnswer": "Den kurzfristigen Zustand der Atmosphäre an einem Ort.",
+  "explanation": "Wetter umfasst beispielsweise Temperatur, Niederschlag, Wind und Bewölkung zu einem bestimmten Zeitpunkt.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L2-01",
+  "subject": "geography",
+  "level": 1,
+  "topicId": "geo-climate",
+  "type": "choice",
+  "prompt": "Was beschreibt eine Klimazone?",
+  "answers": [
+   "Ein größeres Gebiet mit typischen langfristigen Klimamerkmalen.",
+   "Das Wetter einer einzigen Stunde.",
+   "Nur die politische Grenze eines Staates.",
+   "Die Höhe eines einzelnen Berges."
+  ],
+  "correctAnswer": "Ein größeres Gebiet mit typischen langfristigen Klimamerkmalen.",
+  "explanation": "Klimazonen fassen langfristige Muster von Temperatur, Niederschlag und weiteren Faktoren räumlich zusammen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L2-02",
+  "subject": "geography",
+  "level": 1,
+  "topicId": "geo-climate",
+  "type": "choice",
+  "prompt": "Wozu dient eine Kartenlegende?",
+  "answers": [
+   "Sie erklärt Symbole, Farben und Darstellungen auf der Karte.",
+   "Sie berechnet automatisch die Entfernung.",
+   "Sie zeigt nur den Kartentitel.",
+   "Sie ersetzt den Maßstab."
+  ],
+  "correctAnswer": "Sie erklärt Symbole, Farben und Darstellungen auf der Karte.",
+  "explanation": "Die Legende hilft, kartografische Zeichen korrekt zu lesen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L3-01",
+  "subject": "geography",
+  "level": 2,
+  "topicId": "geo-coordinates",
+  "type": "choice",
+  "prompt": "Wofür werden Längen- und Breitengrade genutzt?",
+  "answers": [
+   "Um Positionen auf der Erde zu beschreiben.",
+   "Um Währungen umzurechnen.",
+   "Um Zeitgeschichte zu ordnen.",
+   "Um chemische Elemente zu benennen."
+  ],
+  "correctAnswer": "Um Positionen auf der Erde zu beschreiben.",
+  "explanation": "Geografische Koordinaten bestehen aus Breite und Länge.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L3-02",
+  "subject": "geography",
+  "level": 2,
+  "topicId": "geo-coordinates",
+  "type": "choice",
+  "prompt": "Warum entstehen Jahreszeiten?",
+  "answers": [
+   "Durch die Neigung der Erdachse beim Umlauf um die Sonne.",
+   "Weil die Erde im Winter plötzlich viel langsamer rotiert.",
+   "Weil Wolken die Sonne für Monate abschalten.",
+   "Nur durch den Abstand zur Sonne."
+  ],
+  "correctAnswer": "Durch die Neigung der Erdachse beim Umlauf um die Sonne.",
+  "explanation": "Die Achsneigung verändert Sonnenstand und Tageslänge im Jahreslauf.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L3-03",
+  "subject": "geography",
+  "level": 2,
+  "topicId": "geo-coordinates",
+  "type": "choice",
+  "prompt": "Was ist eine Metropolregion?",
+  "answers": [
+   "Ein dicht verflochtener Großstadt- und Umlandbereich.",
+   "Jede unbewohnte Insel.",
+   "Ein einzelner Bauernhof.",
+   "Nur ein Gebirge."
+  ],
+  "correctAnswer": "Ein dicht verflochtener Großstadt- und Umlandbereich.",
+  "explanation": "Metropolregionen verbinden Kernstädte mit funktional eng verbundenem Umland.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L4-01",
+  "subject": "geography",
+  "level": 3,
+  "topicId": "geo-forces",
+  "type": "choice",
+  "prompt": "Warum können Flüsse Landschaften verändern?",
+  "answers": [
+   "Fließendes Wasser kann Material abtragen, transportieren und ablagern.",
+   "Flüsse bewegen grundsätzlich kein Material.",
+   "Erosion findet nur durch Wind statt.",
+   "Wasser verändert ausschließlich die Temperatur."
+  ],
+  "correctAnswer": "Fließendes Wasser kann Material abtragen, transportieren und ablagern.",
+  "explanation": "Erosion, Transport und Ablagerung formen Flusstäler und andere Landschaften.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L4-02",
+  "subject": "geography",
+  "level": 3,
+  "topicId": "geo-forces",
+  "type": "choice",
+  "prompt": "Was beschreibt Plattentektonik?",
+  "answers": [
+   "Die Bewegung großer Teile der festen Erdoberfläche auf geologischen Zeitskalen.",
+   "Die tägliche Bewegung von Wolken.",
+   "Nur die Entstehung von Flüssen.",
+   "Eine Methode zur Wettervorhersage."
+  ],
+  "correctAnswer": "Die Bewegung großer Teile der festen Erdoberfläche auf geologischen Zeitskalen.",
+  "explanation": "Bewegungen von Lithosphärenplatten hängen unter anderem mit Erdbeben, Gebirgsbildung und Vulkanismus zusammen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L5-01",
+  "subject": "geography",
+  "level": 4,
+  "topicId": "geo-cities",
+  "type": "choice",
+  "prompt": "Warum treten viele Erdbeben an Plattengrenzen auf?",
+  "answers": [
+   "Dort bewegen sich Erdplatten gegeneinander und Spannungen können sich lösen.",
+   "Weil dort immer Vulkane künstlich gebaut werden.",
+   "Weil Meereswasser Erdbeben direkt erzeugt.",
+   "Weil Kontinente unbeweglich sind."
+  ],
+  "correctAnswer": "Dort bewegen sich Erdplatten gegeneinander und Spannungen können sich lösen.",
+  "explanation": "Plattentektonische Bewegungen bauen Spannungen auf, die sich ruckartig lösen können.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L5-02",
+  "subject": "geography",
+  "level": 4,
+  "topicId": "geo-cities",
+  "type": "choice",
+  "prompt": "Was ist eine globale Lieferkette?",
+  "answers": [
+   "Ein Produktions- und Transportnetz über mehrere Orte oder Länder hinweg.",
+   "Nur der Weg eines Pakets innerhalb eines Hauses.",
+   "Eine Liste von Ladenöffnungszeiten.",
+   "Eine lokale Wetterkarte."
+  ],
+  "correctAnswer": "Ein Produktions- und Transportnetz über mehrere Orte oder Länder hinweg.",
+  "explanation": "Viele Produkte verbinden Rohstoffe, Verarbeitung, Transport und Verkauf über weite Räume.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L5-03",
+  "subject": "geography",
+  "level": 4,
+  "topicId": "geo-cities",
+  "type": "choice",
+  "prompt": "Warum wachsen manche Städte stark?",
+  "answers": [
+   "Arbeitsplätze, Infrastruktur, Migration und politische oder wirtschaftliche Bedingungen wirken zusammen.",
+   "Städte wachsen immer aus nur einem Grund.",
+   "Wetter hat alleinige Kontrolle über Bevölkerung.",
+   "Alle Menschen ziehen zwangsläufig in Hauptstädte."
+  ],
+  "correctAnswer": "Arbeitsplätze, Infrastruktur, Migration und politische oder wirtschaftliche Bedingungen wirken zusammen.",
+  "explanation": "Stadtentwicklung ist das Ergebnis mehrerer miteinander verbundener Faktoren.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L6-01",
+  "subject": "geography",
+  "level": 5,
+  "topicId": "geo-global",
+  "type": "choice",
+  "prompt": "Was kann ein Push-Faktor bei Migration sein?",
+  "answers": [
+   "Eine Bedingung am Herkunftsort, die Menschen zum Wegzug bewegen kann.",
+   "Eine Garantie für Migration.",
+   "Nur ein touristisches Reiseziel.",
+   "Eine Koordinate auf einer Karte."
+  ],
+  "correctAnswer": "Eine Bedingung am Herkunftsort, die Menschen zum Wegzug bewegen kann.",
+  "explanation": "Push- und Pull-Faktoren beschreiben mögliche Einflüsse; individuelle Migrationsentscheidungen können komplex sein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L6-02",
+  "subject": "geography",
+  "level": 5,
+  "topicId": "geo-global",
+  "type": "choice",
+  "prompt": "Warum sind Häfen wichtige Knoten globaler Lieferketten?",
+  "answers": [
+   "Dort werden große Warenströme zwischen See- und Landverkehr verbunden.",
+   "Weil Waren nur per Schiff transportiert werden dürfen.",
+   "Weil Entfernung im Handel keine Rolle spielt.",
+   "Weil Häfen keine Infrastruktur benötigen."
+  ],
+  "correctAnswer": "Dort werden große Warenströme zwischen See- und Landverkehr verbunden.",
+  "explanation": "Häfen verknüpfen Transportwege und beeinflussen Erreichbarkeit, Zeit und Kosten.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L7-01",
+  "subject": "geography",
+  "level": 6,
+  "topicId": "geo-resources",
+  "type": "choice",
+  "prompt": "Warum kann Wasserknappheit trotz ausreichenden Niederschlags entstehen?",
+  "answers": [
+   "Verteilung, Speicherung, Infrastruktur, Nutzung und Jahreszeiten beeinflussen Verfügbarkeit.",
+   "Niederschlag garantiert überall jederzeit Trinkwasser.",
+   "Wasser kann nicht gespeichert werden.",
+   "Nur die Einwohnerzahl spielt eine Rolle."
+  ],
+  "correctAnswer": "Verteilung, Speicherung, Infrastruktur, Nutzung und Jahreszeiten beeinflussen Verfügbarkeit.",
+  "explanation": "Ressourcenprobleme hängen nicht nur von Gesamtmengen, sondern auch von Ort, Zeit und Nutzung ab.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L7-02",
+  "subject": "geography",
+  "level": 6,
+  "topicId": "geo-resources",
+  "type": "choice",
+  "prompt": "Was bedeutet räumliche Ungleichheit?",
+  "answers": [
+   "Chancen, Einkommen, Infrastruktur oder Ressourcen sind zwischen Regionen unterschiedlich verteilt.",
+   "Alle Orte haben automatisch dieselben Bedingungen.",
+   "Nur Höhenunterschiede auf Karten.",
+   "Eine mathematische Gleichung."
+  ],
+  "correctAnswer": "Chancen, Einkommen, Infrastruktur oder Ressourcen sind zwischen Regionen unterschiedlich verteilt.",
+  "explanation": "Räumliche Unterschiede können wirtschaftliche und gesellschaftliche Folgen haben.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L7-03",
+  "subject": "geography",
+  "level": 6,
+  "topicId": "geo-resources",
+  "type": "choice",
+  "prompt": "Warum beeinflussen Verkehrswege die Entwicklung von Regionen?",
+  "answers": [
+   "Sie verändern Erreichbarkeit, Kosten und Austauschmöglichkeiten.",
+   "Weil Straßen Klima vollständig bestimmen.",
+   "Weil Handel ohne Orte stattfindet.",
+   "Weil Entfernung keine Rolle spielt."
+  ],
+  "correctAnswer": "Sie verändern Erreichbarkeit, Kosten und Austauschmöglichkeiten.",
+  "explanation": "Infrastruktur verändert, wie Menschen, Güter und Informationen Räume verbinden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L8-01",
+  "subject": "geography",
+  "level": 7,
+  "topicId": "geo-systems",
+  "type": "choice",
+  "prompt": "Warum können Maßnahmen gegen Hochwasser flussabwärts andere Folgen haben als am Bauort?",
+  "answers": [
+   "Flüsse sind verbundene Systeme; Eingriffe können Wasserstände und Fließwege an anderen Orten verändern.",
+   "Weil Wasser nur lokal reagiert.",
+   "Weil Hochwasser nie mehrere Regionen betrifft.",
+   "Weil Deiche Niederschlag verhindern."
+  ],
+  "correctAnswer": "Flüsse sind verbundene Systeme; Eingriffe können Wasserstände und Fließwege an anderen Orten verändern.",
+  "explanation": "Räumliche Planung muss Wechselwirkungen im gesamten Einzugsgebiet berücksichtigen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "geography-L8-02",
+  "subject": "geography",
+  "level": 7,
+  "topicId": "geo-systems",
+  "type": "choice",
+  "prompt": "Warum reicht für Stadtplanung nicht nur die Bevölkerungszahl?",
+  "answers": [
+   "Auch Wege, Wohnen, Arbeit, Grünflächen, Versorgung und unterschiedliche Bedürfnisse beeinflussen den Raum.",
+   "Weil Einwohnerzahlen grundsätzlich unwichtig sind.",
+   "Weil Städte keine Infrastruktur brauchen.",
+   "Weil alle Stadtteile identische Anforderungen haben."
+  ],
+  "correctAnswer": "Auch Wege, Wohnen, Arbeit, Grünflächen, Versorgung und unterschiedliche Bedürfnisse beeinflussen den Raum.",
+  "explanation": "Städte sind räumliche Systeme mit vielen miteinander verbundenen Funktionen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L1-01",
+  "subject": "economy",
+  "level": 0,
+  "topicId": "eco-budget",
+  "type": "choice",
+  "prompt": "Was ist ein Budget?",
+  "answers": [
+   "Ein Plan für verfügbare Einnahmen und Ausgaben.",
+   "Eine Garantie, nie Geld auszugeben.",
+   "Nur eine Liste von Wünschen.",
+   "Ein Kredit ohne Rückzahlung."
+  ],
+  "correctAnswer": "Ein Plan für verfügbare Einnahmen und Ausgaben.",
+  "explanation": "Ein Budget hilft, begrenzte Mittel auf verschiedene Zwecke zu verteilen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L1-02",
+  "subject": "economy",
+  "level": 0,
+  "topicId": "eco-budget",
+  "type": "choice",
+  "prompt": "Ein Produkt kostet 80 €, 25 % Rabatt. Was zahlst du?",
+  "answers": [
+   "60 €",
+   "20 €",
+   "55 €",
+   "75 €"
+  ],
+  "correctAnswer": "60 €",
+  "explanation": "25 % von 80 € sind 20 €. 80 € − 20 € = 60 €.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L1-03",
+  "subject": "economy",
+  "level": 0,
+  "topicId": "eco-budget",
+  "type": "choice",
+  "prompt": "Was bedeutet „Preis pro Stück“?",
+  "answers": [
+   "Gesamtpreis geteilt durch die Anzahl der Stücke.",
+   "Gesamtpreis mal Stückzahl.",
+   "Immer der billigste Marktpreis.",
+   "Nur der Versandpreis."
+  ],
+  "correctAnswer": "Gesamtpreis geteilt durch die Anzahl der Stücke.",
+  "explanation": "Ein Stückpreis macht Packungsgrößen besser vergleichbar.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L2-01",
+  "subject": "economy",
+  "level": 1,
+  "topicId": "eco-prices",
+  "type": "choice",
+  "prompt": "Zwei Packungen kosten 6 € für 3 Stück und 8 € für 5 Stück. Welche ist pro Stück günstiger?",
+  "answers": [
+   "Die Packung für 8 € mit 5 Stück.",
+   "Die Packung für 6 € mit 3 Stück.",
+   "Beide kosten pro Stück gleich viel.",
+   "Das kann man mit Stückpreisen nicht vergleichen."
+  ],
+  "correctAnswer": "Die Packung für 8 € mit 5 Stück.",
+  "explanation": "6 € ÷ 3 = 2 € pro Stück. 8 € ÷ 5 = 1,60 € pro Stück.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L2-02",
+  "subject": "economy",
+  "level": 1,
+  "topicId": "eco-prices",
+  "type": "choice",
+  "prompt": "Ein Preis steigt von 50 € auf 55 €. Um wie viel Prozent steigt er?",
+  "answers": [
+   "10 %",
+   "5 %",
+   "11 %",
+   "50 %"
+  ],
+  "correctAnswer": "10 %",
+  "explanation": "Die Erhöhung beträgt 5 €. Bezogen auf 50 € sind das 5 ÷ 50 = 0,10 = 10 %.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L3-01",
+  "subject": "economy",
+  "level": 2,
+  "topicId": "eco-contracts",
+  "type": "choice",
+  "prompt": "Was bedeutet Inflation vereinfacht?",
+  "answers": [
+   "Das allgemeine Preisniveau steigt über einen Zeitraum.",
+   "Jeder einzelne Preis muss steigen.",
+   "Geld wird physisch größer.",
+   "Alle Löhne steigen automatisch gleich stark."
+  ],
+  "correctAnswer": "Das allgemeine Preisniveau steigt über einen Zeitraum.",
+  "explanation": "Inflation bezieht sich auf die Entwicklung eines breiten Preisniveaus, nicht zwingend auf jeden Einzelpreis.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L3-02",
+  "subject": "economy",
+  "level": 2,
+  "topicId": "eco-contracts",
+  "type": "choice",
+  "prompt": "Was sind Zinsen bei einem Kredit?",
+  "answers": [
+   "Ein Preis für die zeitweise Überlassung von Geld.",
+   "Eine kostenlose Rückzahlung.",
+   "Nur eine Steuer.",
+   "Eine garantierte Rendite für den Kreditnehmer."
+  ],
+  "correctAnswer": "Ein Preis für die zeitweise Überlassung von Geld.",
+  "explanation": "Kreditzinsen sind Kosten zusätzlich zur Rückzahlung des geliehenen Betrags.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L3-03",
+  "subject": "economy",
+  "level": 2,
+  "topicId": "eco-contracts",
+  "type": "choice",
+  "prompt": "Was sind Opportunitätskosten?",
+  "answers": [
+   "Der Nutzen der besten nicht gewählten Alternative.",
+   "Nur Gebühren auf einer Rechnung.",
+   "Jede Ausgabe in bar.",
+   "Ein Preisfehler im Shop."
+  ],
+  "correctAnswer": "Der Nutzen der besten nicht gewählten Alternative.",
+  "explanation": "Wer eine knappe Ressource für A nutzt, verzichtet auf die beste Alternative B.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L4-01",
+  "subject": "economy",
+  "level": 3,
+  "topicId": "eco-inflation",
+  "type": "choice",
+  "prompt": "Was bedeutet sinkende Kaufkraft bei gleichem Einkommen?",
+  "answers": [
+   "Mit demselben Geld können im Durchschnitt weniger Waren und Dienstleistungen gekauft werden.",
+   "Das Einkommen wird automatisch höher.",
+   "Jeder einzelne Preis muss gefallen sein.",
+   "Geld verliert seine Rechenfunktion."
+  ],
+  "correctAnswer": "Mit demselben Geld können im Durchschnitt weniger Waren und Dienstleistungen gekauft werden.",
+  "explanation": "Steigt das allgemeine Preisniveau stärker als das Einkommen, sinkt dessen reale Kaufkraft.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L4-02",
+  "subject": "economy",
+  "level": 3,
+  "topicId": "eco-inflation",
+  "type": "choice",
+  "prompt": "Warum ist bei einem Kredit nicht nur die Monatsrate wichtig?",
+  "answers": [
+   "Laufzeit, Zinssatz und weitere Kosten bestimmen die Gesamtbelastung mit.",
+   "Weil die Monatsrate nie bezahlt wird.",
+   "Weil Zinsen keinen Einfluss auf Kosten haben.",
+   "Weil längere Laufzeiten immer billiger sind."
+  ],
+  "correctAnswer": "Laufzeit, Zinssatz und weitere Kosten bestimmen die Gesamtbelastung mit.",
+  "explanation": "Eine niedrige Rate kann durch eine längere Laufzeit mit höheren Gesamtkosten verbunden sein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L5-01",
+  "subject": "economy",
+  "level": 4,
+  "topicId": "eco-business",
+  "type": "choice",
+  "prompt": "Was bewirkt ein höherer Preis bei sonst gleichen Bedingungen häufig auf der Nachfrageseite?",
+  "answers": [
+   "Die nachgefragte Menge kann sinken.",
+   "Sie muss immer steigen.",
+   "Produktion wird unmöglich.",
+   "Der Preis verliert jede Bedeutung."
+  ],
+  "correctAnswer": "Die nachgefragte Menge kann sinken.",
+  "explanation": "Im einfachen Nachfragemodell sinkt die nachgefragte Menge häufig bei höheren Preisen; reale Märkte haben zusätzliche Faktoren.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L5-02",
+  "subject": "economy",
+  "level": 4,
+  "topicId": "eco-business",
+  "type": "choice",
+  "prompt": "Warum sollte man bei einem Vertrag Bedingungen vor Abschluss lesen?",
+  "answers": [
+   "Pflichten, Kosten, Laufzeit und Kündigungsregeln können entscheidend sein.",
+   "Weil Überschriften rechtlich immer alles enthalten.",
+   "Weil mündliche Versprechen jeden Vertrag automatisch ersetzen.",
+   "Weil Bedingungen nach Abschluss nie eine Rolle spielen."
+  ],
+  "correctAnswer": "Pflichten, Kosten, Laufzeit und Kündigungsregeln können entscheidend sein.",
+  "explanation": "Vertragsdetails bestimmen Rechte und Pflichten und sollten vor der Entscheidung bekannt sein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L5-03",
+  "subject": "economy",
+  "level": 4,
+  "topicId": "eco-business",
+  "type": "choice",
+  "prompt": "Was beschreibt Diversifikation bei Geldanlagen?",
+  "answers": [
+   "Risiken werden auf verschiedene Anlagen verteilt.",
+   "Das gesamte Geld wird in eine einzige Anlage gesteckt.",
+   "Risiko wird vollständig abgeschafft.",
+   "Gewinne werden garantiert."
+  ],
+  "correctAnswer": "Risiken werden auf verschiedene Anlagen verteilt.",
+  "explanation": "Streuung kann Einzelrisiken reduzieren, beseitigt aber nicht jedes Marktrisiko.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L6-01",
+  "subject": "economy",
+  "level": 5,
+  "topicId": "eco-market",
+  "type": "choice",
+  "prompt": "Was bedeutet Knappheit in der Ökonomie?",
+  "answers": [
+   "Verfügbare Mittel reichen nicht aus, um alle Wünsche gleichzeitig vollständig zu erfüllen.",
+   "Es gibt überhaupt keine Güter.",
+   "Alle Preise sind gleich hoch.",
+   "Menschen haben keine Bedürfnisse."
+  ],
+  "correctAnswer": "Verfügbare Mittel reichen nicht aus, um alle Wünsche gleichzeitig vollständig zu erfüllen.",
+  "explanation": "Knappheit zwingt zu Entscheidungen darüber, wofür begrenzte Ressourcen eingesetzt werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L6-02",
+  "subject": "economy",
+  "level": 5,
+  "topicId": "eco-market",
+  "type": "choice",
+  "prompt": "Was sind Fixkosten eines Unternehmens?",
+  "answers": [
+   "Kosten, die kurzfristig nicht direkt mit jeder zusätzlich produzierten Einheit steigen.",
+   "Kosten, die pro Stück immer exakt gleich sind.",
+   "Nur Steuern auf Gewinne.",
+   "Erlöse aus Verkäufen."
+  ],
+  "correctAnswer": "Kosten, die kurzfristig nicht direkt mit jeder zusätzlich produzierten Einheit steigen.",
+  "explanation": "Beispiele können Miete oder bestimmte Grundgebühren sein; variable Kosten verändern sich stärker mit der Produktionsmenge.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L7-01",
+  "subject": "economy",
+  "level": 6,
+  "topicId": "eco-risk",
+  "type": "choice",
+  "prompt": "Warum ist „hohe Rendite ohne Risiko“ ein Warnsignal?",
+  "answers": [
+   "Rendite und Risiko stehen typischerweise in einem Zusammenhang; Garantien sollten geprüft werden.",
+   "Weil Rendite immer illegal ist.",
+   "Weil Risiko nur bei kleinen Beträgen existiert.",
+   "Weil Werbung grundsätzlich falsch ist."
+  ],
+  "correctAnswer": "Rendite und Risiko stehen typischerweise in einem Zusammenhang; Garantien sollten geprüft werden.",
+  "explanation": "Ungewöhnlich hohe sichere Versprechen verdienen besondere Prüfung von Anbieter, Bedingungen und Risiken.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L7-02",
+  "subject": "economy",
+  "level": 6,
+  "topicId": "eco-risk",
+  "type": "choice",
+  "prompt": "Was ist bei einer wirtschaftlichen Entscheidung sinnvoll?",
+  "answers": [
+   "Kosten, Nutzen, Risiken, Zeit und Alternativen gemeinsam betrachten.",
+   "Nur den niedrigsten sichtbaren Preis beachten.",
+   "Folgekosten grundsätzlich ignorieren.",
+   "Entscheidungen nie mit Zielen verbinden."
+  ],
+  "correctAnswer": "Kosten, Nutzen, Risiken, Zeit und Alternativen gemeinsam betrachten.",
+  "explanation": "Gute Entscheidungen berücksichtigen mehrere relevante Faktoren und Alternativen.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L7-03",
+  "subject": "economy",
+  "level": 6,
+  "topicId": "eco-risk",
+  "type": "choice",
+  "prompt": "Warum können Durchschnittswerte täuschen?",
+  "answers": [
+   "Sie können große Unterschiede innerhalb einer Gruppe verdecken.",
+   "Durchschnittswerte sind mathematisch immer falsch.",
+   "Sie zeigen automatisch jede Einzelbeobachtung.",
+   "Sie dürfen nie verwendet werden."
+  ],
+  "correctAnswer": "Sie können große Unterschiede innerhalb einer Gruppe verdecken.",
+  "explanation": "Ein Mittelwert ist nützlich, sollte aber zusammen mit Verteilung und Kontext betrachtet werden.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L8-01",
+  "subject": "economy",
+  "level": 7,
+  "topicId": "eco-judgement",
+  "type": "choice",
+  "prompt": "Was ist ein negativer externer Effekt?",
+  "answers": [
+   "Eine Handlung verursacht Kosten für Dritte, die nicht vollständig im Preis berücksichtigt sind.",
+   "Jede freiwillige Zahlung.",
+   "Ein Rabatt im Einzelhandel.",
+   "Eine private Ersparnis ohne Auswirkungen auf andere."
+  ],
+  "correctAnswer": "Eine Handlung verursacht Kosten für Dritte, die nicht vollständig im Preis berücksichtigt sind.",
+  "explanation": "Externe Effekte entstehen, wenn Folgen einer Entscheidung andere betreffen, ohne vollständig in der Marktentscheidung enthalten zu sein.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ },
+ {
+  "id": "economy-L8-02",
+  "subject": "economy",
+  "level": 7,
+  "topicId": "eco-judgement",
+  "type": "choice",
+  "prompt": "Warum sollte man bei Entscheidungen auch Opportunitätskosten beachten?",
+  "answers": [
+   "Eine gewählte Möglichkeit bedeutet oft, auf den Nutzen der besten Alternative zu verzichten.",
+   "Weil jede Alternative denselben Nutzen hat.",
+   "Weil nur ausgegebenes Geld Kosten erzeugt.",
+   "Weil Zeit nie knapp ist."
+  ],
+  "correctAnswer": "Eine gewählte Möglichkeit bedeutet oft, auf den Nutzen der besten Alternative zu verzichten.",
+  "explanation": "Auch Zeit, Fläche oder Aufmerksamkeit sind knappe Ressourcen; ihre alternative Verwendung hat einen Wert.",
+  "source": "legacy-v22",
+  "checkedAt": null,
+  "version": 1
+ }
+]
