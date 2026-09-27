@@ -11,12 +11,14 @@
     "dev": "npm run dev -w apps/game",
     "build": "npm run build -w apps/game",
     "preview": "npm run preview -w apps/game",
-    "typecheck": "tsc -b packages/rules packages/content apps/game",
+    "typecheck": "tsc -b packages/rules packages/content apps/game apps/pilot3d",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:legacy": "node legacy/tests-v20/avatar.test.cjs && node legacy/tests-v20/avatar-editor.test.cjs && node legacy/tests-v20/wardrobe.test.cjs && node legacy/tests-v20/knowledge-v17.test.cjs && node legacy/tests-v20/learning.test.cjs && node legacy/tests-v20/prolog.test.cjs && node legacy/tests-v20/game.test.cjs",
     "extract:legacy-questions": "node scripts/extract-legacy-questions.cjs",
-    "verify": "npm run typecheck && npm test && npm run test:legacy && npm run build"
+    "verify": "npm run typecheck && npm test && npm run test:legacy && npm run build && npm run build:pilot",
+    "dev:pilot": "npm run dev -w apps/pilot3d",
+    "build:pilot": "npm run build -w apps/pilot3d"
   },
   "devDependencies": {
     "@types/node": "^22.20.4",

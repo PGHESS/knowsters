@@ -34,10 +34,13 @@ jobs:
         run: npm run test:legacy
       - name: Build
         run: npm run build
+      - name: Build 3D pilot
+        run: npm run build:pilot
       - name: Assemble site (app at /, reference stands at /legacy/)
         run: |
           rm -rf _site
           cp -R apps/game/dist _site
+          cp -R apps/pilot3d/dist _site/pilot
           mkdir -p _site/legacy
           cp -R legacy/v22 _site/legacy/v22
           cp -R legacy/v25-spike _site/legacy/v25-spike
