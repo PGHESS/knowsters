@@ -19,7 +19,7 @@ export class HumanFigure extends Phaser.GameObjects.Container {
   private walkT = 0;
   private readonly s: number;
 
-  constructor(scene: Phaser.Scene, x: number, y: number, look: AvatarLook, scale = 1, accent = COLORS.cyan) {
+  constructor(scene: Phaser.Scene, x: number, y: number, look: AvatarLook, scale = 1, accent: number = COLORS.cyan) {
     super(scene, x, y);
     this.s = scale;
     const s = scale;
