@@ -2,7 +2,7 @@ import type Phaser from 'phaser';
 import type { GameStore } from './store/store';
 import { hideSheet } from './ui/overlay';
 
-export type SceneKey = 'Boot' | 'Home' | 'World' | 'Battle';
+export type SceneKey = 'Boot' | 'Home' | 'World' | 'Battle' | 'RigLab';
 
 /**
  * Ein Router für Szenen und Overlays. Genau eine Spielszene ist aktiv; DOM-Sheets liegen darüber.
@@ -11,6 +11,8 @@ export type SceneKey = 'Boot' | 'Home' | 'World' | 'Battle';
  */
 export class Router {
   current: SceneKey = 'Boot';
+  /** Debug: Szene, die nach dem Boot statt Home geöffnet wird. */
+  labOnBoot: SceneKey | null = null;
 
   constructor(
     private readonly game: Phaser.Game,
@@ -28,6 +30,10 @@ export class Router {
 
   /** Nach dem Boot: laufenden Kampf fortsetzen, sonst Home. */
   resume(): void {
+    if (this.labOnBoot) {
+      this.go(this.labOnBoot);
+      return;
+    }
     if (this.store.state.battle && !this.store.state.battle.result) this.go('Battle', { resume: true });
     else this.go('Home');
   }

@@ -18,7 +18,7 @@ export function showTeam(store: GameStore, onClose: () => void, focus?: string):
   const cards = team
     .map((c) => {
       const species = guardianDef(c.speciesId);
-      const total = ATTRIBUTE_ORDER.reduce((s, a) => s + c.attributes[a].potential, 0);
+      const total = ATTRIBUTE_ORDER.reduce((s, a) => s + c.attributes[a].value, 0);
       const attrs = ATTRIBUTE_ORDER.map((a: AttributeId) => {
         const v = c.attributes[a];
         const need = attributeCost(v.value);
@@ -47,7 +47,7 @@ export function showTeam(store: GameStore, onClose: () => void, focus?: string):
         <img src="assets/creatures/${esc(species.sprite)}.png" alt="${esc(species.name)}" />
         <div>
           <h3>${esc(c.name)} <small>· ${esc(species.role)}</small></h3>
-          <small>${esc(species.trait)} · Potenzial ${total.toLocaleString('de-DE')} / 8.000 · ✦ ${c.skillPoints} Punkte</small>
+          <small>${esc(species.trait)} · Entwicklung ${total.toLocaleString('de-DE')} / 8.000 Potenzial · ✦ ${c.skillPoints} Punkte</small>
           <div class="attr-grid">${attrs}</div>
           ${skills}
         </div>
