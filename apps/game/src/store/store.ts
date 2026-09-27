@@ -67,6 +67,7 @@ export class GameStore {
   }
 
   reset(): void {
+    this.adapter.clear();
     this.state = createFreshSave();
     this.persist();
   }

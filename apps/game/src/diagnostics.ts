@@ -18,7 +18,9 @@ export function installDiagnostics(): void {
   });
   document.getElementById('diag-reset')?.addEventListener('click', () => {
     try {
+      // beide Schlüssel: der alte v22-Stand würde sonst beim nächsten Start erneut migriert
       localStorage.removeItem('knowsters-save-v30');
+      localStorage.removeItem('knowsters-story-v2');
     } catch {
       /* ignore */
     }

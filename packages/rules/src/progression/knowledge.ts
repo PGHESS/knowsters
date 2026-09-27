@@ -101,8 +101,11 @@ export function recordWrong(k: PlayerKnowledge, subject: SubjectId, topicId: str
 
 export const hasProof = (k: PlayerKnowledge, topicId: string): boolean => k.proofs.includes(topicId);
 
-export function grantProof(k: PlayerKnowledge, subject: SubjectId, topicId: string): void {
-  if (!k.proofs.includes(topicId)) k.proofs.push(topicId);
+/** Trägt einen Nachweis ein. Rückgabe true nur beim ersten Erwerb. */
+export function grantProof(k: PlayerKnowledge, subject: SubjectId, topicId: string): boolean {
+  const isNew = !k.proofs.includes(topicId);
+  if (isNew) k.proofs.push(topicId);
   const level = CURRICULUM[subject].findIndex((s) => s.id === topicId);
   if (level >= 0) k.subjects[subject].peakLevel = Math.max(k.subjects[subject].peakLevel, level);
+  return isNew;
 }

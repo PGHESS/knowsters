@@ -64,7 +64,7 @@ Die Szene liest Schaden, LP und Ergebnis **nur** aus dem Zustand. `ks25-battle.j
 - `trainAttribute`: Entwicklungskosten je Wertebereich (2 … 8), Potenzial als harte Grenze.
 - `PlayerKnowledge`: je Fach Stufe, **peakLevel** (nachweislich sichere Stufe), Serien, Themenstatistik; `proofs` = bestandene Nachweise.
 - `developmentFor(taskLevel, peakLevel)`: 2 / 1 / 0 – Farming-Schutz.
-- `startExam / answerExam`: 5 Items, 4/5 = `grantProof`; `applyExamReward` gibt +10 Entwicklung.
+- `startExam / answerExam`: 5 Items, 4/5 = `grantProof`; `applyExamReward` gibt +10 Entwicklung **nur beim ersten Erwerb** des Nachweises (`newProof`), Wiederholungen bestätigen ohne Bonus.
 - `checkUnlock / unlockAbility`: Voraussetzungen gegen Instanz **und** Spielerprofil.
 
 ## Aufgaben (packages/rules/src/questions)
@@ -74,7 +74,7 @@ Einheitliches Item-Format (`QuestionItem`: id, subject, level, topicId, type `ch
 ## Save / State
 
 - `SaveV30` (schema 30): player (Name, Altersband, Avatar, Wissen), creatures (Instanzen), team, companion, world, flags, battle (laufender Kampf), settings.
-- `SaveAdapter`-Interface: `load / save / export / import / clear`. `KeyValueSaveAdapter` über `localStorage` (App) oder `MemoryStore` (Tests).
+- `SaveAdapter`-Interface: `load / save / export / import / clear`. `clear()` und der Diagnose-Reset löschen auch den alten Schlüssel `knowsters-story-v2`, sonst würde er sofort erneut migriert. `KeyValueSaveAdapter` über `localStorage` (App) oder `MemoryStore` (Tests).
 - Migration: `migrateLegacyV22` übernimmt Alter, Avatar, Wissensstufen, Prolog-Flag aus `knowsters-story-v2`; Wesen werden neu erzeugt. Ab v30 nummerierte Migrationen in `MIGRATIONS` (leer, Vorlage vorhanden).
 - Der laufende Kampf wird nach jeder Aktion gespeichert; Reload setzt ihn fort (BootScene → Router.resume).
 

@@ -63,7 +63,8 @@ describe('save: adapter', () => {
     expect(adapter.load()!.player.name).toBe('Neu');
     const json = adapter.export();
     adapter.clear();
-    expect(adapter.load()!.player.name).toBe('Patrick'); // Legacy erneut migriert
+    expect(store.getItem(LEGACY_KEY)).toBeNull(); // Reset entfernt auch den alten Stand
+    expect(adapter.load()).toBeNull(); // nichts wird erneut migriert
     const imported = adapter.import(json);
     expect(imported.player.name).toBe('Neu');
     expect(() => adapter.import('{"schemaVersion":3}')).toThrow();

@@ -117,12 +117,22 @@ describe('exam and skill gating', () => {
     expect(exam2.passed).toBe(false);
     expect(k2.proofs).toHaveLength(0);
     expect(() => startExam('math', 5, items.slice(0, 3))).toThrow();
-    // Nachweis-Bonus: eine bestandene Prüfung entwickelt das gewählte Attribut spürbar
+    // Nachweis-Bonus nur beim ersten Erwerb: Wiederholung bestätigt, belohnt aber nicht erneut
     const c = createCreature('pyro', 'p', seededRng(4));
     const before = c.attributes.attack.value;
-    const reward = applyExamReward(c, 'attack');
-    expect(reward.development).toBe(EXAM_DEVELOPMENT_BONUS);
+    expect(exam.newProof).toBe(true);
+    const reward = applyExamReward(c, 'attack', exam);
+    expect(reward?.development).toBe(EXAM_DEVELOPMENT_BONUS);
     expect(c.attributes.attack.value).toBeGreaterThan(before);
+    const repeat = startExam('math', 5, generateExamSet('math', 5, rng, 5));
+    for (const item of repeat.items) answerExam(repeat, k, item.correctAnswer);
+    expect(repeat.passed).toBe(true);
+    expect(repeat.newProof).toBe(false);
+    expect(k.proofs.filter((p) => p === 'math-percent')).toHaveLength(1);
+    const after = c.attributes.attack.value;
+    expect(applyExamReward(c, 'attack', repeat)).toBeNull();
+    expect(c.attributes.attack.value).toBe(after);
+    expect(applyExamReward(c, 'attack', exam2)).toBeNull(); // nicht bestanden → kein Bonus
   });
   it('Glutspur needs attack ≥ 460, a skill point and the math-percent proof', () => {
     const c = createCreature('pyro', 'p', seededRng(2));

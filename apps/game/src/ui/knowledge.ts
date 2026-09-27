@@ -45,6 +45,8 @@ interface Session {
   examLevel: number;
   examLast: null | { correct: boolean; given: string; item: QuestionItem };
   examReward: null | { attributeId: AttributeId; before: number; after: number };
+  /** Prüfung bestanden, aber Nachweis war schon vorhanden: kein Bonus. */
+  examRepeat: boolean;
 }
 
 let session: Session | null = null;
@@ -54,7 +56,7 @@ export function showKnowledge(store: GameStore, onClose: () => void): void {
   const comp = store.companion() ?? team[0];
   if (!comp) return;
   if (!session || !store.creature(session.creatureId)) {
-    session = { subject: 'math', creatureId: comp.id, attributeId: defaultTrainingAttribute('math', comp), mode: 'overview', task: null, outcome: null, exam: null, examLevel: 0, examLast: null, examReward: null };
+    session = { subject: 'math', creatureId: comp.id, attributeId: defaultTrainingAttribute('math', comp), mode: 'overview', task: null, outcome: null, exam: null, examLevel: 0, examLast: null, examReward: null, examRepeat: false };
   }
   render(store, onClose);
 }
@@ -135,6 +137,7 @@ function render(store: GameStore, onClose: () => void): void {
       s.mode = 'exam';
       s.examLast = null;
       s.examReward = null;
+      s.examRepeat = false;
       rerender();
     },
     'exam-answer': (el) => submitExam(store, el.dataset.value ?? '', rerender),
@@ -181,8 +184,9 @@ function submitExam(store: GameStore, given: string, rerender: () => void): void
     const result = answerExam(s.exam!, st.player.knowledge, given);
     correct = result.correct;
     if (result.finished && result.passed) {
-      const r = applyExamReward(creature, s.attributeId);
-      s.examReward = { attributeId: s.attributeId, before: r.before, after: r.after };
+      const r = applyExamReward(creature, s.attributeId, s.exam!);
+      if (r) s.examReward = { attributeId: s.attributeId, before: r.before, after: r.after };
+      else s.examRepeat = true;
     }
   });
   s.examLast = { correct, given, item };
@@ -330,7 +334,7 @@ function examHtml(store: GameStore, creature: CreatureInstance): string {
     return `<div class="kicker">Prüfung · ${esc(stage.title)}</div>
       <h2>${exam.passed ? 'Nachweis erbracht.' : 'Noch nicht.'}</h2>
       <p class="lead">${score} von ${exam.items.length} richtig.${exam.passed ? ' Der Nachweis ist in deinem Profil gespeichert.' : ` Für den Nachweis brauchst du ${EXAM_SIZE - 1}. Üben ist jederzeit frei.`}</p>
-      ${reward ? `<div class="explain" style="border-left-color:var(--green)"><strong>+${EXAM_DEVELOPMENT_BONUS} ${esc(ATTRIBUTE_DEFS[reward.attributeId].label)}entwicklung</strong> für ${esc(species.name)}${reward.after > reward.before ? `: ${reward.before} → ${reward.after}` : ''}.</div>${progressHtml(creature, reward.attributeId)}` : ''}
+      ${reward ? `<div class="explain" style="border-left-color:var(--green)"><strong>+${EXAM_DEVELOPMENT_BONUS} ${esc(ATTRIBUTE_DEFS[reward.attributeId].label)}entwicklung</strong> für ${esc(species.name)}${reward.after > reward.before ? `: ${reward.before} → ${reward.after}` : ''}.</div>${progressHtml(creature, reward.attributeId)}` : s.examRepeat ? '<div class="explain"><strong>Nachweis bestätigt.</strong> Er war schon in deinem Profil – den Entwicklungsbonus gibt es nur beim ersten Erwerb. Üben bringt weiterhin Entwicklung.</div>' : ''}
       ${exam.passed ? unlockHint(store) : ''}
       <div class="row"><button class="btn primary" data-action="back">Zur Übersicht</button></div>`;
   }

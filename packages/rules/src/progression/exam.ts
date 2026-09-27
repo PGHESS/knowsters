@@ -18,6 +18,8 @@ export interface ExamState {
   answers: { itemId: string; given: string; correct: boolean }[];
   finished: boolean;
   passed: boolean | null;
+  /** true, wenn diese Prüfung den Nachweis zum ersten Mal erbracht hat (nur dann gibt es den Entwicklungsbonus). */
+  newProof: boolean;
 }
 
 /** Prüfung (Auftrag §12): 5 neue Aufgaben, keine Hilfen, 4/5 = Nachweis. */
@@ -27,12 +29,12 @@ export function startExam(subject: SubjectId, level: number, items: QuestionItem
   if (items.length < EXAM_SIZE) throw new Error(`Prüfung braucht ${EXAM_SIZE} Aufgaben, ${items.length} vorhanden`);
   const unique = new Set(items.map((i) => i.prompt));
   if (unique.size < EXAM_SIZE) throw new Error('Prüfungsaufgaben müssen unterschiedlich sein');
-  return { subject, topicId: stage.id, level, items: items.slice(0, EXAM_SIZE), index: 0, answers: [], finished: false, passed: null };
+  return { subject, topicId: stage.id, level, items: items.slice(0, EXAM_SIZE), index: 0, answers: [], finished: false, passed: null, newProof: false };
 }
 
 export const currentExamItem = (exam: ExamState): QuestionItem | null => (exam.finished ? null : (exam.items[exam.index] ?? null));
 
-export function answerExam(exam: ExamState, knowledge: PlayerKnowledge, given: string): { correct: boolean; finished: boolean; passed: boolean | null } {
+export function answerExam(exam: ExamState, knowledge: PlayerKnowledge, given: string): { correct: boolean; finished: boolean; passed: boolean | null; newProof: boolean } {
   const item = currentExamItem(exam);
   if (!item) throw new Error('Prüfung ist beendet');
   const correct = normalize(given) === normalize(item.correctAnswer);
@@ -42,9 +44,9 @@ export function answerExam(exam: ExamState, knowledge: PlayerKnowledge, given: s
     exam.finished = true;
     const score = exam.answers.filter((a) => a.correct).length;
     exam.passed = score >= EXAM_PASS;
-    if (exam.passed) grantProof(knowledge, exam.subject, exam.topicId);
+    if (exam.passed) exam.newProof = grantProof(knowledge, exam.subject, exam.topicId);
   }
-  return { correct, finished: exam.finished, passed: exam.passed };
+  return { correct, finished: exam.finished, passed: exam.passed, newProof: exam.newProof };
 }
 
 export const examScore = (exam: ExamState): number => exam.answers.filter((a) => a.correct).length;
@@ -57,7 +59,11 @@ export function normalize(value: string): string {
   return v.toLowerCase();
 }
 
-/** Nach bestandener Prüfung: spürbare Entwicklung für das gewählte, zum Fach passende Attribut. */
-export function applyExamReward(creature: CreatureInstance, attributeId: AttributeId): TrainResult {
+/**
+ * Entwicklungsbonus nur beim ersten Erwerb eines Nachweises (Farming-Schutz: eine Prüfung darf
+ * wiederholt werden, aber nicht wiederholt belohnen). Gibt null zurück, wenn kein Bonus fällig ist.
+ */
+export function applyExamReward(creature: CreatureInstance, attributeId: AttributeId, exam: ExamState): TrainResult | null {
+  if (!exam.finished || !exam.passed || !exam.newProof) return null;
   return trainAttribute(creature.attributes, attributeId, EXAM_DEVELOPMENT_BONUS);
 }

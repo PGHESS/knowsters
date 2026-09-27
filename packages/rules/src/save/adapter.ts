@@ -66,8 +66,10 @@ export class KeyValueSaveAdapter implements SaveAdapter {
     return migrated;
   }
 
+  /** Löscht den aktuellen UND den alten v22-Stand, sonst würde der alte beim nächsten Start erneut migriert. */
   clear(): void {
     this.store.removeItem(SAVE_KEY);
+    this.store.removeItem(LEGACY_KEY);
   }
 }
 
