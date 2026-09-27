@@ -51,9 +51,12 @@ jobs:
           path: _site
           retention-days: 7
 
+  # Pages-Deploy nur von main: Die Umgebung github-pages erlaubt per Schutzregel standardmäßig
+  # nur den Default-Branch. Für Branch-Deploys unter Settings → Environments → github-pages
+  # den Branch-Pattern "claude/*" freigeben und die Bedingung hier erweitern.
   deploy:
     needs: verify
-    if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/claude/'))
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
