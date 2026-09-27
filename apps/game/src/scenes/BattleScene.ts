@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { ABILITIES, boardDef, encounterDef, enemyDef, guardianDef, type BoardConfig, type EncounterDef } from '@knowsters/content';
+import { ABILITIES, basicAttackDef, boardDef, encounterDef, enemyDef, guardianDef, type BoardConfig, type EncounterDef } from '@knowsters/content';
 import {
   canAct,
   living,
@@ -55,7 +55,7 @@ export class BattleScene extends Phaser.Scene {
   private reduced = false;
   private finished = false;
   private hud!: { round: ReturnType<typeof addPill>; phase: ReturnType<typeof addPill>; objective: ReturnType<typeof addPill>; message: Phaser.GameObjects.Text };
-  private bar!: { name: Phaser.GameObjects.Text; stats: Phaser.GameObjects.Text; info: Phaser.GameObjects.Text; move: CanvasButton; skills: CanvasButton; wait: CanvasButton; back: CanvasButton; rally: CanvasButton };
+  private bar!: { name: Phaser.GameObjects.Text; stats: Phaser.GameObjects.Text; info: Phaser.GameObjects.Text; move: CanvasButton; basic: CanvasButton; skills: CanvasButton; wait: CanvasButton; back: CanvasButton; rally: CanvasButton };
   private skillButtons: CanvasButton[] = [];
   private skillLevel = false;
   private summoner!: HumanFigure;
@@ -150,13 +150,16 @@ export class BattleScene extends Phaser.Scene {
     const name = this.add.text(20, H - 150, '', textStyle(13, '#fff', '700')).setDepth(DEPTH.hud);
     const stats = this.add.text(20, H - 133, '', textStyle(10, '#9fb7c2')).setDepth(DEPTH.hud);
     const info = this.add.text(20, H - 118, '', textStyle(10, '#dbf8fb')).setDepth(DEPTH.hud).setWordWrapWidth(350).setLineSpacing(1);
-    const move = makeButton(this, 66, barY, 90, 56, '↔ BEWEGEN', () => this.onMove(), { fill: 0x123548 });
-    const skills = makeButton(this, 170, barY, 106, 56, '✦ FÄHIGKEITEN', () => this.toggleSkills(true), { fill: 0x5b341b, stroke: COLORS.orange, accent: '#fff2df' });
-    const waitBtn = makeButton(this, 260, barY, 62, 56, 'WARTEN', () => this.onWait(), { fill: 0x18372c, stroke: COLORS.green, accent: '#e7fff0', size: 10 });
+    const move = makeButton(this, 56, barY, 84, 56, '↔ BEWEGEN', () => this.onMove(), { fill: 0x123548, size: 10 });
+    const basic = makeButton(this, 148, barY, 88, 56, '⚔ ANGRIFF', () => this.onBasic(), { fill: 0x4a2a2a, stroke: COLORS.red, accent: '#ffe4e4', size: 10, sub: 'Grundangriff' });
+    const skills = makeButton(this, 244, barY, 96, 56, '✦ FÄHIGK.', () => this.toggleSkills(true), { fill: 0x5b341b, stroke: COLORS.orange, accent: '#fff2df', size: 10, sub: '4 Slots' });
+    const waitBtn = makeButton(this, 340, barY, 82, 56, 'WARTEN', () => this.onWait(), { fill: 0x18372c, stroke: COLORS.green, accent: '#e7fff0', size: 10 });
     const back = makeButton(this, 22, 44, 32, 30, '‹', () => this.leave(), { fill: 0x102836, stroke: 0x5e8190 });
-    const rallyBtn = makeButton(this, 340, barY, 82, 56, '⚑ SAMMELN', () => this.onRally(), { fill: 0x2b2440, stroke: COLORS.violet, accent: '#f0e6ff', size: 10, sub: 'Beschwörer' });
-    for (const b of [move, skills, waitBtn, back, rallyBtn]) b.container.setDepth(DEPTH.hud);
-    this.bar = { name, stats, info, move, skills, wait: waitBtn, back, rally: rallyBtn };
+    // Beschwörerkommando sitzt beim Menschen, nicht in der Wesen-Leiste
+    const sy = this.L.startY + this.L.tileH * this.L.rows + 42;
+    const rallyBtn = makeButton(this, W - 72, sy + 4, 108, 40, '⚑ SAMMELN', () => this.onRally(), { fill: 0x2b2440, stroke: COLORS.violet, accent: '#f0e6ff', size: 10, sub: 'Kommando' });
+    for (const b of [move, basic, skills, waitBtn, back, rallyBtn]) b.container.setDepth(DEPTH.hud);
+    this.bar = { name, stats, info, move, basic, skills, wait: waitBtn, back, rally: rallyBtn };
   }
 
   private toggleSkills(open: boolean): void {
@@ -165,9 +168,9 @@ export class BattleScene extends Phaser.Scene {
     this.skillButtons = [];
     const visible = !open;
     this.bar.move.container.setVisible(visible);
+    this.bar.basic.container.setVisible(visible);
     this.bar.skills.container.setVisible(visible);
     this.bar.wait.container.setVisible(visible);
-    this.bar.rally.container.setVisible(visible);
     if (!open) {
       this.refresh();
       return;
@@ -241,6 +244,20 @@ export class BattleScene extends Phaser.Scene {
     const r = setMode(this.state, 'move');
     if (!r.ok) flash(this, 108, r.message ?? 'Nicht möglich', 1200, DEPTH.hud + 5);
     this.refresh();
+  }
+
+  private onBasic(): void {
+    if (this.busy || this.finished) return;
+    const r = setMode(this.state, 'basic');
+    if (!r.ok) {
+      flash(this, 108, r.message ?? 'Nicht möglich', 1200, DEPTH.hud + 5);
+      return;
+    }
+    const sel = unitById(this.state, this.state.selected);
+    const def = sel?.basicAttack ? basicAttackDef(sel.basicAttack) : null;
+    this.refresh(false);
+    this.bar.info.setText(def ? `${def.name} · Reichweite ${def.range} · ${def.desc}` : 'Tippe einen Gegner in Reichweite.');
+    this.showTargets();
   }
 
   private onSkill(id: string): void {
@@ -409,6 +426,11 @@ export class BattleScene extends Phaser.Scene {
         case 'enemy-hit': {
           if (!actor || !target || !tpos) return done();
           actor.rig.attack(tpos.x, tpos.y, () => this.impact(target, actor.rig.x, e.amount ?? 0, '#ff9fd0'), done);
+          break;
+        }
+        case 'basic-attack': {
+          if (!actor || !target || !tpos) return done();
+          actor.rig.attack(tpos.x, tpos.y, () => this.impact(target, actor.rig.x, e.amount ?? 0, dmgColor, COLORS.orange), done);
           break;
         }
         case 'hazard-hit': {
@@ -590,16 +612,26 @@ export class BattleScene extends Phaser.Scene {
     }
     const active = interactive && !this.busy && !s.result && s.phase === 'player' && canAct(s, s.selected);
     this.bar.move.setEnabled(active);
+    this.bar.basic.setEnabled(active && !!sel?.basicAttack);
     this.bar.skills.setEnabled(active);
     this.bar.wait.setEnabled(active);
     this.bar.rally.setEnabled(interactive && !this.busy && !s.result && s.phase === 'player' && !s.rallyUsed);
     this.bar.move.setActive(s.mode === 'move');
+    this.bar.basic.setActive(s.mode === 'basic');
     if (!this.skillLevel) {
       this.bar.info.setText(
-        s.result ? '' : s.phase === 'enemy' ? 'Das Rauschen handelt …' : sel && !canAct(s, sel.id) ? (s.acted[sel.id] ? `${sel.name} hat schon gehandelt. Tippe ein anderes Wesen.` : `${sel.name} ist noch nicht am Zug.`) : s.mode === 'move' ? 'Tippe ein leuchtendes Feld.' : 'Bewegen, Fähigkeit oder Warten. Der Beschwörer kann einmal „Sammeln“ rufen.',
+        s.result ? '' : s.phase === 'enemy' ? 'Das Rauschen handelt …' : sel && !canAct(s, sel.id) ? (s.acted[sel.id] ? `${sel.name} hat schon gehandelt. Tippe ein anderes Wesen.` : `${sel.name} ist noch nicht am Zug.`) : s.mode === 'move' ? 'Tippe ein leuchtendes Feld.' : s.mode === 'basic' ? 'Tippe einen markierten Gegner.' : 'Bewegen, Grundangriff, Fähigkeit oder Warten. Der Beschwörer kann einmal „Sammeln“ rufen.',
       );
     }
     if (!interactive || !s.mode || !sel) return;
+    this.showTargets();
+  }
+
+  /** Erreichbare Felder / gültige Ziele für den aktuellen Modus aus dem Regelkern einblenden. */
+  private showTargets(): void {
+    const s = this.state;
+    const sel = unitById(s, s.selected);
+    if (!s.mode || !sel) return;
     const cells = validTiles(s, sel.id, s.mode);
     for (const key of cells) {
       const [x, y] = key.split(':').map(Number) as [number, number];

@@ -1,6 +1,21 @@
-# Testreport – Vertical Slice v0.1
+# Testreport – Vertical Slice v0.1 + 3D-Pilot
 
-Stand: 27.09.2026 · Branch `claude/vertical-slice-v1` · `npm run verify` grün (Exit 0)
+Stand: 27.09.2026 · Branch `claude/3d-pilot-v1` (auf main nach Merge des Slice) · `npm run verify` grün (Exit 0)
+
+## Nachtrag 3D-Pilot (Branch `claude/3d-pilot-v1`)
+
+| Prüfung | Ergebnis |
+|---|---|
+| vitest | 45 Tests in 7 Dateien (neu: `basic-attack.test.ts`, 7 Tests: je Wesen ein Grundangriff, immer verfügbar ohne Resonanz, Reichweite im Regelkern, Schaden nur im Regelkern mit Event, Gegner-KI greift über content-definierten Grundangriff an, Hydrate ergänzt `basicAttack` in älteren v30-Kämpfen, Gegnerangriffe nicht im Spieler-Aktionssatz) |
+| Typecheck | rules, content, game, pilot3d strict |
+| Build | Phaser-Slice unverändert; Pilot 5,98 MB JS (gzip 1,28 MB) |
+| WebKit, Fall 1 | Laden ohne Fehler; per HUD-Klick + Canvas-Tap: Bewegen (2,4)→(2,3), Grundangriff Gegner 5→3 LP, Gegnerphase (Angriff auf Pyro), Fähigkeiten-Ebene → Glutspur legt Glut auf ein Feld (Resonanz 1→0), Sammeln (rallyUsed, Schild) |
+| WebKit, Fall 2/3 | 4 Wesen + 3 Gegner laden (8 Skelette, 19 AnimationGroups), Warten-Aktion + Gegnerphase ohne Fehler |
+| Messwerte | siehe `docs/3D_PILOT.md` (Tabelle) – Software-WebKit, keine Gerätewerte |
+| Screenshots | `docs/screenshots/pilot3d/` (Idle, Bewegungsreichweite, Grundangriff-Ziele, Treffer, Fähigkeiten, Glutspur, Sammeln, Fall 2, Fall 3) |
+
+Offen: iPhone-/Android-Messung (Overlay oben links, `?case=1|2|3`).
+
 
 ## Automatisierte Tests
 

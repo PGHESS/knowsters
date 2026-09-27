@@ -99,7 +99,24 @@ export const ENCOUNTER_WORKSHOP: EncounterDef = {
   rewardSkillPoints: 1,
 };
 
+/** 3D-Pilot (Auftrag Phase C): 1 Mensch + Pyro + 1 Gegner, 6×7 Werkhalle. */
+export const ENCOUNTER_PILOT_3D: EncounterDef = {
+  id: 'pilot-3d',
+  title: '3D-Pilot · Werkhalle',
+  boardId: 'workshop-6x7',
+  objective: { type: 'defeatAll', maxRounds: 10 },
+  team: [{ species: 'pyro', x: 2, y: 4 }],
+  enemies: [{ species: 'rush', x: 3, y: 1 }],
+  spawns: {},
+  tutorial: { 1: { unit: 'pyro', title: 'Pilot.', text: 'Bewegen, Grundangriff, Glutspur, Sammeln – alles über den Regelkern.' } },
+  intro: 'Pilot-Arena. Ein Dränger zwischen den Maschinen.',
+  victory: 'Pilot bestanden: der Dränger ist gebannt.',
+  defeat: 'Der Dränger hält die Halle.',
+  rewardSkillPoints: 0,
+};
+
 export const ENCOUNTERS: Record<string, EncounterDef> = {
+  [ENCOUNTER_PILOT_3D.id]: ENCOUNTER_PILOT_3D,
   [ENCOUNTER_PROLOG.id]: ENCOUNTER_PROLOG,
   [ENCOUNTER_WORKSHOP.id]: ENCOUNTER_WORKSHOP,
 };

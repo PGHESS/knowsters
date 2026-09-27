@@ -1,0 +1,17 @@
+{
+  "$comment": "Runtime-Manifest des 3D-Piloten. Alle Modelle sind TECHNISCHE PLATZHALTER (Khronos glTF-Sample-Assets, CC-BY 4.0) und keine Aussage über die Zielgrafik.",
+  "version": 1,
+  "models": {
+    "creature.pyro": { "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (PixelMannen, tomkranis, AsoboStudio, scurest · CC-BY 4.0)", "scale": 0.0115, "tint": "#ff8a4d", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null, "skill_04": "Run" } },
+    "creature.lumi": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.0105, "tint": "#f2d08d", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
+    "creature.terra": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.013, "tint": "#73eaa0", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
+    "creature.nivaro": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.0105, "tint": "#5de5f1", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null } },
+    "enemy.rush": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.0095, "tint": "#b271e8", "emissive": "#b271e8", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null } },
+    "enemy.flicker": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.009, "tint": "#e26fe7", "emissive": "#e26fe7", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
+    "enemy.brute": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.014, "tint": "#8a4a7a", "emissive": "#8a4a7a", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
+    "human.summoner": { "file": "models/placeholders/cesium-man.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/CesiumMan (Cesium · CC-BY 4.0)", "scale": 0.62, "tint": null, "yawOffset": 3.14159, "anims": { "idle": null, "move": "*", "command": null }, "note": "einzige Animation ist unbenannt; * = erste AnimationGroup" }
+  },
+  "environments": {
+    "arena.workshop": { "file": null, "placeholder": true, "note": "prozedural in apps/pilot3d/src/scene/environment.ts, bis workshop_arena.glb existiert" }
+  }
+}

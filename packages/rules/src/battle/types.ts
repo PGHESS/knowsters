@@ -35,6 +35,8 @@ export interface BattleUnit {
   maxResonance: number;
   /** Beherrschte Fähigkeiten (Wächter). */
   abilities: string[];
+  /** Grundangriff-ID (Wächter), immer verfügbar. */
+  basicAttack: string | null;
 }
 
 export interface TimedCell extends Cell {

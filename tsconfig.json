@@ -1,4 +1,17 @@
 {
   "files": [],
-  "references": [{ "path": "./packages/content" }, { "path": "./packages/rules" }, { "path": "./apps/game" }]
+  "references": [
+    {
+      "path": "./packages/content"
+    },
+    {
+      "path": "./packages/rules"
+    },
+    {
+      "path": "./apps/game"
+    },
+    {
+      "path": "./apps/pilot3d"
+    }
+  ]
 }

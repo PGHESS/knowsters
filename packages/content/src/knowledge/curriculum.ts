@@ -1,8 +1,8 @@
-import curriculumJson from './data/curriculum.json';
-import domainsJson from './data/domains.json';
-import ageBandsJson from './data/age-bands.json';
-import difficultyJson from './data/difficulty-labels.json';
-import type { AttributeId } from './attributes';
+import curriculumJson from '../data/curriculum.json';
+import domainsJson from '../data/domains.json';
+import ageBandsJson from '../data/age-bands.json';
+import difficultyJson from '../data/difficulty-labels.json';
+import type { AttributeId } from '../attributes';
 
 export type SubjectId =
   | 'math'
