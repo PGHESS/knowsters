@@ -9,14 +9,15 @@ Home → Lichtquell (Welt) → Eno (NPC) → Werkhalle (Encounter) → Taktikkam
      → Ergebnis → Wissen (Üben / Prüfung) → Entwicklung → Glutspur frei → nächster Kampf
 ```
 
-Live: https://pghess.github.io/knowsters/ · Referenzstände: https://pghess.github.io/knowsters/legacy/
+Live: https://pghess.github.io/knowsters/ · 3D-Pilot: https://pghess.github.io/knowsters/pilot/ (`?case=1|2|3`) · Referenzstände: https://pghess.github.io/knowsters/legacy/
 
 ## Schnellstart
 
 ```bash
 npm ci            # Node >= 20
 npm run dev       # http://localhost:5173/knowsters/
-npm run verify    # typecheck + vitest + Legacy-Tests + Build
+npm run verify    # typecheck + vitest + Legacy-Tests + Build (Slice + 3D-Pilot)
+npm run dev:pilot # 3D-Pilot: http://localhost:5174/knowsters/pilot/
 ```
 
 Weitere Befehle: `npm test` (vitest), `npm run typecheck`, `npm run build` (Vite → `apps/game/dist`), `npm run preview`, `npm run test:legacy` (alte Test-Suite gegen den v22-Build), `npm run extract:legacy-questions` (Fragenpools aus dem Legacy-Code nach JSON).
@@ -27,6 +28,7 @@ Debug-Parameter im Browser: `?fps=1` (Bildrate), `?lab=rig` (Rig-Labor mit Cutou
 
 ```
 apps/game            Vite + TypeScript + Phaser 4.2.1 (Szenen, DOM-Overlays, Store, Router)
+apps/pilot3d         Babylon.js 9 · 3D-Pilot als zweiter Presenter über demselben Regelkern
 packages/rules       Regelkern ohne DOM: Kampf, Progression, Wissen, Aufgaben, Terrain, Save
 packages/content     Daten: Attribute, Fähigkeiten, Wesen, Bretter, Encounter, Curriculum, Fragen
 legacy/              v22-Prototyp, v25-Spike, alte Tests – eingefroren, spielbar unter /legacy/
@@ -47,6 +49,9 @@ Verbindliches Muster: **Command → Rules → State + Events → Presenter**. Ph
 
 ## Dokumente
 
+- [docs/3D_PILOT.md](docs/3D_PILOT.md) – Babylon-Pilot: Aufbau, Messungen, Empfehlung
+- [docs/ASSET_STRUCTURE.md](docs/ASSET_STRUCTURE.md) – Content-/Runtime-/Source-Asset-Struktur nach Art & Asset Bible
+- [docs/BASIC_ATTACKS.md](docs/BASIC_ATTACKS.md) – Grundangriffe (Pilotwerte)
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) – Schichten, Datenfluss, Save, Turn-Order-Modi
 - [docs/MIGRATION.md](docs/MIGRATION.md) – was aus v22/v25 übernommen, portiert oder bewusst verworfen wurde
 - [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) – Einschränkungen, bewusst verschobene Features

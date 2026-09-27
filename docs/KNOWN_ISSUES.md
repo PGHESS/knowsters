@@ -30,3 +30,14 @@ Stand: 27.09.2026, Branch `claude/vertical-slice-v1`.
 - Der Team-Screen zeigt alle 16 Fähigkeiten, aber nur die Glutspur hat Voraussetzungen. Weitere Wissens-Gates brauchen Content in anderen Fächern.
 - Das Ergebnis-Sheet nach dem Kampf bietet bei Niederlage „Nochmal“; ein laufender Kampf kann über „‹“ verlassen und von Home fortgesetzt werden.
 - Bei sehr kleinen Viewports (< 360 pt) skaliert Phaser das Canvas per FIT; DOM-Sheets bleiben lesbar, die Canvas-Buttons werden aber kleiner als 44 pt.
+
+## 3D-Pilot (Branch `claude/3d-pilot-v1`)
+
+- **Modelle sind Platzhalter** (Khronos Fox / CesiumMan). Kein Idle-Clip für den Menschen (langsamer Gehzyklus als Ersatz), keine Attack-/Hit-/Command-Clips (prozedurale Overlays). Farbtönung über Albedo-Multiplikation; Gegner nur durch Tint/Emissive unterscheidbar.
+- **Bundle 6 MB** durch Root-Import von `@babylonjs/core`; Subpfad-Imports stehen aus.
+- **Texturen werden je Instanz geladen** (Fall 2: acht Fox-Texturen). Sharing über einen Asset-Container fehlt.
+- **Keine Gerätemessung**; Software-WebKit-Werte in `docs/3D_PILOT.md` sind nur Funktionsnachweis.
+- **Kein Save im Pilot** (Zustand nur im Speicher); Reload = neuer Kampf. Store-Anbindung ist für Option 2 vorgesehen.
+- **HUD im Pilot ist ein Minimal-DOM** (kein Info-Overlay je Skill, keine Initiative-Leiste).
+- **Werkhalle prozedural**, kein gebackenes Licht; Fenster/LEDs/Fugen sind Boxen mit Emissive.
+- **Menschmodell** steht hinter dem Brett ohne eigene Grundfläche; bei sehr breiten Viewports kann er außerhalb des Fits liegen.
