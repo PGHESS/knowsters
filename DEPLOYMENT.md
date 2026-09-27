@@ -1,39 +1,41 @@
-# Knowsters – Safari-Test über GitHub Pages
+# Build, CI und Gerätetest
 
-Das Repository ist bereits für einen GitHub-Pages-Test vorbereitet.
+## Lokal
 
-## Einmalig in GitHub
-1. Repository **PGHESS/knowsters** öffnen.
-2. **Settings → Pages**.
-3. Unter **Build and deployment** als Quelle **GitHub Actions** auswählen.
+```bash
+npm ci
+npm run dev        # Vite Dev-Server mit HMR: http://localhost:5173/knowsters/
+npm run verify     # typecheck → vitest → Legacy-Tests → Build
+npm run preview    # gebauten Stand unter http://localhost:4173/knowsters/ prüfen
+```
 
-## Aktuelle Spielversion hochladen
-Für den Test wird nur **eine Datei** benötigt:
+Basis-Pfad ist `/knowsters/` (GitHub Pages). Für eine andere Basis: `KNOWSTERS_BASE=/ npm run build`.
 
-`Knowsters-v22-WebDeploy.zip`
+## GitHub Actions (`.github/workflows/pages.yml`)
 
-Diese ZIP enthält den kompletten Web-Build mit HTML, CSS, JavaScript, Bildern, Icons und Manifest.
+```
+install → typecheck → tests (vitest) → Legacy-Tests → build → Site zusammenstellen → Pages deploy
+```
 
-### Upload
-1. Im Repository **Add file → Upload files**.
-2. `Knowsters-v22-WebDeploy.zip` auswählen.
-3. Auf den Branch **main** committen.
+- Läuft bei Push auf `main` und `claude/**` sowie bei Pull Requests (ohne Deploy).
+- Die Site enthält die App unter `/` und die Referenzstände unter `/legacy/v22/` und `/legacy/v25-spike/` (Phaser für den Spike kommt aus `node_modules`, gepinnt 4.2.1).
+- Vite erzeugt gehashte Dateinamen; es gibt keinen Service Worker. Der Browser-Cache kann daher keine veralteten Dateien mehr festhalten.
 
-Danach startet automatisch der Workflow **Deploy Knowsters to GitHub Pages**.
+## Handytest (iPhone / Android)
 
-Der Workflow:
-- entpackt die ZIP,
-- übernimmt den enthaltenen Ordner `Knowsters-v22-WebDeploy`,
-- erstellt daraus die statische Site,
-- veröffentlicht sie über GitHub Pages.
+1. Nach dem Deploy die URL im **privaten Tab** öffnen (umgeht einen noch registrierten alten Service Worker; die App entfernt ihn ohnehin beim ersten Start).
+2. `https://pghess.github.io/knowsters/?fps=1` zeigt Bildrate, Renderer und Pixelratio oben links.
+3. Erscheint ein Fehler-Overlay, Screenshot machen: Es enthält Exception, Build-ID, Phaser-Version, Renderer, WebGL-Verfügbarkeit und User Agent.
+4. Für „Zum Home-Bildschirm“ (Standalone) ist die Seite vorbereitet (`apple-mobile-web-app-capable`, Safe Areas über `env()`).
 
-## Erwartete Testadresse
-Nach erfolgreichem Deployment liegt die Site typischerweise unter:
+## Capacitor (nach Abnahme, noch nicht eingerichtet)
 
-`https://pghess.github.io/knowsters/`
+```bash
+npm i -w apps/game @capacitor/core @capacitor/cli @capacitor/ios @capacitor/android
+KNOWSTERS_BASE=/ npm run build
+npx cap init Knowsters de.knowsters.app --web-dir apps/game/dist
+npx cap add ios && npx cap add android
+npx cap sync && npx cap open ios
+```
 
-## Spätere Updates
-Für einen neuen Teststand wird nur die ZIP im Repository ersetzt. Der Pages-Workflow veröffentlicht danach automatisch die neue Version.
-
----
-Aktueller Teststand: **Knowsters v22**
+Zu beachten: `base` auf `/` setzen, Assets relativ; Speicherung läuft über das `SaveAdapter`-Interface und kann auf Capacitor Preferences umgestellt werden, ohne Spiellogik zu ändern.

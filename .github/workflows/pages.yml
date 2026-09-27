@@ -1,8 +1,9 @@
-name: Test and deploy Knowsters to GitHub Pages
+name: Verify and deploy Knowsters
 
 on:
   push:
     branches: ["main", "claude/**"]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -14,42 +15,54 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  PHASER_MD5: bc1e020d681bb94138426c4907ea6b98
-
 jobs:
-  test:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Legacy tests (v22 reference build)
+          cache: npm
+      - name: Install
+        run: npm ci --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests (vitest)
+        run: npm test
+      - name: Legacy tests (v22 reference)
         run: npm run test:legacy
+      - name: Build
+        run: npm run build
+      - name: Assemble site (app at /, reference stands at /legacy/)
+        run: |
+          rm -rf _site
+          cp -R apps/game/dist _site
+          mkdir -p _site/legacy
+          cp -R legacy/v22 _site/legacy/v22
+          cp -R legacy/v25-spike _site/legacy/v25-spike
+          cp node_modules/phaser/dist/phaser.min.js _site/legacy/v25-spike/phaser.min.js
+          cp legacy/README.md _site/legacy/README.md
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=legacy/v25-spike/phaser-spike.html"><title>Knowsters Spike</title><a href="legacy/v25-spike/phaser-spike.html">Weiter zum v25-Spike</a>' > _site/phaser-spike.html
+          touch _site/.nojekyll
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 7
 
   deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/claude/')
+    needs: verify
+    if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/claude/'))
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Assemble static site
-        run: |
-          rm -rf _site
-          mkdir -p _site/legacy
-          cp -R legacy/v22 _site/legacy/v22
-          cp -R legacy/v25-spike _site/legacy/v25-spike
-          curl -L --fail --retry 3 --retry-delay 2 https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.min.js -o _site/legacy/v25-spike/phaser.min.js
-          echo "$PHASER_MD5  _site/legacy/v25-spike/phaser.min.js" | md5sum -c -
-          cp legacy/README.md _site/legacy/README.md
-          # M0: bisherige Test-URLs bleiben gültig (Weiterleitung auf die Referenzstände)
-          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=legacy/v25-spike/phaser-spike.html"><title>Knowsters Spike</title><a href="legacy/v25-spike/phaser-spike.html">Weiter zum v25-Spike</a>' > _site/phaser-spike.html
-          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=legacy/v22/"><title>Knowsters</title><a href="legacy/v22/">Weiter zum v22-Prototyp</a>' > _site/index.html
-          touch _site/.nojekyll
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

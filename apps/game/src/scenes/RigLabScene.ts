@@ -27,7 +27,7 @@ export class RigLabScene extends Phaser.Scene {
     this.add.text(20, 40, 'RIG-LABOR', textStyle(20, '#f2fbff', '700'));
     this.add.text(20, 66, 'Cutout-Rig (links) · Spine-Runtime-Test (rechts)', textStyle(11, '#9fb7c2'));
     this.fps = this.add.text(W - 20, 40, '', textStyle(11, '#7edee7', '700')).setOrigin(1, 0);
-    this.log = this.add.text(20, H - 210, '', textStyle(10, '#dbf8fb')).setWordWrapWidth(350).setLineSpacing(2);
+    this.log = this.add.text(20, H - 300, '', textStyle(10, '#dbf8fb')).setWordWrapWidth(350).setLineSpacing(2);
 
     // Bodenlinie
     this.add.rectangle(W / 2, 430, W - 40, 2, 0x2d4658);
