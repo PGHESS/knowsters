@@ -42,6 +42,8 @@ jobs:
           BUILD_DIR="$(find _unpacked -mindepth 1 -maxdepth 1 -type d | head -1)"
           cp -R "$BUILD_DIR"/. _site/
           cp phaser-spike.html phaser-spike.css ks25-core.js ks25-battle.js ks25-boot.js _site/
+          curl -L --fail --retry 3 --retry-delay 2 https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.min.js -o _site/phaser.min.js
+          test -s _site/phaser.min.js
           touch _site/.nojekyll
 
       - name: Configure Pages
