@@ -1,0 +1,20 @@
+KNOWSTERS – LOKAL STARTEN
+
+Computer (Windows/Mac/Linux)
+1. Die ZIP-Datei vollständig entpacken. Die Ordnerstruktur beibehalten.
+2. index.html in Chrome, Edge, Firefox oder Safari öffnen.
+3. Das Spiel läuft ohne Internet. Fortschritt wird nach Möglichkeit im Browser dieses Computers gespeichert.
+
+Alternativ bei Problemen mit lokalem Dateizugriff:
+Im entpackten Ordner einen lokalen Webserver starten, z. B. mit
+python3 -m http.server 8000
+und anschließend http://localhost:8000 im Browser öffnen.
+
+iPhone/iPad
+Die Dateien-App zeigt HTML häufig nur als Dokumentenvorschau an und führt das Spiel nicht aus.
+Daher in Safari die Spieladresse öffnen, über Teilen > Zum Home-Bildschirm hinzufügen
+als Web-App installieren, dann die neue App einmal online starten. Erst danach
+im Flugmodus ausprobieren. Das ist eine Installation für dieses Gerät, keine
+App-Store-App. Spielfortschritt ist an die Browserdaten dieses Geräts gebunden.
+
+Spieladresse: https://knowsters-game.piratspike.chatgpt.site

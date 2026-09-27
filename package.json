@@ -1,0 +1,12 @@
+{
+  "name": "knowsters",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Knowsters – Mobile-first Urban Fantasy Creature-Tactics-RPG (Vertical Slice)",
+  "scripts": {
+    "test:legacy": "node legacy/tests-v20/avatar.test.cjs && node legacy/tests-v20/avatar-editor.test.cjs && node legacy/tests-v20/wardrobe.test.cjs && node legacy/tests-v20/knowledge-v17.test.cjs && node legacy/tests-v20/learning.test.cjs && node legacy/tests-v20/prolog.test.cjs && node legacy/tests-v20/game.test.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

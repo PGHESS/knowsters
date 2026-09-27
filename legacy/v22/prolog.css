@@ -1,0 +1,442 @@
+.prolog-intro,.prolog-after,.prolog-result{overflow:hidden}
+.prolog-hero{position:relative;min-height:520px;background:#06111e;border-bottom:1px solid var(--ks-line);overflow:hidden}.prolog-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.9) brightness(.62)}.prolog-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#04101be8 0 35%,#04101b42 63%,#04101bba 100%),linear-gradient(0deg,#06111ef2 0,transparent 50%)}.prolog-hero-copy{position:relative;z-index:2;max-width:650px;padding:clamp(34px,7vw,78px) clamp(24px,6vw,66px)}.prolog-hero-copy h1{font-size:clamp(32px,5vw,60px);line-height:1.03;margin:12px 0 18px;max-width:700px}.prolog-hero-copy p{font-size:clamp(16px,2vw,20px);line-height:1.6;color:#d3e3eb;max-width:590px}.prolog-hero-copy .primary{margin-top:16px;min-height:52px;padding-inline:24px}
+.guardian-intro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ks-line)}.guardian-intro-grid article{background:linear-gradient(180deg,#0b1f2f,#07141f);padding:14px;min-width:0}.guardian-intro-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 34%;border-radius:12px;border:1px solid color-mix(in srgb,var(--guardian),transparent 45%);box-shadow:0 12px 28px #0008}.guardian-intro-grid strong{display:block;font-size:20px;margin:10px 0 2px;color:var(--guardian)}.guardian-intro-grid small{display:block;color:#a8c0cf;font-weight:700}.guardian-intro-grid p{font-size:13px;color:#bfd0da;line-height:1.45;margin:7px 0 0}
+.prolog-battle-shell{max-width:1200px;margin:0 auto}.prolog-battle-head{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;margin:18px 2px 14px}.prolog-battle-head h1{margin:5px 0 4px;font-size:clamp(24px,4vw,38px)}.prolog-battle-head p{margin:0;color:#b9ced9;max-width:760px}.prolog-objective{text-align:right;border:1px solid var(--ks-line);background:#0b2434;border-radius:13px;padding:10px 13px;min-width:190px}.prolog-objective span,.prolog-objective small{display:block;color:#83a9bb;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.prolog-objective strong{display:block;color:#f2d08d;margin:3px 0;font-size:15px}
+.prolog-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.75fr);gap:14px;align-items:start}.prolog-board-wrap,.prolog-console{border:1px solid var(--ks-line);background:linear-gradient(180deg,#0b2130,#07141f);border-radius:18px;box-shadow:0 18px 45px #0007}.prolog-board-wrap{padding:12px;overflow:hidden}.prolog-board{display:grid;grid-template-columns:repeat(8,1fr);aspect-ratio:8/6;gap:3px;position:relative;background:linear-gradient(90deg,#132a3b 0 12.5%,#28313a 12.5% 87.5%,#172738 87.5%);padding:5px;border-radius:12px;overflow:hidden}.prolog-board:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#69d9ef18 0 12.5%,transparent 12.5% 87.5%,#ff7a4512 87.5%),repeating-linear-gradient(90deg,transparent 0 12.3%,#d4edf50d 12.3% 12.6%),repeating-linear-gradient(0deg,transparent 0 16.4%,#d4edf50d 16.4% 16.8%)}.prolog-cell{position:relative;min-width:0;min-height:0;border:1px solid #d6f7ff12!important;border-radius:7px!important;background:#10253680!important;padding:0!important;display:grid!important;place-items:center!important;overflow:visible;z-index:1}.prolog-cell:hover:not(:disabled){background:#1a3a4c!important}.prolog-cell.gate{background:linear-gradient(90deg,#184055cc,#10253688)!important;border-color:#4ed9e94d!important}.prolog-cell.approach{background:linear-gradient(90deg,#10253688,#4a241f99)!important}.prolog-cell.valid{outline:2px solid #5de5f1aa;outline-offset:-3px;box-shadow:inset 0 0 18px #55d9e61c}.prolog-cell.valid:hover{outline-color:#efffff}.prolog-cell.wall{background:linear-gradient(135deg,#314339,#142b24)!important}.prolog-cell.hazard{box-shadow:inset 0 0 24px #ff5b26aa}.prolog-cell.trace{box-shadow:inset 0 0 24px #f2df7e7a}.terrain-mark{font-size:clamp(15px,2.1vw,26px);color:#dbeef5;opacity:.8}.prolog-unit{position:absolute;width:82%;height:82%;border-radius:50%;display:grid;place-items:center;filter:drop-shadow(0 5px 7px #0009);z-index:2}.prolog-unit img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;border:2px solid var(--guardian);filter:saturate(1.05) brightness(.92)}.prolog-unit b{position:relative;z-index:2;font-size:clamp(11px,1.5vw,17px);text-shadow:0 1px 4px #000;color:#fff}.prolog-unit i{position:absolute;left:8%;right:8%;bottom:-8%;height:5px;background:linear-gradient(90deg,#63e6a6 var(--hp),#301f28 var(--hp));border-radius:9px;border:1px solid #0007}.prolog-unit em{position:absolute;right:-8px;top:-8px;z-index:3;font-style:normal;font-size:10px;background:#07131f;border:1px solid #fff4;padding:2px 4px;border-radius:9px}.prolog-unit.enemy{background:radial-gradient(circle at 40% 30%,#f6a7fb,#9a39be 42%,#35134d 72%);border:2px solid #e75fff}.prolog-unit.enemy.brute{border-radius:30%;background:radial-gradient(circle at 40% 30%,#ffa7d6,#ad245f 45%,#3d1028 75%)}.prolog-unit.enemy b{font-size:clamp(16px,2.5vw,28px)}.prolog-legend{display:flex;gap:13px;flex-wrap:wrap;color:#8ba9b8;font-size:11px;padding:9px 3px 0}.gate-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5de5f1;margin-right:3px}
+.prolog-console{padding:10px}.guardian-roster{display:grid;grid-template-columns:1fr 1fr;gap:7px}.guardian-card{min-width:0;display:grid!important;grid-template-columns:48px 1fr;gap:8px;align-items:center;text-align:left!important;background:#0b2232!important;border:1px solid #79c8d52e!important;border-radius:11px!important;padding:5px!important;color:#e9f5f8!important}.guardian-card:hover:not(:disabled){border-color:var(--guardian)!important}.guardian-card.selected{border-color:var(--guardian)!important;box-shadow:0 0 0 2px color-mix(in srgb,var(--guardian),transparent 72%)}.guardian-card.acted{opacity:.55}.guardian-card.dead{filter:grayscale(1);opacity:.28}.guardian-card img{width:48px;height:58px;object-fit:cover;border-radius:8px}.guardian-card strong{display:block;color:var(--guardian);font-size:14px}.guardian-card small,.guardian-card i{display:block;font-size:9px;color:#91afbd;font-style:normal;line-height:1.25}.guardian-card i{margin-top:4px;color:#c8dae1}.prolog-selected{border-top:1px solid var(--ks-line);margin-top:10px;padding-top:11px}.prolog-selected>div:first-child{display:flex;justify-content:space-between;gap:8px}.prolog-selected strong{font-size:20px}.prolog-selected small{color:#8faebe}.prolog-selected>p{font-size:12px;line-height:1.45;color:#b9cdd7;min-height:36px}.prolog-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.prolog-actions button{min-height:56px!important;padding:7px!important;background:#0d2a3b!important;border:1px solid #62d9e536!important;color:#efffff!important;border-radius:9px!important;text-align:left!important;font-size:12px!important}.prolog-actions button:hover:not(:disabled),.prolog-actions button.active{border-color:var(--ks-cyan)!important;background:#153b4d!important}.prolog-actions button small{display:block;color:#8eafbd;font-size:9px;line-height:1.3;margin-top:2px}.prolog-actions .secondary{grid-column:1/-1;text-align:center!important;min-height:38px!important}
+.prolog-after,.prolog-result{max-width:850px;margin:30px auto;padding:clamp(24px,5vw,48px)}.prolog-after h1,.prolog-result h1{font-size:clamp(31px,5vw,52px);line-height:1.05;margin:9px 0 18px}.prolog-after>p,.prolog-result>p{color:#c6d8df;font-size:17px;line-height:1.65}.prolog-quotes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:22px 0}.prolog-quotes blockquote{margin:0;border:1px solid var(--ks-line);background:#0a2130;border-radius:12px;padding:14px;color:#bfd2dc;line-height:1.45}.prolog-quotes strong{display:block;color:#54d8e8;margin-bottom:3px}.prolog-rauschen{border-left:4px solid #f13ad9;padding:12px 16px;background:linear-gradient(90deg,#f13ad914,transparent);font-size:19px!important}.prolog-after .primary,.prolog-result .primary{margin-top:12px;min-height:50px}.prolog-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}.prolog-result-stats span{display:block;background:#0a2130;border:1px solid var(--ks-line);border-radius:10px;padding:12px;color:#8eaebc}.prolog-result-stats b{display:block;color:#fff;font-size:20px;margin-top:3px}
+@media(max-width:920px){.guardian-intro-grid{grid-template-columns:1fr 1fr}.prolog-layout{grid-template-columns:1fr}.prolog-console{display:grid;grid-template-columns:.8fr 1.2fr;gap:10px}.prolog-selected{border-top:0;border-left:1px solid var(--ks-line);margin-top:0;padding:0 0 0 10px}}
+@media(max-width:650px){.prolog-hero{min-height:560px}.prolog-hero>img{object-position:58% center}.prolog-hero:after{background:linear-gradient(0deg,#04101bf7 0 58%,#04101b55 90%)}.prolog-hero-copy{position:absolute;left:0;right:0;bottom:0;padding:26px 18px}.prolog-hero-copy h1{font-size:34px}.guardian-intro-grid article{padding:8px}.guardian-intro-grid strong{font-size:17px}.guardian-intro-grid p{font-size:11px}.prolog-battle-head{grid-template-columns:1fr}.prolog-objective{text-align:left}.prolog-board-wrap{padding:6px}.prolog-board{gap:2px;padding:3px}.prolog-console{display:block}.prolog-selected{border-left:0;border-top:1px solid var(--ks-line);padding:10px 0 0;margin-top:10px}.prolog-actions{grid-template-columns:1fr 1fr}.guardian-card{grid-template-columns:40px 1fr}.guardian-card img{width:40px;height:50px}.prolog-quotes{grid-template-columns:1fr}.prolog-result-stats{grid-template-columns:1fr 1fr}.prolog-result-stats span:last-child{grid-column:1/-1}}
+
+/* v18 battle presentation upgrade */
+.prolog-board-wrap.scene-bridge{position:relative;background:radial-gradient(circle at 20% 8%,#20465f 0,#0d2332 38%,#08131d 100%);padding:12px 12px 14px}
+.prolog-scene-bar{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:0 2px 10px;color:#c7dce5;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.prolog-scene-bar small{color:#7ea6b8}
+.prolog-board{background:linear-gradient(180deg,#2e4f63 0,#213746 18%,#0e1f2c 19%,#152837 52%,#102433 100%);box-shadow:inset 0 0 0 1px #9acbda14,inset 0 -24px 34px #0008,0 30px 40px #0007}
+.prolog-board:after{content:"";position:absolute;inset:0;pointer-events:none;background:
+ radial-gradient(circle at 14% 50%,#6ddbf122 0 14%,transparent 15%),
+ radial-gradient(circle at 88% 20%,#ff8a5530 0 9%,transparent 10%),
+ radial-gradient(circle at 88% 80%,#ff8a551f 0 9%,transparent 10%),
+ linear-gradient(90deg,#73e1f21c 0 12.5%,transparent 12.5% 87.5%,#fe7e4a25 87.5%),
+ linear-gradient(180deg,transparent 0 67%,#132a3918 68% 100%);
+ mix-blend-mode:screen}
+.prolog-board.intro-phase:before{animation:boardBreath 2.2s ease-in-out infinite}
+.prolog-cell{background:linear-gradient(180deg,#132b3a98,#10263670)!important;backdrop-filter:blur(1.4px)}
+.prolog-cell.gate{background:linear-gradient(180deg,#163c4fef,#1735478f)!important;box-shadow:inset 0 0 0 1px #5de5f14b,inset 0 0 22px #56e1f324}
+.prolog-cell.approach{background:linear-gradient(180deg,#241f2f88,#4f241f8f)!important}
+.prolog-cell.wall{background:linear-gradient(180deg,#395044,#1c2c28)!important}
+.prolog-cell.wall .wall-mark{filter:drop-shadow(0 0 10px #d0ffc14d)}
+.prolog-cell.valid{background:linear-gradient(180deg,#1a4153bb,#13304089)!important}
+.prolog-cell.valid::before{content:"";position:absolute;inset:15%;border:1px dashed #8ceffc80;border-radius:10px}
+.terrain-mark{font-weight:700;text-shadow:0 0 12px #ffffff33}
+.prolog-unit{transition:filter .2s ease,transform .2s ease}
+.prolog-unit img{box-shadow:0 8px 18px #000b}
+.prolog-unit.guardian img{animation:guardianBob 4.8s ease-in-out infinite}
+.prolog-unit.guardian.pyro img{animation-duration:3.3s;filter:saturate(1.2) brightness(.98)}
+.prolog-unit.guardian.lumi img{animation-duration:5.5s;filter:saturate(1.02) brightness(1.05)}
+.prolog-unit.guardian.terra img{animation-duration:6.2s;transform-origin:50% 60%}
+.prolog-unit.guardian.nivaro img{animation-duration:4.1s;filter:saturate(1.15) brightness(1.02)}
+.prolog-unit.enemy{animation:enemyHover 3.2s ease-in-out infinite}
+.prolog-unit.enemy b{text-shadow:0 0 14px #f4bbff88}
+.prolog-unit.spawn-intro.guardian{animation:spawnGuardian .72s cubic-bezier(.15,.8,.2,1) both}
+.prolog-unit.spawn-intro.enemy{animation:spawnEnemy .75s cubic-bezier(.17,.84,.21,1) both}
+.prolog-unit.guardian.pyro.spawn-intro{animation-delay:.08s}.prolog-unit.guardian.terra.spawn-intro{animation-delay:.16s}.prolog-unit.guardian.nivaro.spawn-intro{animation-delay:.24s}.prolog-unit.enemy.spawn-intro{animation-delay:.3s}
+.prolog-unit.fx-moving{animation:prologMove .4s cubic-bezier(.16,.8,.2,1) both}
+.prolog-unit.fx-casting{animation:castPulse .46s ease-out 1}
+.prolog-unit.fx-hit{animation:hitShake .42s ease-out 1;filter:drop-shadow(0 0 18px #ff9472)}
+.prolog-unit.fx-heal{animation:healRise .55s ease-out 1}
+.cell-fx{position:absolute;inset:8px;border-radius:12px;pointer-events:none}
+.cell-fx.deploy{inset:20%;border-radius:50%;border:1px dashed #ecf9ff54;box-shadow:0 0 0 6px #b6eff00a,inset 0 0 28px #d7fbff22;animation:deployPulse 1.6s ease-in-out infinite}
+.cell-fx.impact{background:radial-gradient(circle,#fff7cc55 0 14%,transparent 34%);box-shadow:0 0 0 1px #ffffff1f}
+.cell-fx.impact.beam{background:radial-gradient(circle,#fff6c7 0 12%,#e9c76d88 18%,transparent 50%);animation:impactBurst .46s ease-out}
+.cell-fx.impact.flame,.cell-fx.impact.charge{background:radial-gradient(circle,#fff4bf 0 8%,#ff934fbb 20%,transparent 53%);animation:impactBurst .42s ease-out}
+.cell-fx.impact.enemy-hit{background:radial-gradient(circle,#ffd7cf 0 7%,#c76f63a0 20%,transparent 52%);animation:impactBurst .42s ease-out}
+.cell-fx.impact.heal,.cell-fx.impact.refuge{background:radial-gradient(circle,#ffffff 0 6%,#8ef4d6aa 20%,transparent 52%);animation:healBurst .6s ease-out}
+.cell-fx.impact.root{background:radial-gradient(circle,#f7ffcf 0 8%,#8ecb5f88 18%,transparent 52%);animation:impactBurst .46s ease-out}
+.cell-fx.impact.trace{background:radial-gradient(circle,#fff8da 0 8%,#f1d87d8d 18%,transparent 56%);animation:impactBurst .46s ease-out}
+.cell-fx.impact.pulse{background:radial-gradient(circle,#ffffff 0 8%,#8ad2ffab 19%,transparent 56%);animation:impactBurst .46s ease-out}
+.cell-fx.tile.wall{border:1px solid #8bd19d80;background:linear-gradient(180deg,#a8f7b728,#0000);animation:riseWall .46s ease-out}
+.cell-fx.tile.trail{border:1px solid #ffa76d7d;background:radial-gradient(circle,#ffb37c5d 0 15%,transparent 70%);animation:trailGlow .65s ease-out}
+.cell-fx.tile.trace{border:1px solid #f8edaa7d;background:radial-gradient(circle,#fff2a146 0 15%,transparent 70%);animation:trailGlow .65s ease-out}
+.spawn-banner{position:absolute;left:16px;right:16px;top:14px;z-index:3;border:1px solid #8ceffc4d;background:linear-gradient(90deg,#0b2a3d,#123950,#0b2a3d);color:#effcff;border-radius:999px;padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-align:center;box-shadow:0 14px 26px #0006;animation:spawnBanner 2.2s ease forwards}
+.prolog-selected>p{position:relative;padding-left:12px}.prolog-selected>p:before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:3px;border-radius:999px;background:linear-gradient(180deg,var(--ks-cyan),transparent)}
+@keyframes guardianBob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.015)}}
+@keyframes enemyHover{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes spawnGuardian{from{opacity:0;transform:translate(calc(var(--guardian-spawn-x,-1)*40%),calc(var(--guardian-spawn-y,0)*35%)) scale(.78)}70%{opacity:1}to{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes spawnEnemy{from{opacity:0;transform:translate(45%,0) scale(.82)}70%{opacity:1}to{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes prologMove{from{transform:translate(calc(var(--dx,0) * 100%),calc(var(--dy,0) * 100%)) scale(.98)}to{transform:translate(0,0) scale(1)}}
+@keyframes castPulse{0%{transform:scale(1);filter:drop-shadow(0 0 0 transparent)}35%{transform:scale(1.08);filter:drop-shadow(0 0 18px color-mix(in srgb,var(--guardian,#fff),transparent 55%))}100%{transform:scale(1)}}
+@keyframes hitShake{0%,100%{transform:translate(0,0)}20%{transform:translate(-6px,-1px)}40%{transform:translate(6px,0)}60%{transform:translate(-4px,1px)}80%{transform:translate(3px,0)}}
+@keyframes healRise{0%{transform:scale(.9);filter:drop-shadow(0 0 0 transparent)}40%{transform:scale(1.08);filter:drop-shadow(0 0 18px #8ef4d6)}100%{transform:scale(1)}}
+@keyframes impactBurst{0%{opacity:0;transform:scale(.45)}30%{opacity:1}100%{opacity:0;transform:scale(1.25)}}
+@keyframes healBurst{0%{opacity:0;transform:scale(.4)}35%{opacity:1}100%{opacity:0;transform:scale(1.35)}}
+@keyframes trailGlow{0%{opacity:0;transform:scale(.7)}100%{opacity:1;transform:scale(1)}}
+@keyframes riseWall{0%{opacity:0;transform:translateY(24%) scaleY(.4)}100%{opacity:1;transform:translateY(0) scaleY(1)}}
+@keyframes deployPulse{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:1;transform:scale(1.04)}}
+@keyframes boardBreath{0%,100%{filter:none}50%{filter:brightness(1.06)}}
+@keyframes spawnBanner{0%{opacity:0;transform:translateY(-10px) scale(.96)}15%,55%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-8px) scale(.98)}}
+@media (prefers-reduced-motion: reduce){.prolog-unit.guardian img,.prolog-unit.enemy,.prolog-unit.spawn-intro.guardian,.prolog-unit.spawn-intro.enemy,.prolog-unit.fx-moving,.prolog-unit.fx-casting,.prolog-unit.fx-hit,.prolog-unit.fx-heal,.cell-fx,.spawn-banner,.prolog-board.intro-phase:before{animation:none!important}.spawn-banner{opacity:1}}
+
+/* v19 projectile, floating value and impact layer */
+.prolog-fx-layer{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none;overflow:visible}
+.fx-path{fill:none;stroke-linecap:round;stroke-linejoin:round;filter:url(#fxGlow);stroke-dasharray:1200;stroke-dashoffset:1200;animation:fxDraw .56s cubic-bezier(.2,.72,.22,1) forwards}
+.fx-path.beam{stroke:#fff1a4;stroke-width:12;animation-duration:.4s}
+.fx-path.flame{stroke:#ff7f45;stroke-width:18;filter:url(#fxGlow);animation-duration:.5s}
+.fx-path.pulse{stroke:#78d8ff;stroke-width:16;animation-duration:.48s}
+.fx-path.enemy{stroke:#e365d6;stroke-width:13;animation-duration:.44s}
+.fx-path.insight{stroke:#e9c76d;stroke-width:8;stroke-dasharray:28 18;animation:fxDash .62s linear forwards}
+.fx-path.root{stroke:#81d26b;stroke-width:12;stroke-dasharray:18 12;animation:fxDash .66s ease-out forwards}
+.fx-path.heal{stroke:#7cf0cb;stroke-width:10;stroke-dasharray:16 16;animation:fxDash .64s ease-out forwards}
+.fx-path.ignite{stroke:#ffab63;stroke-width:10;stroke-dasharray:18 12;animation:fxDash .62s ease-out forwards}
+.prolog-floater{position:absolute;z-index:8;transform:translate(-50%,-50%);font-weight:900;font-size:clamp(13px,1.7vw,22px);letter-spacing:.04em;text-shadow:0 2px 8px #000,0 0 16px currentColor;pointer-events:none;white-space:nowrap;animation:floaterRise .9s ease-out forwards}
+.prolog-floater.damage{color:#ffb09a}.prolog-floater.heal{color:#87f3d0}.prolog-floater.buff{color:#83d9ff}.prolog-floater.status{color:#f7dc86;font-size:clamp(11px,1.35vw,17px)}
+.prolog-board.camera-impact{animation:boardHit .36s ease-out 1}.prolog-board.camera-cast{animation:boardFocus .4s ease-out 1}
+.scene-bridge:before{content:"";position:absolute;left:12px;right:12px;top:42px;bottom:30px;border-radius:12px;pointer-events:none;z-index:0;background:
+ radial-gradient(circle at 15% 22%,#d9f5ff14 0 1px,transparent 2px),
+ radial-gradient(circle at 78% 32%,#ffe4c71a 0 1px,transparent 2px),
+ radial-gradient(circle at 56% 72%,#bde7ff13 0 1px,transparent 2px);
+ background-size:44px 44px,58px 58px,72px 72px;animation:driftParticles 11s linear infinite;opacity:.85}
+.scene-bridge:after{content:"";position:absolute;left:12px;right:12px;bottom:30px;height:32%;border-radius:0 0 12px 12px;pointer-events:none;z-index:0;background:linear-gradient(0deg,#b8d7e20e,transparent),radial-gradient(ellipse at 50% 100%,#b2dbe51a,transparent 60%);filter:blur(3px);animation:fogDrift 8s ease-in-out infinite}
+.prolog-board{z-index:1}.prolog-scene-bar,.prolog-legend{position:relative;z-index:2}
+@keyframes fxDraw{0%{stroke-dashoffset:1200;opacity:.1}20%{opacity:1}75%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes fxDash{0%{stroke-dashoffset:220;opacity:0}20%{opacity:1}80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:-40;opacity:0}}
+@keyframes floaterRise{0%{opacity:0;transform:translate(-50%,-30%) scale(.7)}18%{opacity:1;transform:translate(-50%,-55%) scale(1.14)}65%{opacity:1;transform:translate(-50%,-105%) scale(1)}100%{opacity:0;transform:translate(-50%,-155%) scale(.96)}}
+@keyframes boardHit{0%,100%{transform:translate(0,0)}22%{transform:translate(-3px,1px)}45%{transform:translate(4px,-1px)}65%{transform:translate(-2px,0)}82%{transform:translate(1px,0)}}
+@keyframes boardFocus{0%,100%{filter:brightness(1)}40%{filter:brightness(1.08) saturate(1.06)}}
+@keyframes driftParticles{from{background-position:0 0,0 0,0 0}to{background-position:44px -44px,-58px 58px,72px -72px}}
+@keyframes fogDrift{0%,100%{transform:translateX(-1%);opacity:.7}50%{transform:translateX(1%);opacity:1}}
+@media (prefers-reduced-motion: reduce){.fx-path,.prolog-floater,.prolog-board.camera-impact,.prolog-board.camera-cast,.scene-bridge:before,.scene-bridge:after{animation:none!important}.prolog-floater{opacity:1;transform:translate(-50%,-50%)}}
+
+/* v20 creature sprites + sequential enemy phase */
+.prolog-unit{width:96%;height:112%;border-radius:0;background:transparent!important;border:0!important;filter:drop-shadow(0 8px 8px #0009);z-index:calc(12 + var(--row,0));transform-origin:50% 82%}
+.prolog-unit .unit-sprite{position:absolute;left:50%;bottom:-4%;inset:auto;width:112%;height:122%;object-fit:contain;object-position:center bottom;border:0!important;border-radius:0!important;box-shadow:none!important;transform:translateX(-50%);filter:saturate(1.05) contrast(1.03) drop-shadow(0 5px 8px #0009);-webkit-mask-image:radial-gradient(ellipse 72% 78% at 50% 48%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 78% at 50% 48%,#000 62%,transparent 100%)}
+.prolog-unit.guardian .unit-sprite{animation:guardianSpriteIdle 4.8s ease-in-out infinite}
+.prolog-unit.guardian.pyro .unit-sprite{animation-duration:3.2s;filter:saturate(1.17) brightness(1.02) drop-shadow(0 0 11px #ff7f4566) drop-shadow(0 6px 8px #000a)}
+.prolog-unit.guardian.lumi .unit-sprite{animation-duration:5.4s;filter:saturate(1.05) brightness(1.08) drop-shadow(0 0 10px #e9c76d55) drop-shadow(0 6px 8px #000a)}
+.prolog-unit.guardian.terra .unit-sprite{animation-duration:6.4s;filter:saturate(1.05) drop-shadow(0 0 9px #6fe48c44) drop-shadow(0 6px 8px #000a)}
+.prolog-unit.guardian.nivaro .unit-sprite{animation-duration:4s;filter:saturate(1.13) brightness(1.04) drop-shadow(0 0 11px #55c8ff66) drop-shadow(0 6px 8px #000a)}
+.prolog-unit.enemy .unit-sprite{width:108%;height:112%;bottom:-1%;-webkit-mask-image:none;mask-image:none;filter:saturate(1.08) drop-shadow(0 0 10px #d35be16b) drop-shadow(0 6px 7px #000a);animation:enemySpriteIdle 3s ease-in-out infinite}
+.prolog-unit.enemy.brute .unit-sprite{width:116%;height:118%;filter:saturate(1.12) drop-shadow(0 0 10px #ff895d4f) drop-shadow(0 7px 8px #000b)}
+.prolog-unit .unit-initial{display:none}
+.prolog-unit i{left:12%;right:12%;bottom:-7%;height:4px;z-index:15;box-shadow:0 1px 4px #000c}
+.prolog-unit em{z-index:16;right:-4px;top:0}
+.prolog-unit:after{content:"";position:absolute;left:20%;right:20%;bottom:4%;height:10%;border-radius:50%;background:#0008;filter:blur(5px);z-index:-1}
+.prolog-unit.fx-moving{animation:prologSpriteMove .54s cubic-bezier(.16,.78,.18,1) both!important}
+.prolog-unit.fx-casting .unit-sprite{animation:creatureCast .5s ease-out 1!important}
+.prolog-unit.fx-hit .unit-sprite{animation:creatureHit .42s ease-out 1!important}
+.prolog-unit.fx-heal .unit-sprite{animation:creatureHeal .58s ease-out 1!important}
+.prolog-board.enemy-turn{box-shadow:inset 0 0 0 1px #db6bdd31,inset 0 0 44px #c454d21c,0 30px 40px #0007}
+.prolog-battle-shell.enemy-phase .prolog-console{border-color:#d663d538;box-shadow:0 18px 45px #0007,0 0 28px #c858cc0c}
+.phase-badge{margin-left:auto;margin-right:auto;padding:4px 10px;border-radius:999px;border:1px solid #63e1ed45;background:#0d3345;color:#83e8f1;font-size:10px;letter-spacing:.12em;white-space:nowrap}.phase-badge.enemy{border-color:#df69d647;background:#33172f;color:#f0a6e8;animation:enemyPhasePulse 1.2s ease-in-out infinite}
+.enemy-phase-note{grid-column:1/-1;display:flex;gap:9px;align-items:center;padding:9px 10px;margin:3px 0 7px;border:1px solid #d966d43b;border-radius:9px;background:linear-gradient(90deg,#2a1327,#152533);font-size:11px;color:#e6bfdc;letter-spacing:.03em}.enemy-phase-note span{width:8px;height:8px;border-radius:50%;background:#dc6dd4;box-shadow:0 0 12px #dc6dd4;animation:enemyPhasePulse 1s ease-in-out infinite}
+.prolog-battle-shell.enemy-phase .guardian-card{cursor:default}.prolog-battle-shell.enemy-phase .prolog-actions button{opacity:.5}.prolog-battle-shell.enemy-phase .prolog-cell{cursor:default}
+.prolog-board.enemy-turn:before{background:linear-gradient(90deg,#69d9ef10 0 12.5%,transparent 12.5% 87.5%,#db63d71d 87.5%),repeating-linear-gradient(90deg,transparent 0 12.3%,#d4edf50d 12.3% 12.6%),repeating-linear-gradient(0deg,transparent 0 16.4%,#d4edf50d 16.4% 16.8%)}
+@keyframes guardianSpriteIdle{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}50%{transform:translateX(-50%) translateY(-3px) scale(1.018)}}
+@keyframes enemySpriteIdle{0%,100%{transform:translateX(-50%) translateY(0) rotate(-1deg)}50%{transform:translateX(-50%) translateY(-4px) rotate(1deg)}}
+@keyframes prologSpriteMove{from{transform:translate(calc(var(--dx,0) * 104%),calc(var(--dy,0) * 76%)) scale(.96)}55%{filter:drop-shadow(0 12px 12px #000a);transform:translate(calc(var(--dx,0) * 36%),calc(var(--dy,0) * 26%)) scale(1.035)}to{transform:translate(0,0) scale(1)}}
+@keyframes creatureCast{0%{transform:translateX(-50%) scale(1)}34%{transform:translateX(-50%) translateY(-5px) scale(1.08)}58%{transform:translateX(-50%) translateY(2px) scale(1.035)}100%{transform:translateX(-50%) scale(1)}}
+@keyframes creatureHit{0%,100%{transform:translateX(-50%) translate(0,0)}20%{transform:translateX(-50%) translate(-7px,1px) rotate(-3deg)}45%{transform:translateX(-50%) translate(6px,-1px) rotate(2deg)}70%{transform:translateX(-50%) translate(-3px,0) rotate(-1deg)}}
+@keyframes creatureHeal{0%{transform:translateX(-50%) scale(.94);filter:brightness(1)}42%{transform:translateX(-50%) translateY(-5px) scale(1.08);filter:brightness(1.25) drop-shadow(0 0 15px #82f1cf)}100%{transform:translateX(-50%) scale(1);filter:brightness(1)}}
+@keyframes enemyPhasePulse{0%,100%{opacity:.7;box-shadow:0 0 0 #d76cd600}50%{opacity:1;box-shadow:0 0 16px #d76cd63d}}
+@media(max-width:650px){.prolog-unit{height:106%}.prolog-unit .unit-sprite{width:108%;height:116%}.phase-badge{order:3;width:100%;text-align:center;margin-top:2px}.prolog-scene-bar{flex-wrap:wrap}}
+@media (prefers-reduced-motion: reduce){.prolog-unit .unit-sprite,.phase-badge.enemy,.enemy-phase-note span,.prolog-unit.fx-moving,.prolog-unit.fx-casting .unit-sprite,.prolog-unit.fx-hit .unit-sprite,.prolog-unit.fx-heal .unit-sprite{animation:none!important}}
+
+/* v21 combat presentation pass: cleaner unit anchoring + textured bridge board */
+.prolog-board-wrap.scene-bridge{
+  background:
+    radial-gradient(circle at 16% 5%, #2a5c79 0, #113247 24%, #0a1a27 60%, #050c13 100%);
+  box-shadow: inset 0 1px 0 #ffffff12, 0 20px 52px #0009;
+}
+.prolog-board-wrap.scene-bridge .prolog-scene-bar{
+  text-shadow: 0 1px 0 #000;
+}
+.prolog-board{
+  background:
+    linear-gradient(90deg,#183c56 0 12.5%,#1b2935 12.5% 87.5%,#43211f 87.5%),
+    linear-gradient(180deg,#1a2c3b,#10202d 58%,#0c1823 100%);
+  box-shadow:
+    inset 0 0 0 1px #d7eef016,
+    inset 0 14px 24px #ffffff08,
+    inset 0 -20px 26px #0008,
+    0 24px 44px #0007;
+}
+.prolog-board::before{
+  background:
+    linear-gradient(90deg,#72dff31c 0 12.5%,transparent 12.5% 87.5%,#ff7a4518 87.5%),
+    repeating-linear-gradient(90deg,transparent 0 calc(12.5% - 1px),#d4edf511 calc(12.5% - 1px) 12.5%),
+    repeating-linear-gradient(0deg,transparent 0 calc(16.666% - 1px),#d4edf50d calc(16.666% - 1px) 16.666%),
+    linear-gradient(180deg,#ffffff06,transparent 16%,transparent 84%,#00000022 100%);
+}
+.prolog-board::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(circle at 50% 50%,#ffffff04 0 32%,transparent 55%),
+    repeating-linear-gradient(135deg,transparent 0 18px,#ffffff03 18px 19px,transparent 19px 40px),
+    radial-gradient(circle at 22% 24%,#8fd8f70a 0 18%,transparent 35%),
+    radial-gradient(circle at 79% 68%,#ff9c7208 0 18%,transparent 38%);
+  mix-blend-mode:screen;
+}
+.prolog-cell{
+  background:linear-gradient(180deg,#18354be5,#102230e6)!important;
+  border:1px solid #dcf5ff17!important;
+  box-shadow:inset 0 1px 0 #ffffff10,inset 0 -8px 14px #0000002a;
+  display:block!important;
+}
+.prolog-cell > *{z-index:2}
+.prolog-cell::before{
+  content:"";
+  position:absolute;
+  inset:8% 8% 10%;
+  border-radius:8px;
+  background:
+    linear-gradient(180deg,#ffffff09 0,#ffffff03 14%,transparent 15%),
+    linear-gradient(135deg,#29455c,#183247 55%,#0f2230 100%);
+  box-shadow:inset 0 0 0 1px #ffffff08,inset 0 -10px 12px #00000026;
+  z-index:0;
+}
+.prolog-cell::after{
+  content:"";
+  position:absolute;
+  left:16%;
+  right:16%;
+  bottom:9%;
+  height:10%;
+  border-radius:50%;
+  background:linear-gradient(90deg,transparent,#00000022 20%,#ffffff10 50%,#0000001f 80%,transparent);
+  filter:blur(1px);
+  z-index:1;
+}
+.prolog-cell.gate{
+  background:linear-gradient(180deg,#17445de8,#0e2736e6)!important;
+  border-color:#62d8f660!important;
+}
+.prolog-cell.gate::before{
+  background:
+    linear-gradient(180deg,#98eff81f 0,#ffffff05 18%,transparent 18%),
+    linear-gradient(135deg,#1f5573,#1a4660 56%,#102e40 100%);
+  box-shadow:inset 0 0 0 1px #b5f7ff1e,inset 0 -10px 14px #00000029,0 0 18px #5ce8f014;
+}
+.prolog-cell.approach{
+  background:linear-gradient(180deg,#3d2627dc,#251a25e4)!important;
+}
+.prolog-cell.approach::before{
+  background:
+    linear-gradient(180deg,#ffa27e14 0,#ffffff04 14%,transparent 15%),
+    linear-gradient(135deg,#4b2a2a,#33212d 55%,#211822 100%);
+}
+.prolog-cell.wall::before{
+  background:
+    linear-gradient(180deg,#b6ffd31a 0,#ffffff06 16%,transparent 17%),
+    linear-gradient(135deg,#335646,#284239 56%,#173127 100%);
+}
+.prolog-cell.hazard::before{
+  background:
+    radial-gradient(circle at 48% 74%,#ff7f4555 0 20%,transparent 34%),
+    radial-gradient(circle at 66% 26%,#ffbc6a22 0 12%,transparent 25%),
+    linear-gradient(135deg,#3a2a2a,#29232b 55%,#191d25 100%);
+}
+.prolog-cell.trace::before{
+  background:
+    radial-gradient(circle at 50% 50%,#f8eb9b33 0 18%,transparent 34%),
+    linear-gradient(135deg,#2e3841,#243140 55%,#17232e 100%);
+}
+.prolog-cell.valid{outline:2px solid #66e6f3c7;outline-offset:-3px;box-shadow:inset 0 0 20px #5dd9f022,0 0 0 1px #71f0fb2b}
+.prolog-cell.valid::before{box-shadow:inset 0 0 0 1px #cfffff20,inset 0 -10px 12px #00000026,0 0 14px #6ae4f31e}
+.prolog-cell:hover:not(:disabled){background:linear-gradient(180deg,#1c4157ef,#143042ee)!important}
+.prolog-unit{
+  width:92%;
+  height:110%;
+  left:50%;
+  bottom:-1%;
+  transform:translateX(-50%);
+  transform-origin:50% 86%;
+  filter:drop-shadow(0 12px 10px #000a);
+}
+.prolog-unit .unit-sprite{
+  width:calc(108% * var(--sprite-scale,1));
+  height:calc(116% * var(--sprite-scale,1));
+  bottom:calc(-1% + (var(--sprite-y,0) * 100%));
+  object-position:center bottom;
+}
+.prolog-unit.guardian .unit-sprite{
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+.prolog-unit.enemy .unit-sprite{
+  width:calc(104% * var(--sprite-scale,1));
+  height:calc(110% * var(--sprite-scale,1));
+}
+.prolog-unit.brute .unit-sprite{
+  width:calc(108% * var(--sprite-scale,1));
+  height:calc(114% * var(--sprite-scale,1));
+}
+.prolog-unit::before{
+  content:"";
+  position:absolute;
+  left:19%;
+  right:19%;
+  bottom:8%;
+  height:12%;
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,#0000009f 0,#00000052 58%,transparent 82%);
+  transform:scaleX(var(--shadow-scale,1));
+  filter:blur(4px);
+  z-index:-2;
+}
+.prolog-unit::after{
+  content:"";
+  position:absolute;
+  left:24%;
+  right:24%;
+  bottom:7.2%;
+  height:4%;
+  border-radius:50%;
+  background:linear-gradient(90deg,transparent,#ffffff1c 50%,transparent);
+  opacity:.65;
+  z-index:-1;
+}
+.prolog-unit i{left:18%;right:18%;bottom:-3%;height:5px;border:1px solid #001018cc;background:linear-gradient(90deg,#63e6a6 var(--hp),#261c27 var(--hp));}
+.prolog-unit em{right:0;top:4%;backdrop-filter:blur(2px)}
+.prolog-board .terrain-mark{position:relative;z-index:2;text-shadow:0 1px 8px #000}
+.prolog-cell.wall .terrain-mark{color:#d9eee4}
+.prolog-cell.hazard .terrain-mark{color:#ffba8f}
+.prolog-cell.trace .terrain-mark{color:#f6e68d}
+.scene-bridge::before{
+  background:
+   radial-gradient(circle at 16% 21%,#d9f5ff14 0 1px,transparent 2px),
+   radial-gradient(circle at 79% 30%,#ffe4c71d 0 1px,transparent 2px),
+   radial-gradient(circle at 58% 71%,#bde7ff13 0 1px,transparent 2px),
+   linear-gradient(90deg,transparent 0 4%,#84d8ef10 6%,transparent 12%,transparent 88%,#ff8b5c0c 94%,transparent 100%);
+}
+.scene-bridge::after{
+  height:38%;
+  background:
+    linear-gradient(0deg,#cfe6ef10,transparent),
+    radial-gradient(ellipse at 50% 100%,#b2dbe522,transparent 62%),
+    linear-gradient(90deg,transparent 0 5%,#ffffff07 6%,transparent 12%,transparent 88%,#ff9b7a05 94%,transparent 100%);
+}
+@keyframes prologSpriteMove{
+  from{transform:translate(calc(-50% + (var(--dx,0) * 104%)),calc(var(--dy,0) * 76%)) scale(.96)}
+  55%{filter:drop-shadow(0 14px 12px #000b);transform:translate(calc(-50% + (var(--dx,0) * 36%)),calc(var(--dy,0) * 26%)) scale(1.035)}
+  to{transform:translateX(-50%) scale(1)}
+}
+@media(max-width:650px){
+  .prolog-unit{width:90%;height:104%;bottom:0}
+  .prolog-unit .unit-sprite{width:calc(102% * var(--sprite-scale,1));height:calc(112% * var(--sprite-scale,1));}
+}
+@media (prefers-reduced-motion: reduce){
+  .prolog-unit{transform:translateX(-50%)!important}
+  .prolog-unit .unit-sprite{animation:none!important}
+}
+@keyframes spawnGuardian{
+  from{opacity:0;transform:translate(calc(-50% + (var(--guardian-spawn-x,-1) * 40%)),calc(var(--guardian-spawn-y,0) * 35%)) scale(.78)}
+  70%{opacity:1}
+  to{opacity:1;transform:translateX(-50%) scale(1)}
+}
+@keyframes spawnEnemy{
+  from{opacity:0;transform:translate(calc(-50% + 45%),0) scale(.82)}
+  70%{opacity:1}
+  to{opacity:1;transform:translateX(-50%) scale(1)}
+}
+@keyframes castPulse{
+  0%{transform:translateX(-50%) scale(1);filter:drop-shadow(0 0 0 transparent)}
+  35%{transform:translateX(-50%) scale(1.08);filter:drop-shadow(0 0 18px color-mix(in srgb,var(--guardian,#fff),transparent 55%))}
+  100%{transform:translateX(-50%) scale(1)}
+}
+@keyframes hitShake{
+  0%,100%{transform:translate(-50%,0)}
+  20%{transform:translate(calc(-50% - 6px),-1px)}
+  40%{transform:translate(calc(-50% + 6px),0)}
+  60%{transform:translate(calc(-50% - 4px),1px)}
+  80%{transform:translate(calc(-50% + 3px),0)}
+}
+@keyframes healRise{
+  0%{transform:translateX(-50%) scale(.9);filter:drop-shadow(0 0 0 transparent)}
+  40%{transform:translateX(-50%) scale(1.08);filter:drop-shadow(0 0 18px #8ef4d6)}
+  100%{transform:translateX(-50%) scale(1)}
+}
+
+/* v22 story-dependent arena themes */
+.prolog-board-wrap{position:relative;isolation:isolate;overflow:hidden}
+.prolog-board-wrap .prolog-scene-bar,.prolog-board-wrap .prolog-board,.prolog-board-wrap .prolog-legend{position:relative;z-index:3}
+.arena-backdrop{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;border-radius:18px;opacity:.98}
+.arena-backdrop span{position:absolute;display:block;pointer-events:none}
+.arena-backdrop .arena-horizon{left:0;right:0;top:0;height:44%}
+.arena-backdrop .arena-depth{left:-5%;right:-5%;bottom:-8%;height:45%;filter:blur(2px)}
+.arena-backdrop .arena-structure{filter:drop-shadow(0 18px 14px #0007)}
+.arena-backdrop .arena-light{width:180px;height:180px;border-radius:50%;filter:blur(18px);opacity:.25;mix-blend-mode:screen}
+.arena-backdrop .light-a{left:2%;top:18%}.arena-backdrop .light-b{right:2%;top:24%}
+
+/* Bridge / city gate */
+.prolog-board-wrap.arena-bridge{background:linear-gradient(180deg,#0d2637,#071620 74%,#050c12)}
+.arena-backdrop.arena-bridge{background:
+  radial-gradient(circle at 18% 8%,#2e7295 0,#153a50 24%,transparent 48%),
+  radial-gradient(circle at 86% 10%,#5b302c 0,#2c1d25 28%,transparent 50%),
+  linear-gradient(180deg,#0d2d42 0,#0b2131 38%,#07131d 100%)}
+.arena-backdrop.arena-bridge .arena-horizon{background:
+  linear-gradient(180deg,transparent 0 52%,#07131d 53% 100%),
+  linear-gradient(90deg,
+    transparent 0 4%,#19394d 4% 7%,transparent 7% 11%,#123247 11% 15%,transparent 15% 21%,
+    #21445a 21% 23%,transparent 23% 29%,#18384c 29% 33%,transparent 33% 40%,#24475d 40% 43%,
+    transparent 43% 52%,#173649 52% 57%,transparent 57% 64%,#244154 64% 66%,transparent 66% 72%,
+    #163448 72% 76%,transparent 76% 84%,#3b2c34 84% 88%,transparent 88% 94%,#4a2a2a 94% 97%,transparent 97%)}
+.arena-backdrop.arena-bridge .structure-a{left:-3%;top:20%;width:12%;height:68%;border-radius:0 48% 0 0;background:linear-gradient(90deg,#112f42,#1d5267 65%,#2e7286);box-shadow:inset -7px 0 0 #7ee2f11b}
+.arena-backdrop.arena-bridge .structure-b{right:-2%;top:16%;width:11%;height:72%;border-radius:48% 0 0 0;background:linear-gradient(270deg,#3e2327,#6d392f 68%,#9c593a);box-shadow:inset 7px 0 0 #ffad7317}
+.arena-backdrop.arena-bridge .light-a{background:#67dff5}.arena-backdrop.arena-bridge .light-b{background:#ff8c58}
+.arena-backdrop.arena-bridge .arena-depth{background:radial-gradient(ellipse at 50% 20%,#13384d77 0,#081621dd 52%,#02070b 76%)}
+
+/* Lichtquell forum */
+.prolog-board-wrap.arena-plaza{background:linear-gradient(180deg,#164052,#0c2734 70%,#071821)}
+.arena-backdrop.arena-plaza{background:
+ radial-gradient(circle at 18% 8%,#7edff0 0,#357e92 24%,transparent 44%),
+ radial-gradient(circle at 78% 16%,#ffca7f55 0,transparent 34%),
+ linear-gradient(180deg,#2d6d7f 0,#1b4454 38%,#102833 100%)}
+.arena-backdrop.arena-plaza .arena-horizon{background:
+ linear-gradient(180deg,transparent 0 60%,#102936 61%),
+ linear-gradient(90deg,#30687a 0 8%,transparent 8% 15%,#2a5d70 15% 22%,transparent 22% 29%,#3c7280 29% 39%,transparent 39% 53%,#2a5a6c 53% 60%,transparent 60% 70%,#376979 70% 81%,transparent 81%)}
+.arena-backdrop.arena-plaza .structure-a{left:6%;top:26%;width:16%;height:38%;border-radius:8px;background:linear-gradient(135deg,#467b88,#235061);box-shadow:inset 0 0 0 1px #d9fbff19}
+.arena-backdrop.arena-plaza .structure-b{right:7%;top:24%;width:14%;height:40%;border-radius:8px;background:linear-gradient(135deg,#446f79,#244c59)}
+.arena-backdrop.arena-plaza .light-a{background:#8ae8f1}.arena-backdrop.arena-plaza .light-b{background:#ffd68a}
+.arena-backdrop.arena-plaza .arena-depth{background:radial-gradient(ellipse at 50% 15%,#4f97a533,#153844aa 55%,#07151e 80%)}
+
+/* Workshop */
+.prolog-board-wrap.arena-workshop{background:linear-gradient(180deg,#2f2a2b,#16191e 72%,#0b0e12)}
+.arena-backdrop.arena-workshop{background:
+ radial-gradient(circle at 78% 16%,#ff9b4f4f 0,transparent 34%),
+ radial-gradient(circle at 18% 12%,#79cbd833 0,transparent 32%),
+ linear-gradient(180deg,#34373d 0,#25282e 38%,#14171c 100%)}
+.arena-backdrop.arena-workshop .arena-horizon{background:
+ linear-gradient(180deg,transparent 0 48%,#15181d 49%),
+ repeating-linear-gradient(90deg,#31353b 0 4%,#1c2025 4% 7%,transparent 7% 12%)}
+.arena-backdrop.arena-workshop .structure-a{left:3%;top:16%;width:18%;height:54%;border-radius:4px;background:linear-gradient(90deg,#252b30,#4b5357 50%,#2c3136);box-shadow:inset 0 0 0 2px #ffffff08}
+.arena-backdrop.arena-workshop .structure-b{right:4%;top:12%;width:16%;height:60%;background:repeating-linear-gradient(0deg,#373b40 0 10px,#202329 10px 18px);border-radius:6px}
+.arena-backdrop.arena-workshop .light-a{background:#6dd9e5}.arena-backdrop.arena-workshop .light-b{background:#ff8d45}
+.arena-backdrop.arena-workshop .arena-depth{background:linear-gradient(180deg,transparent,#0a0c0fdd 68%)}
+
+/* Rooftops */
+.prolog-board-wrap.arena-rooftops{background:linear-gradient(180deg,#0b2035,#081421 68%,#04080d)}
+.arena-backdrop.arena-rooftops{background:
+ radial-gradient(circle at 70% 7%,#6554b855 0,transparent 35%),
+ radial-gradient(circle at 17% 10%,#3e92b84c 0,transparent 36%),
+ linear-gradient(180deg,#132e4c 0,#0d1d31 38%,#07111c 100%)}
+.arena-backdrop.arena-rooftops .arena-horizon{background:
+ linear-gradient(180deg,transparent 0 58%,#07111c 59%),
+ linear-gradient(90deg,#102b42 0 8%,transparent 8% 13%,#193950 13% 23%,transparent 23% 29%,#112f48 29% 38%,transparent 38% 46%,#1b3b51 46% 57%,transparent 57% 62%,#132d43 62% 76%,transparent 76% 83%,#1e354d 83% 92%,transparent 92%)}
+.arena-backdrop.arena-rooftops .structure-a{left:5%;top:42%;width:28%;height:18%;background:linear-gradient(180deg,#1d3243,#0f1f2c);transform:skewX(-10deg)}
+.arena-backdrop.arena-rooftops .structure-b{right:4%;top:36%;width:30%;height:22%;background:linear-gradient(180deg,#182f43,#0d1a27);transform:skewX(9deg)}
+.arena-backdrop.arena-rooftops .light-a{background:#4fc8ff}.arena-backdrop.arena-rooftops .light-b{background:#ac64ff}
+.arena-backdrop.arena-rooftops .arena-depth{background:radial-gradient(ellipse at 50% 30%,#21445c33,#050b12e6 72%)}
+
+/* Let some environment read through the board without sacrificing tactical clarity */
+.prolog-board-wrap[class*="arena-"] .prolog-board{background-color:#0d1f2bd9;backdrop-filter:blur(1.5px) saturate(1.05)}
+.prolog-board-wrap[class*="arena-"] .prolog-cell{background-color:#102536c7!important}
+.prolog-board-wrap[class*="arena-"] .prolog-legend{padding-bottom:2px}
+
+@media(max-width:650px){
+ .arena-backdrop .arena-light{width:110px;height:110px}
+ .arena-backdrop .arena-structure{opacity:.75}
+}
+@media(prefers-reduced-motion:reduce){.arena-backdrop .arena-light,.arena-backdrop .arena-depth{animation:none!important}}

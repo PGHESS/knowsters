@@ -1,0 +1,47 @@
+/* Character-led scenes, resident portraits and a compact journey journal. */
+.chapter-map{background-image:url('assets/chapter-maps.webp');background-size:200% 200%;background-repeat:no-repeat}
+.npc-portrait{display:block;aspect-ratio:1;background-image:url('assets/residents.webp');background-size:300% 200%;background-repeat:no-repeat;border-radius:18px;overflow:hidden}
+.npc-professor{background-position:0 0}.npc-librarian{background-position:50% 0}.npc-astronomer{background-position:100% 0}.npc-herbalist{background-position:0 100%}.npc-keeper{background-position:50% 100%}.npc-guide{background-position:100% 100%}
+.world-place.world-person{display:block;padding:0;background:none;border:0;box-shadow:none;min-width:62px;transform:translate(-50%,-87%);z-index:5}
+.world-person .npc-portrait{width:52px;height:52px;margin:auto;border:2px solid #f0d287;border-radius:50%;box-shadow:0 3px 9px #0008}
+.world-person .place-caption{display:block;background:#143139ef;border:1px solid #e8d39070;border-radius:9px;padding:3px 7px;margin-top:-3px;font-size:13px;color:#fff4d6}
+.world-place:not(.world-person) .place-caption{color:inherit;font-size:inherit;font-weight:inherit}
+.journey-strip{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;background:#162d3d;color:#ecd6ab;border:1px solid #b2c5d32e;border-radius:12px;padding:11px 14px;margin-bottom:11px;font-size:14px}
+.journey-strip span{font-weight:750}.journey-strip small{color:#b9d0d7;font-size:12px;max-width:48%;text-align:right}
+.conversation{border:1px solid #b9d4df3b;border-radius:21px;overflow:hidden;background:#112b38;box-shadow:0 20px 70px #0004}
+.conversation-stage{height:300px;position:relative;background:linear-gradient(0deg,#142c3ce6,transparent 65%),url('assets/classroom.webp') center 53%/cover;overflow:hidden}
+.conversation.outdoors .conversation-stage{background-image:linear-gradient(0deg,#142c3ce6,transparent 65%),url('assets/forest-map.webp');background-position:center 40%}
+.room-location{position:absolute;left:17px;top:16px;background:#142c37df;border:1px solid #d4e9ed35;padding:7px 12px;border-radius:99px;font-size:13px;color:#f3e4c4;z-index:2}
+.resident-figure{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:255px}
+.resident-figure .npc-portrait{width:100%;border-radius:120px 120px 20px 20px;box-shadow:0 14px 40px #04132190;mask-image:linear-gradient(#000 87%,transparent)}
+.resident-badge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:#102b38e8;border:1px solid #bad5d945;padding:5px 11px;border-radius:30px;white-space:nowrap;font-size:12px;color:#e8efef}
+.speech-panel{position:relative;padding:23px 28px 26px;background:linear-gradient(135deg,#183647,#102634);border-top:1px solid #ccdfdf36}
+.speaker-name{font-size:18px;font-weight:850;color:#f1ce89;margin-bottom:10px;letter-spacing:-.01em}
+.spoken-text{font-size:17px;line-height:1.65;color:#f0f4f7}.spoken-text p{margin:0 0 9px}.spoken-text .spoken-aside{margin:13px 0 0}
+.spoken-aside{font-size:14px;color:#b5d0d8;line-height:1.5}.spoken-aside strong{color:#e9ca8e}
+.teacher-topic{font-size:12px!important;color:#b7ced7!important;margin-bottom:8px!important}.spoken-question{font-size:clamp(21px,4vw,30px);line-height:1.4;font-weight:650;letter-spacing:-.02em}
+.dialog-choices{display:grid;gap:8px;margin-top:21px}
+.dialog-reply{display:flex;gap:12px;align-items:center;text-align:left;width:100%;border:1px solid #adcfd33a;border-radius:11px;padding:12px 14px;min-height:50px;background:#254858;color:#edf4f6;font-size:15px;line-height:1.45}
+.dialog-reply:hover:not(:disabled){background:#365a67;border-color:#e2c787}.dialog-reply:focus-visible{outline:3px solid #f0d093;outline-offset:3px}.dialog-reply:disabled{opacity:.45}
+.reply-mark{font-size:23px;color:#e6c582;line-height:1}.dialog-reply small{display:block;font-size:12px;color:#bed2d7;margin-top:3px}
+.dialog-reply[data-action=world]{background:#173542;color:#b7cdd6;border-color:#b9cbd521}
+.teacher-note,.teacher-help{margin:14px 0 4px;padding:12px 15px;border-radius:11px;background:#0b2534;color:#c7e0e5;border-left:3px solid #88beb5;font-size:14px;line-height:1.6}
+.dialog-gift{color:#eed391;background:#55472f49;border:1px solid #e2c17b36;border-radius:12px;padding:13px 15px;font-size:15px;line-height:1.5;margin:17px 0 7px}
+.gift-caption{color:#a9d3bd;font-size:13px;margin:9px 0}
+.conversation-footer{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:#b2c8d1;margin-top:18px}
+.story-encounter{max-width:730px;margin:auto;border:1px solid #b7d1dc2f;border-radius:23px;overflow:hidden;background:radial-gradient(ellipse at 50% 0,#344759,#122937)}
+.encounter-figure{height:220px;display:grid;place-items:center;background:url('assets/battle-clearing.webp') center 65%/cover}
+.encounter-figure img{height:215px;max-width:90%;object-fit:contain;filter:drop-shadow(0 12px 12px #07121f)}
+.story-encounter .speech-panel>p{color:#d4e2e8;font-size:16px;line-height:1.6}
+.journey-journal{max-width:800px;margin:auto}.chapter-entry{display:flex;gap:17px;border-left:2px solid #597587;margin:0 0 0 20px;padding:0 15px 30px 25px;position:relative}.chapter-entry:last-of-type{border-left-color:transparent}
+.chapter-number{position:absolute;left:-18px;top:0;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid #86a7b9;background:#1a3547;color:#c0d6e1;font-size:16px;font-weight:800}
+.chapter-entry.complete .chapter-number{background:#215347;color:#c0edd2;border-color:#7dc7a2}.chapter-entry.current .chapter-number{background:#80643c;color:#fff0c6;border-color:#f5d088}
+.chapter-entry h2{font-size:20px;margin:3px 0 7px}.chapter-entry small{color:#d6bf97;font-size:12px}.chapter-entry p{color:#b9cfd8;font-size:14px;line-height:1.5;margin:0 0 8px}.chapter-tasks{font-size:12px;color:#b3d2c6}.chapter-entry.future{opacity:.6}
+.keepsakes{background:#183243;border:1px solid #b4c8d32a;border-radius:15px;padding:18px 22px}.keepsakes h2{font-size:19px;margin:0 0 12px}.keepsakes p,.keepsakes li{font-size:14px;color:#c6dae2;line-height:1.65}.keepsakes ul{margin:0;padding-left:19px}
+@media(max-width:680px){.conversation-stage{height:215px}.resident-figure{width:195px;bottom:-7px}.room-location{left:11px;top:10px;font-size:12px;max-width:95%;padding:6px 10px}.resident-badge{font-size:12px;padding:3px 8px;bottom:12px}.speech-panel{padding:18px 17px 20px}.speaker-name{font-size:17px}.spoken-text{font-size:16px;line-height:1.55}.dialog-reply{font-size:14px;padding:11px 12px;min-height:49px}.dialog-choices{gap:7px;margin-top:16px}.journey-strip{display:block;padding:9px 12px}.journey-strip span{display:block;font-size:13px}.journey-strip small{display:block;text-align:left;max-width:100%;margin-top:3px;font-size:12px}.world-person .npc-portrait{width:47px;height:47px}.world-person .place-caption{font-size:12px}.chapter-entry{padding-right:0}.chapter-entry h2{font-size:18px}.encounter-figure{height:190px}.encounter-figure img{height:184px}}
+.comic-scene{padding:0;overflow:hidden}.comic-intro-art{width:100%;aspect-ratio:3/2;background:url('assets/learning-intro.webp') center/100% 100% no-repeat}.comic-chapter-art{width:100%;background-image:url('assets/chapter-comics.webp');background-repeat:no-repeat}.comic-copy{padding:22px 26px 26px}.comic-copy h1{font-size:clamp(24px,4vw,36px);line-height:1.2;margin:8px 0 14px}.comic-copy p{font-size:17px;line-height:1.65;color:#d9e6ed}.comic-kicker{padding:18px 24px}.comic-captions{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:15px}.comic-captions p{margin-top:0}.comic-copy .primary{min-height:48px}.comic-captions p+p{border-left:2px solid #edce7966;padding-left:20px}@media(max-width:620px){.comic-copy{padding:18px}.comic-copy p{font-size:16px}.comic-captions{grid-template-columns:1fr;gap:4px}.comic-captions p+p{border-left:0;padding-left:0;border-top:1px solid #edce7944;padding-top:15px}.comic-copy .primary{width:100%}}
+.comic-chapter-1{aspect-ratio:971/287;background-size:100% 564.1114982578397%;background-position:0 0%}
+.comic-chapter-2{aspect-ratio:971/308;background-size:100% 525.6493506493507%;background-position:0 22.19679633867277%}
+.comic-chapter-3{aspect-ratio:971/316;background-size:100% 512.3417721518988%;background-position:0 46.43131235610131%}
+.comic-chapter-4{aspect-ratio:971/307;background-size:100% 527.3615635179153%;background-position:0 70.73170731707317%}
+.comic-chapter-5{aspect-ratio:971/377;background-size:100% 429.4429708222812%;background-position:0 100%}

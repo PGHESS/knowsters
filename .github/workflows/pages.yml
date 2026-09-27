@@ -1,16 +1,8 @@
-name: Deploy Knowsters to GitHub Pages
+name: Test and deploy Knowsters to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-    paths:
-      - "Knowsters-v*-WebDeploy-small.zip"
-      - ".github/workflows/pages.yml"
-      - "phaser-spike.html"
-      - "phaser-spike.css"
-      - "ks25-core.js"
-      - "ks25-battle.js"
-      - "ks25-boot.js"
+    branches: ["main", "claude/**"]
   workflow_dispatch:
 
 permissions:
@@ -22,38 +14,45 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  PHASER_MD5: bc1e020d681bb94138426c4907ea6b98
+
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Legacy tests (v22 reference build)
+        run: npm run test:legacy
+
   deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/claude/')
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Prepare latest static site
+      - uses: actions/checkout@v4
+      - name: Assemble static site
         run: |
-          rm -rf _site _unpacked
-          mkdir -p _site _unpacked
-          ZIP="$(find . -maxdepth 1 -type f -name 'Knowsters-v*-WebDeploy-small.zip' -printf '%f\n' | sort -V | tail -1)"
-          echo "Deploying $ZIP"
-          unzip -q "$ZIP" -d _unpacked
-          BUILD_DIR="$(find _unpacked -mindepth 1 -maxdepth 1 -type d | head -1)"
-          cp -R "$BUILD_DIR"/. _site/
-          cp phaser-spike.html phaser-spike.css ks25-core.js ks25-battle.js ks25-boot.js _site/
-          curl -L --fail --retry 3 --retry-delay 2 https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.min.js -o _site/phaser.min.js
-          test -s _site/phaser.min.js
+          rm -rf _site
+          mkdir -p _site/legacy
+          cp -R legacy/v22 _site/legacy/v22
+          cp -R legacy/v25-spike _site/legacy/v25-spike
+          curl -L --fail --retry 3 --retry-delay 2 https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.min.js -o _site/legacy/v25-spike/phaser.min.js
+          echo "$PHASER_MD5  _site/legacy/v25-spike/phaser.min.js" | md5sum -c -
+          cp legacy/README.md _site/legacy/README.md
+          # M0: bisherige Test-URLs bleiben gültig (Weiterleitung auf die Referenzstände)
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=legacy/v25-spike/phaser-spike.html"><title>Knowsters Spike</title><a href="legacy/v25-spike/phaser-spike.html">Weiter zum v25-Spike</a>' > _site/phaser-spike.html
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=legacy/v22/"><title>Knowsters</title><a href="legacy/v22/">Weiter zum v22-Prototyp</a>' > _site/index.html
           touch _site/.nojekyll
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: "_site"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

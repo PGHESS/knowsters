@@ -1,0 +1,10 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const ctx={window:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.resolve(__dirname,'../v22/wardrobe.js'),'utf8'),ctx);
+const W=ctx.window.KnowstersWardrobe;
+let wardrobe=W.normalize(null,{top:0,pants:0});
+assert.deepEqual(JSON.parse(JSON.stringify(wardrobe.tops)),[0]);assert.deepEqual(JSON.parse(JSON.stringify(wardrobe.pants)),[0]);
+let result=W.unlock(wardrobe,'top',1,'Willkommensausstattung');assert.equal(result.unlocked,true);wardrobe=result.wardrobe;
+assert.equal(W.owns(wardrobe,'top',1),true);assert.equal(W.count(wardrobe).tops,2);assert.equal(wardrobe.history[0].source,'Willkommensausstattung');
+result=W.unlock(wardrobe,'top',1,'Doppelt');assert.equal(result.unlocked,false);assert.equal(result.wardrobe.history.length,1);
+assert.equal(W.unlock(wardrobe,'pants',99,'Ungültig').unlocked,false);
+console.log('PASS: wardrobe owns, unlocks and records cosmetic rewards without duplicates.');
