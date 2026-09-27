@@ -6,7 +6,7 @@ Stand: 27.09.2026 · Branch `claude/3d-pilot-v1` (auf main nach Merge des Slice)
 
 | Prüfung | Ergebnis |
 |---|---|
-| vitest | 43 Tests in 7 Dateien (neu: `basic-attack.test.ts`, 5 Tests: je Wesen ein Grundangriff, immer verfügbar ohne Resonanz, Reichweite im Regelkern, Schaden nur im Regelkern mit Event, Gegner ohne Grundangriff) |
+| vitest | 45 Tests in 7 Dateien (neu: `basic-attack.test.ts`, 7 Tests: je Wesen ein Grundangriff, immer verfügbar ohne Resonanz, Reichweite im Regelkern, Schaden nur im Regelkern mit Event, Gegner-KI greift über content-definierten Grundangriff an, Hydrate ergänzt `basicAttack` in älteren v30-Kämpfen, Gegnerangriffe nicht im Spieler-Aktionssatz) |
 | Typecheck | rules, content, game, pilot3d strict |
 | Build | Phaser-Slice unverändert; Pilot 5,98 MB JS (gzip 1,28 MB) |
 | WebKit, Fall 1 | Laden ohne Fehler; per HUD-Klick + Canvas-Tap: Bewegen (2,4)→(2,3), Grundangriff Gegner 5→3 LP, Gegnerphase (Angriff auf Pyro), Fähigkeiten-Ebene → Glutspur legt Glut auf ein Feld (Resonanz 1→0), Sammeln (rallyUsed, Schild) |

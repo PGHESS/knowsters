@@ -14,7 +14,9 @@ Jedes Wesen besitzt genau einen Grundangriff (Art & Asset Bible §8):
 - eigenes Event (`basic-attack` mit `ability`, `unit`, `targetId`, `targetPos`, `amount`),
 - Schaden = Basis + Angriffsbonus (aus dem Attribut Angriff) + „Entfacht“ (+2) + „Analysiert“ (+2), berechnet ausschließlich im Regelkern.
 
-Bedienung: Modus `basic` (`setMode(state, 'basic')`), gültige Ziele über `validTiles(state, id, 'basic')`, Ausführung über `tile(state, x, y)` auf einem Gegnerfeld. Gegner haben keinen Grundangriff (`basicAttack: null`); ihre Angriffe bleiben die bestehende Gegner-KI.
+Auch **Gegner** haben einen content-definierten Grundangriff (`attack.rush.basic` „Drängen“ 3, `attack.flicker.basic` „Flackern“ 2, `attack.brute.basic` „Verdichten“ 3, alle Reichweite 1). Die KI wählt ihn automatisch: Ziel ist der Wächter mit den wenigsten LP in Reichweite; das Event bleibt `enemy-hit`, trägt aber jetzt `ability`. Damit haben alle Wesen dieselbe Struktur für Schaden, Reichweite, Animation und VFX. Das alte Feld `damage` auf Gegner-Species ist als deprecated markiert und wird aus der Definition befüllt.
+
+Bedienung: Modus `basic` (`setMode(state, 'basic')`), gültige Ziele über `validTiles(state, id, 'basic')`, Ausführung über `tile(state, x, y)` auf einem Gegnerfeld. Gegnerangriffe laufen nicht über den Spieler-Aktionssatz, sondern über die KI (siehe oben).
 
 ## Definitionen
 
@@ -24,6 +26,9 @@ Bedienung: Modus `basic` (`setMode(state, 'basic')`), gültige Ziele über `vali
 | `attack.lumi.basic` | Lumi | Lichtimpuls | light | 2 | 1 | `basic_attack` | `vfx.light.hit.small` |
 | `attack.terra.basic` | Terra | Pranke | earth | 1 | 2 | `basic_attack` | `vfx.earth.hit.small` |
 | `attack.nivaro.basic` | Nivaro | Energieimpuls | energy | 2 | 1 | `basic_attack` | `vfx.energy.hit.small` |
+| `attack.rush.basic` | Dränger (Gegner) | Drängen | physical | 1 | 3 | `basic_attack` | `vfx.noise.hit.small` |
+| `attack.flicker.basic` | Flimmerer (Gegner) | Flackern | energy | 1 | 2 | `basic_attack` | `vfx.noise.hit.small` |
+| `attack.brute.basic` | Verdichter (Gegner) | Verdichten | physical | 1 | 3 | `basic_attack` | `vfx.noise.hit.small` |
 
 Nahkämpfer treffen härter, Fernangriffe sind schwächer, aber sicherer. Das Verhältnis zu den Fähigkeiten (Flammenstoß 4, Fokusstrahl 3) ist bewusst so gewählt, dass der Grundangriff nie die bessere Wahl gegenüber einer passenden Fähigkeit ist, aber nie nutzlos.
 
@@ -43,7 +48,9 @@ Nahkämpfer treffen härter, Fernangriffe sind schwächer, aber sicherer. Das Ve
 - immer verfügbar: funktioniert mit Resonanz 0, nicht Teil der Fähigkeitenliste, kostet nichts,
 - Reichweite wird im Regelkern geprüft (Flammenklaue reicht nicht über zwei Felder),
 - Schaden nur im Regelkern (Analyse und Entfachen fließen ein, das Event trägt den Wert),
-- Lichtimpuls reicht zwei Felder, Gegner haben keinen Grundangriff.
+- Lichtimpuls reicht zwei Felder; Gegnerangriffe sind nicht Teil des Spieler-Aktionssatzes,
+- Gegner-KI greift über ihren Grundangriff an (Event `enemy-hit` mit `ability`, Schaden aus der Definition),
+- ältere gespeicherte v30-Kämpfe ohne `basicAttack` werden beim Hydratisieren aus der Species ergänzt.
 
 ## Presenter
 

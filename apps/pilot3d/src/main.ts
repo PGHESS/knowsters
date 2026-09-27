@@ -53,7 +53,7 @@ async function main(): Promise<void> {
   const manifest = (await (await fetch(`${base}assets/manifests/pilot.json`)).json()) as Manifest;
   const note = document.createElement('div');
   note.className = 'placeholder-note';
-  note.textContent = 'PLATZHALTER-MODELLE (Khronos Fox / CesiumMan, CC-BY 4.0) · keine Zielgrafik';
+  note.textContent = 'PLATZHALTER-MODELLE (Khronos Fox / CesiumMan, CC-BY 4.0, siehe THIRD_PARTY_ASSETS.md) · keine Zielgrafik';
   document.body.appendChild(note);
 
   let presenter: BattlePresenter | null = null;

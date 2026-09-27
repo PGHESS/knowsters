@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { BASIC_ATTACKS, ENCOUNTER_PILOT_3D, ENCOUNTER_WORKSHOP, GUARDIANS, basicAttackDef } from '@knowsters/content';
-import { createBattle, createCreature, living, seededRng, select, setMode, tile, validTiles, wait } from '../src';
+import { createBattle, createCreature, hydrateBattle, living, nextEnemyAction, seededRng, select, setMode, tile, validTiles, wait } from '../src';
+import { ENEMIES } from '@knowsters/content';
 
 const start = (encounter = ENCOUNTER_PILOT_3D) => {
   const rng = seededRng(3);
@@ -68,7 +69,44 @@ describe('basic attack (Bible §8)', () => {
     expect(enemy.hp).toBe(20 - ev.amount!);
     expect(pyro.buff).toBe(0);
   });
-  it('lumi reaches two fields, enemies have no basic attack, waiting still works', () => {
+  it('enemies attack through their own content-defined basic attack (AI picks it)', () => {
+    for (const e of Object.values(ENEMIES)) {
+      const def = basicAttackDef(e.basicAttack);
+      expect(def.speciesId).toBe(e.id);
+      expect(def.damage).toBe(e.damage); // Pilotwerte identisch zum bisherigen Verhalten
+    }
+    const { b } = start();
+    const pyro = pyroOf(b);
+    const enemy = living(b, 'enemy')[0]!;
+    enemy.x = pyro.x;
+    enemy.y = pyro.y - 1;
+    expect(enemy.basicAttack).toBe('attack.rush.basic');
+    wait(b, pyro.id); // Gegnerphase beginnt
+    const hp = pyro.hp;
+    const step = nextEnemyAction(b);
+    expect(step.type).toBe('attack');
+    const ev = b.events.find((x) => x.type === 'enemy-hit')!;
+    expect(ev.ability).toBe('attack.rush.basic');
+    expect(ev.amount).toBe(basicAttackDef('attack.rush.basic').damage);
+    expect(pyro.hp).toBe(hp - ev.amount!);
+  });
+  it('hydrating an older v30 battle without basicAttack fills it from the species', () => {
+    const { b } = start();
+    const raw = JSON.parse(JSON.stringify(b)) as { units: Record<string, unknown>[] };
+    for (const u of raw.units) {
+      delete u.basicAttack;
+      if (u.kind === 'enemy') delete u.damage;
+    }
+    const h = hydrateBattle(raw)!;
+    expect(h).not.toBeNull();
+    expect(h.units.find((u) => u.speciesId === 'pyro')!.basicAttack).toBe('attack.pyro.basic');
+    const enemy = h.units.find((u) => u.kind === 'enemy')!;
+    expect(enemy.basicAttack).toBe('attack.rush.basic');
+    expect(enemy.damage).toBe(3);
+    select(h, h.units.find((u) => u.speciesId === 'pyro')!.id);
+    expect(setMode(h, 'basic').ok).toBe(true);
+  });
+  it('lumi reaches two fields, enemies keep their attack out of the player action set, waiting still works', () => {
     const { b } = start(ENCOUNTER_WORKSHOP);
     const lumi = b.units.find((u) => u.speciesId === 'lumi')!;
     const enemy = living(b, 'enemy')[0]!;
@@ -77,7 +115,8 @@ describe('basic attack (Bible §8)', () => {
     select(b, lumi.id);
     expect(setMode(b, 'basic').ok).toBe(true);
     expect(validTiles(b, lumi.id, 'basic').has(`${enemy.x}:${enemy.y}`)).toBe(true);
-    expect(enemy.basicAttack).toBeNull();
+    expect(enemy.basicAttack).toMatch(/^attack\.(rush|flicker|brute)\.basic$/);
+    expect(enemy.abilities).toEqual([]); // kein Spielerzugriff auf Gegnerangriffe
     expect(wait(b).ok).toBe(true);
   });
 });

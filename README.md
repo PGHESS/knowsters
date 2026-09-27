@@ -58,4 +58,5 @@ Verbindliches Muster: **Command → Rules → State + Events → Presenter**. Ph
 - [docs/ASSET_PIPELINE.md](docs/ASSET_PIPELINE.md) – Freisteller, Rig, Spine-Ergebnis, Arena-Aufbau
 - [docs/TESTREPORT.md](docs/TESTREPORT.md) – Testlauf und Abnahmekriterien
 - [DEPLOYMENT.md](DEPLOYMENT.md) – CI, Pages, Handytest, Capacitor-Pfad
+- [THIRD_PARTY_ASSETS.md](THIRD_PARTY_ASSETS.md) – Quellen, Lizenzen und Attribution aller Fremd-Assets und Bibliotheken
 - [docs/MOBILE_UX_BLUEPRINT_V1.md](docs/MOBILE_UX_BLUEPRINT_V1.md) – Produkt- und UX-Grundlage (unverändert)

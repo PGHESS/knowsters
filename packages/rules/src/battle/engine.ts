@@ -78,7 +78,7 @@ function makeEnemy(b: BattleState, speciesId: string, x: number, y: number): Bat
     alive: true,
     move: e.move,
     initiative: e.initiative,
-    damage: e.damage,
+    damage: basicAttackDef(e.basicAttack).damage,
     attackBonus: 0,
     shieldBonus: 0,
     controlBonus: 0,
@@ -88,7 +88,7 @@ function makeEnemy(b: BattleState, speciesId: string, x: number, y: number): Bat
     resonance: 0,
     maxResonance: 0,
     abilities: [],
-    basicAttack: null,
+    basicAttack: e.basicAttack,
   };
 }
 
@@ -134,11 +134,22 @@ export function createBattle(encounter: EncounterDef, team: readonly CreatureIns
   return b;
 }
 
+/**
+ * Lädt einen gespeicherten Kampf und ergänzt Felder, die ältere v30-Stände noch nicht kannten
+ * (`basicAttack` seit dem 3D-Pilot-Branch). Unbekannte Species-IDs machen den Stand ungültig.
+ */
 export function hydrateBattle(raw: unknown): BattleState | null {
   if (!raw || typeof raw !== 'object') return null;
   const b = raw as Partial<BattleState>;
   if (b.version !== 30 || !b.encounterId || !Array.isArray(b.units)) return null;
-  return JSON.parse(JSON.stringify(raw)) as BattleState;
+  const state = JSON.parse(JSON.stringify(raw)) as BattleState;
+  for (const u of state.units) {
+    if (u.basicAttack === undefined) {
+      u.basicAttack = u.kind === 'guardian' ? guardianDef(u.speciesId).basicAttack : enemyDef(u.speciesId).basicAttack;
+    }
+    if (u.kind === 'enemy' && (u.damage === undefined || u.damage === null)) u.damage = basicAttackDef(u.basicAttack ?? enemyDef(u.speciesId).basicAttack).damage;
+  }
+  return state;
 }
 
 // ---------------------------------------------------------------- Abfragen
@@ -690,10 +701,13 @@ function checkObjectiveAfterAction(b: BattleState): boolean {
 
 // ---------------------------------------------------------------- Gegner
 
-const adjacentGuardian = (b: BattleState, e: BattleUnit): BattleUnit | undefined =>
-  living(b, 'guardian')
-    .filter((g) => manhattan(e, g) === 1)
+/** Wächter in Reichweite des Gegner-Grundangriffs, mit den wenigsten LP zuerst. */
+const adjacentGuardian = (b: BattleState, e: BattleUnit): BattleUnit | undefined => {
+  const range = e.basicAttack ? basicAttackDef(e.basicAttack).range : 1;
+  return living(b, 'guardian')
+    .filter((g) => manhattan(e, g) <= range)
     .sort((p, q) => p.hp - q.hp)[0];
+};
 
 /** BFS-Schritt: zum Tor (Torbrett) oder auf den nächsten Wächter zu (Hof). */
 function nextStep(b: BattleState, e: BattleUnit): Cell | null {
@@ -752,9 +766,10 @@ export function nextEnemyAction(b: BattleState): EnemyStep {
     if (!e) continue;
     const adjacent = adjacentGuardian(b, e);
     if (adjacent) {
-      const dealt = damage(adjacent, e.damage);
-      emit(b, { type: 'enemy-hit', unit: e.id, sourcePos: { x: e.x, y: e.y }, targetId: adjacent.id, targetPos: { x: adjacent.x, y: adjacent.y }, amount: dealt });
-      b.message = `${e.name} greift ${adjacent.name} an.`;
+      const def = e.basicAttack ? basicAttackDef(e.basicAttack) : null;
+      const dealt = damage(adjacent, def ? def.damage : e.damage);
+      emit(b, { type: 'enemy-hit', ability: def?.id, unit: e.id, sourcePos: { x: e.x, y: e.y }, targetId: adjacent.id, targetPos: { x: adjacent.x, y: adjacent.y }, amount: dealt });
+      b.message = def ? `${e.name}: ${def.name} trifft ${adjacent.name} für ${dealt} Schaden.` : `${e.name} greift ${adjacent.name} an.`;
       if (checkLoss(b)) return { ok: true, done: true, unit: e.id, type: 'attack', result: b.result };
       return afterEnemy(b, { ok: true, done: false, unit: e.id, type: 'attack' });
     }

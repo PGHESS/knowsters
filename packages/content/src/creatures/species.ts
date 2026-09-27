@@ -33,7 +33,10 @@ export interface EnemySpecies {
   name: string;
   about: string;
   maxHp: number;
+  /** @deprecated Schaden kommt aus dem Grundangriff (`basicAttack`); Feld bleibt für Anzeige/Legacy. */
   damage: number;
+  /** Grundangriff (creatures/basic-attacks.ts); die KI wählt ihn automatisch. */
+  basicAttack: string;
   move: number;
   /** Feste Initiative für den Initiative-Modus. */
   initiative: number;
@@ -81,9 +84,9 @@ export const GUARDIANS: Record<string, GuardianSpecies> = {
 };
 
 export const ENEMIES: Record<string, EnemySpecies> = {
-  rush: { kind: 'enemy', id: 'rush', name: 'Dränger', about: 'Ein vom Rauschen getriebenes Wesen. Es kennt nur noch eine Richtung.', maxHp: 5, damage: 3, move: 2, initiative: 480, icon: '◆', sprite: 'enemy-rush' },
-  flicker: { kind: 'enemy', id: 'flicker', name: 'Flimmerer', about: 'Unruhig und schwer zu lesen.', maxHp: 6, damage: 2, move: 1, initiative: 700, icon: '✦', sprite: 'enemy-flicker' },
-  brute: { kind: 'enemy', id: 'brute', name: 'Verdichter', about: 'Eine schwere Verdichtung des Rauschens. Direkte Angriffe allein reichen selten.', maxHp: 9, damage: 3, move: 1, initiative: 240, icon: '⬢', sprite: 'enemy-brute' },
+  rush: { kind: 'enemy', id: 'rush', name: 'Dränger', about: 'Ein vom Rauschen getriebenes Wesen. Es kennt nur noch eine Richtung.', maxHp: 5, damage: 3, basicAttack: 'attack.rush.basic', move: 2, initiative: 480, icon: '◆', sprite: 'enemy-rush' },
+  flicker: { kind: 'enemy', id: 'flicker', name: 'Flimmerer', about: 'Unruhig und schwer zu lesen.', maxHp: 6, damage: 2, basicAttack: 'attack.flicker.basic', move: 1, initiative: 700, icon: '✦', sprite: 'enemy-flicker' },
+  brute: { kind: 'enemy', id: 'brute', name: 'Verdichter', about: 'Eine schwere Verdichtung des Rauschens. Direkte Angriffe allein reichen selten.', maxHp: 9, damage: 3, basicAttack: 'attack.brute.basic', move: 1, initiative: 240, icon: '⬢', sprite: 'enemy-brute' },
 };
 
 export const GUARDIAN_ORDER: readonly string[] = ['lumi', 'pyro', 'terra', 'nivaro'];
