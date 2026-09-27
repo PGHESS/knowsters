@@ -8,7 +8,7 @@
  *
  * Muster: Command → Rules → State + Events → Presenter. Die Engine kennt kein DOM und kein Phaser.
  */
-import { ABILITIES, boardDef, encounterDef, enemyDef, guardianDef, type BoardConfig, type Cell, type EncounterDef } from '@knowsters/content';
+import { ABILITIES, basicAttackDef, boardDef, encounterDef, enemyDef, guardianDef, type BoardConfig, type Cell, type EncounterDef } from '@knowsters/content';
 import { deriveStats } from '../progression/attributes';
 import type { CreatureInstance } from '../progression/creature';
 import type { ActionResult, BattleEvent, BattleState, BattleUnit, EnemyStep, TurnOrderMode } from './types';
@@ -55,6 +55,7 @@ function makeGuardian(creature: CreatureInstance, x: number, y: number): BattleU
     resonance: d.resonance,
     maxResonance: d.resonance,
     abilities: species.abilities.filter((a) => creature.unlocked.includes(a)),
+    basicAttack: species.basicAttack,
   };
 }
 
@@ -87,6 +88,7 @@ function makeEnemy(b: BattleState, speciesId: string, x: number, y: number): Bat
     resonance: 0,
     maxResonance: 0,
     abilities: [],
+    basicAttack: null,
   };
 }
 
@@ -224,6 +226,11 @@ export function validTiles(b: BattleState, id: string | null, mode: string | nul
   const { board } = ctx(b);
   if (!u || !mode) return new Set();
   if (mode === 'move') return new Set(reachable(b, u, moveRange(b, u)).map((t) => key(t.x, t.y)));
+  if (mode === 'basic') {
+    if (!u.basicAttack) return new Set();
+    const range = basicAttackDef(u.basicAttack).range;
+    return new Set(living(b, 'enemy').filter((e) => manhattan(u, e) <= range).map((e) => key(e.x, e.y)));
+  }
   const a = ABILITIES[mode];
   if (!a) return new Set();
   const out: string[] = [];
@@ -295,6 +302,11 @@ export function setMode(b: BattleState, mode: 'move' | string): ActionResult {
     b.mode = 'move';
     return { ok: true };
   }
+  if (mode === 'basic') {
+    if (!u.basicAttack) return { ok: false, message: 'Diese Einheit hat keinen Grundangriff.' };
+    b.mode = 'basic';
+    return { ok: true };
+  }
   const a = ABILITIES[mode];
   if (!a || !u.abilities.includes(a.id)) return { ok: false, message: 'Diese Fähigkeit ist nicht gelernt.' };
   if (u.resonance < a.resonanceCost) return { ok: false, message: `Nicht genug Resonanz für ${a.name}.` };
@@ -306,7 +318,9 @@ export function setMode(b: BattleState, mode: 'move' | string): ActionResult {
 export function tile(b: BattleState, x: number, y: number): ActionResult {
   if (!b.mode) return { ok: false, message: 'Wähle zuerst Bewegen oder eine Fähigkeit.' };
   if (!b.selected) return { ok: false };
-  return b.mode === 'move' ? actionMove(b, b.selected, x, y) : actionAbility(b, b.selected, b.mode, x, y);
+  if (b.mode === 'move') return actionMove(b, b.selected, x, y);
+  if (b.mode === 'basic') return actionBasicAttack(b, b.selected, x, y);
+  return actionAbility(b, b.selected, b.mode, x, y);
 }
 
 export function wait(b: BattleState, id: string | null = b.selected): ActionResult {
@@ -332,6 +346,26 @@ export function rally(b: BattleState): ActionResult {
     emit(b, { type: 'rally', unit: g.id, targetId: g.id, targetPos: { x: g.x, y: g.y }, amount: bonus, label: `+${bonus} Schild` });
   }
   b.message = 'Sammeln! Das Team rückt diese Runde weiter und steht dichter zusammen.';
+  return { ok: true };
+}
+
+/**
+ * Grundangriff (Bible §8): immer verfügbar, keine Resonanz, kein Slot. Schaden wird nur hier
+ * berechnet: Basis + Angriffsbonus + Entfachen + Analyse.
+ */
+function actionBasicAttack(b: BattleState, id: string, x: number, y: number): ActionResult {
+  b.events = [];
+  const u = unitById(b, id);
+  if (!u || !canAct(b, id) || !u.basicAttack) return { ok: false, message: 'Grundangriff gerade nicht möglich.' };
+  const def = basicAttackDef(u.basicAttack);
+  const target = unitAt(b, x, y);
+  if (!target || target.kind !== 'enemy') return { ok: false, message: 'Wähle einen Gegner.' };
+  if (manhattan(u, target) > def.range) return { ok: false, message: `${def.name} reicht nur ${def.range} Feld${def.range === 1 ? '' : 'er'} weit.` };
+  const dmg = def.damage + u.attackBonus + (u.buff || 0) + (target.analyzed > 0 ? 2 : 0);
+  u.buff = 0;
+  damage(target, dmg);
+  emit(b, { type: 'basic-attack', ability: def.id, unit: id, sourcePos: { x: u.x, y: u.y }, targetId: target.id, targetPos: { x: target.x, y: target.y }, amount: dmg });
+  markActed(b, u, `${u.name}: ${def.name} trifft ${target.name} für ${dmg} Schaden.`);
   return { ok: true };
 }
 
