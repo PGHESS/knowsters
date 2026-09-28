@@ -53,6 +53,21 @@ Exportvertrag: GLB (binär, Texturen eingebettet), Blickrichtung +Z, Bodenlinie 
 
 Die fps-Werte sind Software-Rendering des Entwicklungsrechners und **keine Geräteaussage**; entscheidend bleibt die iPhone-Messung (Tabelle „Gerätemessungen“). Neu gegenüber v1: Texturspeicher in Fall 2 halbiert, Bundle um 62 % kleiner, `fallback30` halbiert die Draw Calls (kein Glow-Pass).
 
+### Erster Pyro aus Meshy (28.09.2026, Entwurf 1, nicht committet)
+
+Quelle: Meshy Image-to-3D (Multi-View aus GPTs vier Ansichten), Export `Meshy_AI_Emberfox_…_texture.glb`. Meshy liefert am Ursprung zentriert, 1,42 m hoch, Blick +Z, ohne Rig. Normiert mit `node scripts/normalize-glb.mjs <meshy.glb> apps/game/public/assets/models/creatures/pyro/pyro.glb --height 0.9 --yaw 0 --name pyro` (legt nur einen Wurzelknoten mit Transform darüber, Geometrie bleibt). Prüfung `--stage static`: OK mit 2 Warnungen.
+
+| Merkmal | Wert | Bewertung |
+|---|---|---|
+| Dreiecke | 255 578 | **12× über Budget** (20 k). In Meshy „Remesh“ mit Ziel 15–20 k neu exportieren, bevor es auf ein Gerät geht. |
+| Texturen | 3 × 2048² JPEG (Albedo, Metallic-Roughness, Normal) | ≈ 48 MB GPU allein für Pyro. Für Mobile 1024² reichen; 2048² höchstens für den Helden. |
+| Datei | 13,45 MB | über 8 MB; nach Remesh ≈ 2–3 MB |
+| Bodenlinie / Höhe / Blick | 0 / 0,90 m / +Z | nach Normierung vertragskonform |
+| Rig / Clips | keine | erwartet in Phase 1; Phase 2 über Meshy Animate (Vierbeiner) oder Blender |
+| Optik im Pilot | Kopf, Augen, vier Pfoten, Mähne, Flammenschweif von allen Seiten stimmig; Silhouette bleibt bei 0,9 m gut lesbar | Renders: `docs/screenshots/pilot3d/pyro-meshy-draft1-{front,side,back,threequarter}.png` |
+
+In Software-WebKit lief Fall 1 mit diesem Modell bei 531 k Dreiecken pro Bild (Schatten-Pass verdoppelt) noch flüssig genug für die Sichtung; für die iPhone-Messung ist erst die reduzierte Version aussagekräftig. Das GLB liegt lokal unter dem Produktionspfad, ist aber nicht committet (14 MB Entwurf); committet wird die Remesh-Version nach GPTs Freigabe.
+
 ### Nicht gemacht (bewusst)
 
 - Draco/Meshopt/KTX2: brauchen Decoder-Dateien und mehr Bundle; erst sinnvoll, wenn ein Produktionsasset > 8 MB wird.

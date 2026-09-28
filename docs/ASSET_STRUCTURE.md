@@ -92,7 +92,9 @@ Clip-Name im GLB = Vertragsname (exakt, Kleinschreibung). Ein Produktionsasset o
 - Budgets (Warnung): Wesen ≤ 20 k Dreiecke, Mensch ≤ 25 k, Arena ≤ 120 k; Datei ≤ 8 MB (Arena ≤ 24 MB).
 - Arena: Ursprung = Brettmitte, Spielfläche bei Y = 0 (Bodenplatte nach unten), Reihe 0 (Gegnerseite) in +Z, Ausdehnung ≥ 6×7 m (Prüfskript prüft). Props im DCC-Tool zusammenfassen (kein GPU-Instancing im Pilot).
 
-Prüfen: `npm run check:glb -- <datei> --role creature|human|arena` · alle gelieferten Produktionsassets: `npm run check:assets` (Teil von `verify` und CI).
+Prüfen: `npm run check:glb -- <datei> --role creature|human|arena` (Phase 1 ohne Rig: `--stage static`) · alle gelieferten Produktionsassets: `npm run check:assets` (Teil von `verify` und CI).
+
+Normieren (KI-Exporte sind am Ursprung zentriert und beliebig groß): `node scripts/normalize-glb.mjs <in.glb> <out.glb> --height 0.9 --yaw 0 --name pyro` legt einen Wurzelknoten mit Skalierung, Yaw und Verschiebung über die Szene (Bodenlinie 0, mittig, Zielhöhe, Blick +Z), ohne Geometrie oder Texturen anzufassen. Meshy exportiert bereits mit Blick +Z (yaw 0).
 
 ## Namenskonvention Dateien
 
