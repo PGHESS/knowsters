@@ -32,6 +32,8 @@ jobs:
         run: npm test
       - name: Legacy tests (v22 reference)
         run: npm run test:legacy
+      - name: Production GLBs against the asset contract
+        run: npm run check:assets
       - name: Build
         run: npm run build
       - name: Build 3D pilot

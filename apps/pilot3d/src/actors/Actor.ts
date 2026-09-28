@@ -1,8 +1,9 @@
-import { AbstractMesh, AnimationGroup, Color3, Mesh, MeshBuilder, PBRMaterial, Scene, SceneLoader, StandardMaterial, TransformNode, Vector3 } from '@babylonjs/core';
+import { Color3, CreateDisc, PBRMaterial, StandardMaterial, TransformNode, Vector3, type AbstractMesh, type AnimationGroup, type InstantiatedEntries, type Mesh } from '../babylon';
+import type { Clip, ModelRole } from '../assets/contract';
+import type { AssetRegistry, ResolvedModel } from '../assets/registry';
 import type { Stage } from '../scene/setup';
 
-/** Animationsvertrag (Bible §7). Fehlende Clips werden prozedural überlagert und im Log markiert. */
-export type Clip = 'idle' | 'move' | 'basic_attack' | 'hit' | 'defend' | 'skill_01' | 'skill_02' | 'skill_03' | 'skill_04' | 'victory' | 'down' | 'command';
+export type { Clip } from '../assets/contract';
 export type ActorState = 'idle' | 'move' | 'attack' | 'hit' | 'command' | 'down';
 interface Phase {
   dur: number;
@@ -12,29 +13,19 @@ interface Phase {
   impact?: boolean;
 }
 
-export interface ModelSpec {
-  file: string;
-  placeholder: boolean;
-  scale: number;
-  tint: string | null;
-  anims: Partial<Record<Clip, string | null>>;
-  /** Drehung des Modells, damit „vorn“ = +Z (Platzhalter sind unterschiedlich orientiert). */
-  yawOffset?: number;
-  /** Optionales Eigenleuchten (z. B. Rauschen-Gegner). */
-  emissive?: string | null;
-}
-
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 /**
- * Ein Actor = Root-Node auf dem Brett + geladenes GLB + Animation-State-Machine.
+ * Ein Actor = Root-Node auf dem Brett + Instanz aus dem AssetContainer + Animation-State-Machine.
  * Zustände: Idle ⇄ Move, Idle → Attack → Recovery → Idle, Idle → Hit → Idle, Idle → Command → Idle.
  * Übergänge sind Crossfades über AnimationGroup-Gewichte; keine harten Pose-Sprünge.
- * Attack/Hit/Command ohne eigenen Clip laufen als prozedurale Overlays auf dem Root (Lunge, Rückstoß, Heben).
+ * Attack/Hit/Command ohne eigenen Clip laufen als prozedurale Overlays auf dem Root (Lunge, Rückstoß,
+ * Heben). Bei Produktionsassets ist ein fehlender Pflichtclip eine Diagnose (Registry), kein stiller Ersatz.
  */
 export class Actor {
   readonly root: TransformNode;
   readonly body: TransformNode;
+  private entries: InstantiatedEntries | null = null;
   private meshes: AbstractMesh[] = [];
   private groups = new Map<Clip, AnimationGroup>();
   private weights = new Map<AnimationGroup, number>();
@@ -44,16 +35,18 @@ export class Actor {
   private targetYaw = 0;
   private flash: PBRMaterial[] = [];
   private flashT = 0;
-  readonly missingClips: Clip[] = [];
   private shadowMesh: AbstractMesh | null = null;
   /** Bodenanker (Kontaktschatten), z. B. als Partikel-Emitter. */
   anchor: AbstractMesh | null = null;
-  private baseAlbedo: Color3[] = [];
+  /** Aufgelöstes Modell (Schlüssel, Spec, Clip-Auflösung); null vor `load()`. */
+  model: ResolvedModel | null = null;
 
   constructor(
     private readonly stage: Stage,
     readonly id: string,
-    readonly spec: ModelSpec,
+    readonly role: ModelRole,
+    readonly modelKey: string,
+    private readonly registry: AssetRegistry,
     readonly height = 0.8,
   ) {
     this.root = new TransformNode(`actor-${id}`, stage.scene);
@@ -62,24 +55,34 @@ export class Actor {
     this.root.metadata = { unit: id };
   }
 
-  async load(assetBase: string): Promise<void> {
-    const url = `${assetBase}${this.spec.file}`;
-    const dir = url.slice(0, url.lastIndexOf('/') + 1);
-    const file = url.slice(url.lastIndexOf('/') + 1);
-    const result = await SceneLoader.ImportMeshAsync('', dir, file, this.stage.scene);
-    const rootMesh = result.meshes[0] as AbstractMesh;
-    rootMesh.parent = this.body;
-    rootMesh.scaling.scaleInPlace(this.spec.scale);
-    this.body.rotation.y = this.spec.yawOffset ?? 0;
-    this.meshes = result.meshes;
-    for (const m of result.meshes) {
+  get missingClips(): Clip[] {
+    return this.model?.clips.missingRequired ?? [];
+  }
+
+  async load(): Promise<void> {
+    const model = await this.registry.resolveModel(this.modelKey);
+    if (model.spec.role !== this.role) this.registry.report({ level: 'error', asset: model.key, message: `Rolle ${model.spec.role}, Actor erwartet ${this.role}` });
+    this.model = model;
+    const spec = model.spec;
+    const entries = this.registry.instantiate(model.container, true);
+    this.entries = entries;
+    const meshes: AbstractMesh[] = [];
+    for (const n of entries.rootNodes) {
+      n.parent = this.body;
+      const t = n as TransformNode;
+      if (t.scaling) t.scaling.scaleInPlace(spec.scale);
+      if ((n as AbstractMesh).getTotalVertices) meshes.push(n as AbstractMesh);
+      meshes.push(...n.getChildMeshes(false));
+    }
+    this.body.rotation.y = spec.yawOffset ?? 0;
+    this.meshes = meshes;
+    for (const m of meshes) {
       m.isPickable = true;
       m.metadata = { unit: this.id };
       if (m.material instanceof PBRMaterial) {
         this.flash.push(m.material);
-        this.baseAlbedo.push(m.material.albedoColor.clone());
-        if (this.spec.tint) m.material.albedoColor = Color3.FromHexString(this.spec.tint).scale(1.1);
-        if (this.spec.emissive) m.material.emissiveColor = Color3.FromHexString(this.spec.emissive).scale(0.12);
+        if (spec.placeholder && spec.tint) m.material.albedoColor = Color3.FromHexString(spec.tint).scale(1.1);
+        if (spec.placeholder && spec.emissive) m.material.emissiveColor = Color3.FromHexString(spec.emissive).scale(0.12);
       }
       if (m.getTotalVertices() > 0) {
         this.stage.shadows.addShadowCaster(m, true);
@@ -88,10 +91,10 @@ export class Actor {
       }
     }
     // Kontaktschatten (Bible §4: eindeutige Bodenverankerung)
-    const blob = MeshBuilder.CreateDisc(`blob-${this.id}`, { radius: 0.34, tessellation: 24 }, this.stage.scene);
+    const blob = CreateDisc(`blob-${this.id}`, { radius: 0.34, tessellation: 24 }, this.stage.scene);
     blob.rotation.x = Math.PI / 2;
     blob.position.y = 0.085;
-    const bm = new StandardMaterial(`blobMat-${this.id}`, this.stene());
+    const bm = new StandardMaterial(`blobMat-${this.id}`, this.stage.scene);
     bm.diffuseColor = Color3.Black();
     bm.emissiveColor = Color3.Black();
     bm.alpha = 0.38;
@@ -101,14 +104,14 @@ export class Actor {
     blob.parent = this.root;
     this.shadowMesh = blob;
     this.anchor = blob;
-    // Animationen: alle Gruppen parallel laufen lassen, Gewichte steuern die Mischung
-    for (const g of result.animationGroups) g.stop();
-    for (const [clip, name] of Object.entries(this.spec.anims) as [Clip, string | null][]) {
-      const g = name === '*' ? result.animationGroups[0] : result.animationGroups.find((x) => x.name === name);
+    // Animationen: Vertragsname → Clip (Auflösung aus der Registry); alle Gruppen laufen parallel,
+    // Gewichte steuern die Mischung.
+    for (const g of entries.animationGroups) g.stop();
+    const sourceNames = model.container.animationGroups.map((g) => g.name);
+    for (const [clip, name] of Object.entries(model.clips.clips) as [Clip, string][]) {
+      const g = entries.animationGroups[sourceNames.indexOf(name)];
       if (g) this.groups.set(clip, g);
-      else this.missingClips.push(clip);
     }
-    for (const clip of ['basic_attack', 'hit', 'command'] as Clip[]) if (!this.groups.has(clip) && !this.missingClips.includes(clip)) this.missingClips.push(clip);
     for (const g of new Set(this.groups.values())) {
       g.play(true);
       g.setWeightForAllAnimatables(0);
@@ -116,10 +119,6 @@ export class Actor {
     }
     this.play('idle');
     this.stage.scene.onBeforeRenderObservable.add(() => this.tick(this.stage.engine.getDeltaTime() / 1000));
-  }
-
-  private stene(): Scene {
-    return this.stage.scene;
   }
 
   private play(clip: Clip, speed = 1): boolean {
@@ -150,7 +149,6 @@ export class Actor {
       this.flashT = Math.max(0, this.flashT - dt * 5);
       this.flash.forEach((m) => (m.emissiveColor = new Color3(1, 0.85, 0.7).scale(this.flashT)));
     }
-    if (this.shadowMesh) this.shadowMesh.position.y = 0.085 - this.root.position.y * 0 + 0;
   }
 
   setPosition(p: Vector3): void {
@@ -196,7 +194,7 @@ export class Actor {
   attack(target: Vector3, onImpact: () => void, onDone?: () => void): void {
     this.faceToward(target);
     this.state = 'attack';
-    const hasClip = this.play('basic_attack', 1.6);
+    this.play('basic_attack', 1.6);
     const dir = target.subtract(this.root.position);
     dir.y = 0;
     const len = dir.length() || 1;
@@ -212,14 +210,14 @@ export class Actor {
       this.state = 'idle';
       this.play('idle');
       onDone?.();
-    }, onImpact, hasClip);
+    }, onImpact);
   }
 
-  /** Cast ohne Ortswechsel (Signature-Skill): Aufrichten + Leuchten. */
+  /** Cast ohne Ortswechsel (Signature-Skill): skill_04, sonst Aufrichten + Leuchten. */
   cast(target: Vector3 | null, onImpact: () => void, onDone?: () => void): void {
     if (target) this.faceToward(target);
     this.state = 'attack';
-    this.play('basic_attack', 0.9);
+    this.play('skill_04', 1) || this.play('basic_attack', 0.9);
     const up = new Vector3(0, 1, 0);
     this.runPhases([
       { dur: 0.18, from: 0, to: 0.16, ease: 'out', impact: true },
@@ -228,7 +226,7 @@ export class Actor {
       this.state = 'idle';
       this.play('idle');
       onDone?.();
-    }, onImpact, false);
+    }, onImpact);
     this.flashT = 0.9;
   }
 
@@ -244,7 +242,7 @@ export class Actor {
       this.state = 'idle';
       this.play('idle');
       onDone?.();
-    }, onImpact, false);
+    }, onImpact);
   }
 
   /** Idle → Hit (Flash, Rückstoß weg vom Angreifer, Zittern) → Idle. */
@@ -284,18 +282,14 @@ export class Actor {
   }
 
   dispose(): void {
-    for (const m of this.meshes) m.dispose();
+    for (const m of this.meshes) this.stage.shadows.removeShadowCaster(m);
+    this.entries?.dispose();
+    for (const m of this.flash) m.dispose(false, false); // Texturen bleiben im Container
     this.shadowMesh?.dispose();
     this.root.dispose();
   }
 
-  private runPhases(
-    phases: Phase[],
-    dir: Vector3,
-    onDone: () => void,
-    onImpact?: () => void,
-    _hasClip = false,
-  ): void {
+  private runPhases(phases: Phase[], dir: Vector3, onDone: () => void, onImpact?: () => void): void {
     let i = 0;
     let t = 0;
     let impacted = false;

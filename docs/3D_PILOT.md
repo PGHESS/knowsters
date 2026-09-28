@@ -1,6 +1,63 @@
 # 3D-Pilot (Babylon.js) – Ergebnis und Empfehlung
 
-Stand: 27.09.2026 · Branch `claude/3d-pilot-v1` · App `apps/pilot3d` · URL nach Merge: `https://pghess.github.io/knowsters/pilot/` (Fälle: `?case=1|2|3`)
+Stand: 28.09.2026 · Branch `claude/3d-pilot-v2` (v1 gemergt in `main`) · App `apps/pilot3d` · URL: `https://pghess.github.io/knowsters/pilot/` (Fälle: `?case=1|2|3`, Preset `?quality=`, Abnahme `?strict=1`)
+
+## v2 – Produktionsreife (Issue #3, Branch `claude/3d-pilot-v2`)
+
+Ziel des Tickets: Babylon so vorbereiten, dass `pyro.glb`, `human_base.glb` und `workshop_arena.glb` nur noch angeschlossen werden müssen. Keine neuen Spielmechaniken, Regelkern unverändert (`git diff main -- packages/rules` ist leer).
+
+| # | Punkt | Umsetzung | Messung (Playwright-WebKit 18.2, iPhone-13-Profil, Software-GL) |
+|---|---|---|---|
+| 1 | Bundle | Subpfad-Importe über **eine** Datei `apps/pilot3d/src/babylon.ts` (Klassen + alle Side-Effects: Picking, Schatten, Glow, Partikel, glTF-2.0-Loader + 6 Erweiterungen). Kein Root-Import von `@babylonjs/core` mehr. | Build **3,2 MB JS / 797 KB gzip** in 160 Chunks (v1: 5,98 MB / 1,28 MB). Zur Laufzeit geladen: **78 Chunks, 2,28 MB, Transfer 607 KB** (v1: alles). `bundle-info.json` wird beim Build geschrieben. |
+| 2 | Gemeinsames Laden | `assets/registry.ts`: jede GLB-Datei wird genau einmal geholt (`fetch` → `LoadAssetContainerAsync`), Einheiten entstehen per `instantiateModelsToScene` (Geometrie und GPU-Texturen geteilt; Skelett und Materialien je Einheit, weil jede Einheit ihre eigene Pose und ihren Treffer-Flash hat). | Fall 2: **2 Dateien, 0,57 MB, 8 Instanzen**; GPU-Texturen 19 (25 Referenzen), **≈ 15,5 MB statt 39,5 MB** (v1: acht Fox-Texturen). |
+| 3 | Manifest für Produktionsassets | `pilot.json` v2: `creature.pyro → models/creatures/pyro/pyro.glb`, `human.summoner → models/humans/base/human_base.glb`, `arena.workshop → environments/workshop/workshop_arena.glb`, optional `enemy.rush`; jeder Eintrag hat `fallback` auf einen markierten Platzhalter. Ordner mit README existieren. | – |
+| 4 | Animationsvertrag | `assets/contract.ts`: Pflicht creature `idle move basic_attack hit skill_04 down`, human `idle move command`; Clip-Name im GLB = Vertragsname (kein Mapping nötig). Presenter nutzt `skill_04` für den Signature-Cast, `down` beim Ausscheiden. | 11 Vitest-Tests (`apps/pilot3d/tests/contract.test.ts`). |
+| 5 | Diagnose statt stiller Fallback | Datei fehlt → `warn` + Fallback; Pflichtclip fehlt bei einem Produktionsasset → `error`. Panel im Screen (rot/gelb), Konsole, `pilot.diagnostics()`; **`?strict=1`** blockiert den Start mit der Liste (Abnahmemodus). Platzhalter werden immer als Hinweis gelistet. | Fixture-Test: Fox-Kopie als `pyro.glb` → „Pflichtclips fehlen: idle, move, … – Abnahme blockiert“; Arena-Fixture (Platte 8×9) → Arena `glb`, Raster nur im Bewegungsmodus sichtbar. |
+| 6 | Quality-Presets | `quality.ts`: `high` / `balanced` / `fallback30` (Tabelle unten), **eigener Render-Loop mit Frame-Pacing** statt `runRenderLoop`, Governor stuft ab, wenn der 3-s-Durchschnitt zweimal unter der Schwelle liegt (54 bei Ziel 60). Nie automatisch aufwärts. `?quality=` oder HUD-Chips setzen fest. | Governor in Software-WebKit (13 fps): high → balanced nach 10,7 s → fallback30 nach 20,7 s; bei fallback30 rendert der Loop 26–28 Bilder/2 s (Ziel 30) statt frei zu laufen. |
+| 7 | Overlay | + Preset und Grund, Ziel-fps, JS geladen / Build-Größe, GLB-Dateien → Instanzen, GPU-Texturen (Referenzen), Diagnosezähler. | – |
+| 8 | Testfälle | `?case=1|2|3` unverändert, zusätzlich `?quality=auto|high|balanced|fallback30` und `?strict=1`; Chips im HUD. | – |
+| 9 | Keine neuen Regeln | – | `packages/rules`, `packages/content` unverändert. |
+
+Screenshots: `docs/screenshots/pilot3d/v2-case1-diagnostics.png` (Diagnosepanel, Chips, Overlay), `v2-governor-fallback30.png` (Auto-Abstufung in Fall 2), `v2-arena-glb-fixture-move.png` (Arena aus GLB-Fixture, Raster nur im Bewegungsmodus).
+
+### Quality-Presets
+
+| Preset | Ziel | Render-DPR max | Schatten | Glow | Fall 2 in WebKit-SW: Draw Calls · Renderauflösung · Frame |
+|---|---|---|---|---|---|
+| `high` | 60 fps | 2.0 | 1024, weich (Blur-ESM) | ja, Kernel 48 | 203 · 780×1328 · 35 ms |
+| `balanced` | 60 fps | 1.5 | 512, hart (ESM) | ja, Kernel 24 | 202 · 585×996 · 33 ms |
+| `fallback30` | **30 fps fest** | 1.25 | 512, hart | nein | 113 · 487×830 · 24 ms |
+
+Frame-Pacing: Der Loop rendert nur, wenn seit dem letzten Bild ≥ 1000/Ziel ms vergangen sind, und verrechnet den Rest (`elapsed % interval`), damit die Abstände nicht driften. `engine.beginFrame()` misst die Zeit selbst, deshalb bleiben `getDeltaTime()` und alle Animationen bei 30 fps in Echtzeit (33 ms pro Bild). Auch `high` ist auf 60 gedeckelt (120-Hz-Displays rendern nicht doppelt).
+
+Abstufung (auto): 4 s Warmlauf nach jedem Wechsel, dann 500-ms-Messungen; 6 Messungen = 1 Fenster; zwei Fenster unter 54 fps (Ziel 60) bzw. 27 fps (Ziel 30) → nächste Stufe. Unruhige 40–50 fps landen also nach ~10 s in `balanced` und, falls das nicht reicht, in festen 30 fps. Hochstufen passiert nie automatisch (kein Flackern zwischen Stufen).
+
+### Assets anschließen (wenn GLBs geliefert werden)
+
+1. Datei an den Zielpfad kopieren (`apps/game/public/assets/models/creatures/pyro/pyro.glb`, `…/humans/base/human_base.glb`, `…/environments/workshop/workshop_arena.glb`).
+2. `npm run check:glb -- <datei> --role creature|human|arena` (Clips, Erweiterungen, Bodenlinie, Höhe, Budgets). `npm run check:assets` prüft alle gelieferten Produktionsassets; läuft auch in CI und im `verify`.
+3. `npm run dev:pilot` → `http://localhost:5174/knowsters/pilot/?case=1&strict=1` muss **ohne** Diagnosepanel starten. Ohne `strict` läuft der Pilot mit Panel weiter (zum Sichten).
+4. Commit; kein Codeänderung nötig, solange der Vertrag eingehalten ist. Abweichende Clip-Namen könnten per `anims` im Manifest gemappt werden, sind aber für Produktionsassets nicht vorgesehen.
+
+Exportvertrag: GLB (binär, Texturen eingebettet), Blickrichtung +Z, Bodenlinie Y = 0, 1 Einheit = 1 Feldmeter, Skelett + benannte Clips, keine Draco-/Meshopt-/KTX2-Kompression (erlaubte Erweiterungen: `KHR_materials_emissive_strength`, `KHR_texture_transform`, `KHR_mesh_quantization`, `KHR_materials_unlit`, `KHR_lights_punctual`, `EXT_texture_webp`). Arena: Ursprung = Brettmitte, Spielfläche bei Y = 0 (Bodenplatte nach unten), Reihe 0 (Gegnerseite) in +Z, Lichter aus `KHR_lights_punctual` werden übernommen. Details: `docs/ASSET_STRUCTURE.md`.
+
+### Messungen v2 (Software-WebKit, nur Funktions- und Lastnachweis)
+
+| Fall | Preset | fps Ø | Frame / Render | Draw Calls | Dreiecke | Meshes | GPU-Texturen ≈ MB | Skelette / Anims | Partikel | GLB |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | high | 13 | 21 / 10 ms | 180 | 21,2 k | 85 | 14 ≈ 15,5 | 3 / 5 | 1 | 2 Dateien, 0,57 MB, 3 Inst. |
+| 2 | high | 7 | 35 / 16 ms | 203 | 27,2 k | 100 | 19 ≈ 15,5 | 8 / 19 | 4 | 2 Dateien, 0,57 MB, 8 Inst. |
+| 3 | high | 7 | 34 / 16 ms | 206 | 27,2 k | 100 | 19 ≈ 15,5 | 8 / 19 | 7 | wie 2 |
+| 2 | balanced | 8 | 33 / 15 ms | 202 | 27,2 k | 100 | 18 ≈ 10,5 | 8 / 19 | 4 | wie 2 |
+| 2 | fallback30 | 9 | 24 / 15 ms | 113 | 22,4 k | 100 | 18 ≈ 14,3 | 8 / 19 | 4 | wie 2 |
+
+Die fps-Werte sind Software-Rendering des Entwicklungsrechners und **keine Geräteaussage**; entscheidend bleibt die iPhone-Messung (Tabelle „Gerätemessungen“). Neu gegenüber v1: Texturspeicher in Fall 2 halbiert, Bundle um 62 % kleiner, `fallback30` halbiert die Draw Calls (kein Glow-Pass).
+
+### Nicht gemacht (bewusst)
+
+- Draco/Meshopt/KTX2: brauchen Decoder-Dateien und mehr Bundle; erst sinnvoll, wenn ein Produktionsasset > 8 MB wird.
+- GPU-Instancing für Skinned Meshes: jede Einheit hat ihre eigene Pose; Babylon klont hier (Geometrie geteilt). Für Props im Arena-GLB funktioniert `EXT_mesh_gpu_instancing` nicht (Erweiterung nicht registriert), Props also im DCC-Tool zusammenfassen.
+- Ein Produktionsmodell ohne Clips bleibt in der Bind-Pose (kein Platzhalter-Clip als Ersatz) – das ist Absicht: Die Diagnose ist die Abnahmegrundlage.
 
 ## Was gebaut wurde
 
@@ -37,16 +94,16 @@ Einordnung: Frame- und Renderzeit liegen bei 6–8 ms, die niedrigen fps im Soft
 
 **Gerätemessungen (offen, bitte nachtragen):**
 
-| Gerät | Fall | fps Ø / min | Draw Calls | Render-Auflösung | Bemerkung |
-|---|---|---|---|---|---|
-| iPhone (Modell?) | 1 / 2 / 3 | – | – | – | Safari, `?case=n` |
-| Android Mittelklasse (Modell?) | 1 / 2 / 3 | – | – | – | Chrome |
+| Gerät | Fall | Preset (auto-Ergebnis) | fps Ø / min | Draw Calls | Render-Auflösung | Bemerkung |
+|---|---|---|---|---|---|---|
+| iPhone (Modell?) | 1 / 2 / 3 | – | – | – | – | Safari, `?case=n`; Overlay-Zeile 2 zeigt das Preset und den Grund |
+| Android Mittelklasse (Modell?) | 1 / 2 / 3 | – | – | – | – | Chrome |
 
-Ablesen: Overlay oben links; oder in der Konsole `pilot.snapshot()`.
+Ablesen: Overlay oben links; oder in der Konsole `pilot.snapshot()`. Bleibt das Preset nach 30 s Kampf auf `high`, ist das 60-fps-Ziel erreicht; landet es auf `fallback30`, ist das der saubere 30-fps-Fallback (fest, nicht 40–50).
 
 ## Bundle
 
-`apps/pilot3d/dist`: 5,98 MB JS (gzip 1,28 MB), weil `@babylonjs/core` über den Root-Einstieg komplett gebündelt wird. Bekannte Optimierung: Subpfad-Imports (`@babylonjs/core/Meshes/meshBuilder`, …) und Side-Effect-Registrierung nur der genutzten Komponenten; Erfahrungswert 1,5–2,5 MB. Für den Pilot bewusst nicht gemacht, um keine Laufzeitfehler durch fehlende Registrierungen zu riskieren.
+v2: `apps/pilot3d/dist` 3,2 MB JS (gzip 797 KB) in 160 Chunks, davon zur Laufzeit 78 Chunks / 2,28 MB (Transfer 607 KB) geladen. Erreicht durch Subpfad-Importe (`src/babylon.ts`); die Shader liegen als eigene Chunks und werden nur bei Bedarf geholt (WGSL-Varianten nie). v1 lag bei 5,98 MB / 1,28 MB gzip durch den Root-Import.
 
 ## Was der Pilot bewiesen hat
 

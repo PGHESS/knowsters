@@ -16,9 +16,11 @@
     "test:watch": "vitest",
     "test:legacy": "node legacy/tests-v20/avatar.test.cjs && node legacy/tests-v20/avatar-editor.test.cjs && node legacy/tests-v20/wardrobe.test.cjs && node legacy/tests-v20/knowledge-v17.test.cjs && node legacy/tests-v20/learning.test.cjs && node legacy/tests-v20/prolog.test.cjs && node legacy/tests-v20/game.test.cjs",
     "extract:legacy-questions": "node scripts/extract-legacy-questions.cjs",
-    "verify": "npm run typecheck && npm test && npm run test:legacy && npm run build && npm run build:pilot",
+    "verify": "npm run typecheck && npm test && npm run test:legacy && npm run check:assets && npm run build && npm run build:pilot",
     "dev:pilot": "npm run dev -w apps/pilot3d",
-    "build:pilot": "npm run build -w apps/pilot3d"
+    "build:pilot": "npm run build -w apps/pilot3d",
+    "check:glb": "node scripts/check-glb.mjs",
+    "check:assets": "node scripts/check-glb.mjs --manifest apps/game/public/assets/manifests/pilot.json"
   },
   "devDependencies": {
     "@types/node": "^22.20.4",

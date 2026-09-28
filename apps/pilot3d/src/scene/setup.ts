@@ -1,17 +1,5 @@
-import {
-  ArcRotateCamera,
-  Camera,
-  Color3,
-  Color4,
-  DirectionalLight,
-  Engine,
-  GlowLayer,
-  HemisphericLight,
-  Scene,
-  ShadowGenerator,
-  Vector3,
-} from '@babylonjs/core';
-import '@babylonjs/loaders/glTF';
+import { ArcRotateCamera, Camera, Color3, Color4, DirectionalLight, Engine, GlowLayer, HemisphericLight, Scene, ShadowGenerator, Vector3 } from '../babylon';
+import type { QualitySettings } from '../quality';
 
 export interface Stage {
   engine: Engine;
@@ -20,6 +8,9 @@ export interface Stage {
   sun: DirectionalLight;
   shadows: ShadowGenerator;
   glow: GlowLayer;
+  /** Quality-Preset zur Laufzeit anwenden (Schatten, Glow, Render-DPR). */
+  applyQuality(q: QualitySettings): void;
+  quality: QualitySettings;
 }
 
 /** Brett-Koordinaten → Welt: Spalte x → X, Reihe y → Z (Reihe 0 hinten = Gegnerseite). */
@@ -30,10 +21,10 @@ export const boardToWorld = (cols: number, rows: number, x: number, y: number): 
 /**
  * Kamera- und Lichtaufbau (Bible §2: feste, schräg von oben blickende Kampfkamera).
  * Weiches Licht: Sonne mit geblurtem Schatten, Himmel-Fill, kalte Rückseite.
+ * Der Render-Loop läuft NICHT hier, sondern in `quality.ts` (FrameLoop mit Pacing).
  */
-export function createStage(canvas: HTMLCanvasElement, cols: number, rows: number): Stage {
+export function createStage(canvas: HTMLCanvasElement, cols: number, rows: number, initial: QualitySettings): Stage {
   const engine = new Engine(canvas, true, { preserveDrawingBuffer: false, stencil: true, antialias: true, adaptToDeviceRatio: true, powerPreference: 'high-performance' });
-  engine.setHardwareScalingLevel(1 / Math.min(window.devicePixelRatio || 1, 2));
   const scene = new Scene(engine);
   scene.clearColor = new Color4(0.02, 0.05, 0.08, 1);
   scene.ambientColor = new Color3(0.25, 0.3, 0.36);
@@ -67,19 +58,42 @@ export function createStage(canvas: HTMLCanvasElement, cols: number, rows: numbe
   rim.intensity = 0.5;
   rim.diffuse = new Color3(0.45, 0.85, 1);
 
-  const shadows = new ShadowGenerator(1024, sun);
-  shadows.useBlurExponentialShadowMap = true;
-  shadows.blurKernel = 24;
+  const shadows = new ShadowGenerator(initial.shadowMapSize, sun);
   shadows.darkness = 0.35;
   shadows.bias = 0.0015;
   shadows.normalBias = 0.02;
 
-  const glow = new GlowLayer('glow', scene, { mainTextureSamples: 2, blurKernelSize: 48 });
+  const glow = new GlowLayer('glow', scene, { mainTextureSamples: 2, blurKernelSize: initial.glowKernel });
   glow.intensity = 0.7;
 
-  engine.runRenderLoop(() => scene.render());
+  const stage: Stage = {
+    engine,
+    scene,
+    camera,
+    sun,
+    shadows,
+    glow,
+    quality: initial,
+    applyQuality(q) {
+      stage.quality = q;
+      const dpr = Math.min(window.devicePixelRatio || 1, q.dprCap);
+      engine.setHardwareScalingLevel(1 / dpr);
+      if (shadows.mapSize !== q.shadowMapSize) shadows.mapSize = q.shadowMapSize;
+      if (q.shadowBlur) {
+        shadows.useBlurExponentialShadowMap = true;
+        shadows.blurKernel = 24;
+      } else {
+        shadows.useExponentialShadowMap = true;
+      }
+      glow.isEnabled = q.glow;
+      glow.blurKernelSize = q.glowKernel;
+      scene.particlesEnabled = q.particles;
+      engine.resize();
+    },
+  };
+  stage.applyQuality(initial);
   window.addEventListener('resize', () => engine.resize());
-  return { engine, scene, camera, sun, shadows, glow };
+  return stage;
 }
 
 /** Portrait: das Brett soll die Breite füllen; die Kameradistanz folgt dem Seitenverhältnis. */

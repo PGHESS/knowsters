@@ -1,5 +1,6 @@
 import { ABILITIES, basicAttackDef, guardianDef } from '@knowsters/content';
 import { canAct, living, unitById, type BattleState } from '@knowsters/rules';
+import { PRESETS, type QualityPreset } from '../quality';
 
 export interface HudHandlers {
   onMove(): void;
@@ -9,6 +10,7 @@ export interface HudHandlers {
   onRally(): void;
   onCancel(): void;
   onCase(n: number): void;
+  onQuality(q: QualityPreset | 'auto'): void;
   onRetry(): void;
 }
 
@@ -19,6 +21,8 @@ export class Hud {
   private readonly root: HTMLElement;
   private skillsOpen = false;
   message = '';
+  /** Aktuelles Quality-Preset (Anzeige der Chips). */
+  quality: { preset: QualityPreset; auto: boolean; reason: string } = { preset: 'high', auto: true, reason: '' };
 
   constructor(private readonly h: HudHandlers) {
     this.root = document.getElementById('hud') as HTMLElement;
@@ -34,13 +38,14 @@ export class Hud {
       else if (a === 'wait') h.onWait();
       else if (a === 'rally') h.onRally();
       else if (a === 'case') h.onCase(Number(el.dataset.n));
+      else if (a === 'quality') h.onQuality((el.dataset.q ?? 'auto') as QualityPreset | 'auto');
       else if (a === 'retry') h.onRetry();
     });
   }
 
   private last: { state: BattleState; busy: boolean; note: string } | null = null;
 
-  private rerender(): void {
+  rerender(): void {
     if (this.last) this.render(this.last.state, this.last.busy, this.last.note);
   }
 
@@ -85,6 +90,7 @@ export class Hud {
         </div>
         <div class="msg">${esc(this.message || s.message)}</div>
         <div class="cases"><button class="chip" data-action="case" data-n="1">Fall 1</button><button class="chip" data-action="case" data-n="2">Fall 2</button><button class="chip" data-action="case" data-n="3">Fall 3 · VFX</button></div>
+        <div class="cases">${(['auto', 'high', 'balanced', 'fallback30'] as const).map((q) => `<button class="chip ${q === 'auto' ? (this.quality.auto ? 'on' : '') : !this.quality.auto && this.quality.preset === q ? 'on' : ''}" data-action="quality" data-q="${q}">${q === 'auto' ? `Auto${this.quality.auto ? ` · ${PRESETS[this.quality.preset].label}` : ''}` : PRESETS[q].label}</button>`).join('')}</div>
       </div>
       <div class="bottom">
         <div class="unit"><b>${esc(sel?.name?.toUpperCase() ?? '')}</b><span>${sel ? `${sel.hp}/${sel.maxHp} LP · Resonanz ${sel.resonance}/${sel.maxResonance}${sel.shield ? ` · Schild ${sel.shield}` : ''}` : ''}</span></div>

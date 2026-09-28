@@ -1,17 +1,23 @@
 {
-  "$comment": "Runtime-Manifest des 3D-Piloten. Alle Modelle sind TECHNISCHE PLATZHALTER (Khronos glTF-Sample-Assets, CC-BY 4.0) und keine Aussage über die Zielgrafik.",
-  "version": 1,
+  "$comment": "Runtime-Manifest des 3D-Piloten, Version 2 (Issue #3). Produktionsassets stehen unter ihrem Zielpfad; fehlt die Datei, greift `fallback` (technischer Platzhalter, Khronos glTF-Sample-Assets, CC-BY 4.0) und der Pilot meldet das als Diagnose. Clip-Namen im Produktions-GLB = Vertragsnamen (idle, move, basic_attack, hit, skill_04, down · Mensch: idle, move, command). Export: +Z Blickrichtung, Y = 0 Bodenlinie, 1 Einheit = 1 Feldmeter, keine Draco/Meshopt/KTX2-Kompression. Prüfen mit `npm run check:glb -- <datei> --role creature|human`.",
+  "version": 2,
   "models": {
-    "creature.pyro": { "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (PixelMannen, tomkranis, AsoboStudio, scurest · CC-BY 4.0)", "scale": 0.0115, "tint": "#ff8a4d", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null, "skill_04": "Run" } },
-    "creature.lumi": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.0105, "tint": "#f2d08d", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
-    "creature.terra": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.013, "tint": "#73eaa0", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
-    "creature.nivaro": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.0105, "tint": "#5de5f1", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null } },
-    "enemy.rush": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.0095, "tint": "#b271e8", "emissive": "#b271e8", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null } },
-    "enemy.flicker": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.009, "tint": "#e26fe7", "emissive": "#e26fe7", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
-    "enemy.brute": { "file": "models/placeholders/fox.glb", "placeholder": true, "scale": 0.014, "tint": "#8a4a7a", "emissive": "#8a4a7a", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null } },
-    "human.summoner": { "file": "models/placeholders/cesium-man.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/CesiumMan (Cesium · CC-BY 4.0)", "scale": 0.62, "tint": null, "yawOffset": 3.14159, "anims": { "idle": null, "move": "*", "command": null }, "note": "einzige Animation ist unbenannt; * = erste AnimationGroup" }
+    "creature.pyro": { "role": "creature", "file": "models/creatures/pyro/pyro.glb", "placeholder": false, "scale": 1, "fallback": "placeholder.fox.pyro" },
+    "human.summoner": { "role": "human", "file": "models/humans/base/human_base.glb", "placeholder": false, "scale": 1, "fallback": "placeholder.cesium-man" },
+    "enemy.rush": { "role": "creature", "file": "models/creatures/rush/rush.glb", "placeholder": false, "scale": 1, "fallback": "placeholder.fox.rush", "note": "Gegner nur für den Qualitätsvergleich (Issue #3); Datei optional" },
+
+    "creature.lumi": { "role": "creature", "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (PixelMannen, tomkranis, AsoboStudio, scurest · CC-BY 4.0)", "scale": 0.0105, "tint": "#f2d08d", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null, "skill_04": "Run", "down": null } },
+    "creature.terra": { "role": "creature", "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (CC-BY 4.0)", "scale": 0.013, "tint": "#73eaa0", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null, "skill_04": "Run", "down": null } },
+    "creature.nivaro": { "role": "creature", "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (CC-BY 4.0)", "scale": 0.0105, "tint": "#5de5f1", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null, "skill_04": "Run", "down": null } },
+    "enemy.flicker": { "role": "creature", "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (CC-BY 4.0)", "scale": 0.009, "tint": "#e26fe7", "emissive": "#e26fe7", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null, "skill_04": null, "down": null } },
+    "enemy.brute": { "role": "creature", "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (CC-BY 4.0)", "scale": 0.014, "tint": "#8a4a7a", "emissive": "#8a4a7a", "anims": { "idle": "Survey", "move": "Walk", "basic_attack": "Run", "hit": null, "skill_04": null, "down": null } },
+
+    "placeholder.fox.pyro": { "role": "creature", "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (PixelMannen, tomkranis, AsoboStudio, scurest · CC-BY 4.0)", "scale": 0.0115, "tint": "#ff8a4d", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null, "skill_04": "Run", "down": null } },
+    "placeholder.fox.rush": { "role": "creature", "file": "models/placeholders/fox.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/Fox (CC-BY 4.0)", "scale": 0.0095, "tint": "#b271e8", "emissive": "#b271e8", "anims": { "idle": "Survey", "move": "Run", "basic_attack": "Run", "hit": null, "skill_04": null, "down": null } },
+    "placeholder.cesium-man": { "role": "human", "file": "models/placeholders/cesium-man.glb", "placeholder": true, "source": "Khronos glTF-Sample-Assets/CesiumMan (Cesium · CC-BY 4.0)", "scale": 0.62, "tint": null, "yawOffset": 3.14159, "anims": { "idle": null, "move": "*", "command": null }, "note": "einzige Animation ist unbenannt; * = erste AnimationGroup" }
   },
   "environments": {
-    "arena.workshop": { "file": null, "placeholder": true, "note": "prozedural in apps/pilot3d/src/scene/environment.ts, bis workshop_arena.glb existiert" }
+    "arena.workshop": { "file": "environments/workshop/workshop_arena.glb", "placeholder": false, "scale": 1, "fallback": "placeholder.arena.procedural", "note": "Ursprung = Brettmitte, Boden Y = 0, 1 Einheit = 1 Feld, Reihe 0 (Gegnerseite) in +Z; Lichter (KHR_lights_punctual) werden übernommen" },
+    "placeholder.arena.procedural": { "file": null, "placeholder": true, "note": "prozedural in apps/pilot3d/src/scene/environment.ts, bis workshop_arena.glb existiert" }
   }
 }

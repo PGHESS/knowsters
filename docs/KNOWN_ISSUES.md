@@ -31,13 +31,19 @@ Stand: 27.09.2026, Branch `claude/vertical-slice-v1`.
 - Das Ergebnis-Sheet nach dem Kampf bietet bei Niederlage „Nochmal“; ein laufender Kampf kann über „‹“ verlassen und von Home fortgesetzt werden.
 - Bei sehr kleinen Viewports (< 360 pt) skaliert Phaser das Canvas per FIT; DOM-Sheets bleiben lesbar, die Canvas-Buttons werden aber kleiner als 44 pt.
 
-## 3D-Pilot (Branch `claude/3d-pilot-v1`)
+## 3D-Pilot (v1 in `main`, v2 auf `claude/3d-pilot-v2`)
 
-- **Modelle sind Platzhalter** (Khronos Fox / CesiumMan). Kein Idle-Clip für den Menschen (langsamer Gehzyklus als Ersatz), keine Attack-/Hit-/Command-Clips (prozedurale Overlays). Farbtönung über Albedo-Multiplikation; Gegner nur durch Tint/Emissive unterscheidbar.
-- **Bundle 6 MB** durch Root-Import von `@babylonjs/core`; Subpfad-Imports stehen aus.
-- **Texturen werden je Instanz geladen** (Fall 2: acht Fox-Texturen). Sharing über einen Asset-Container fehlt.
+- **Modelle sind Platzhalter** (Khronos Fox / CesiumMan), bis `pyro.glb`, `human_base.glb`, `workshop_arena.glb` geliefert sind. Kein Idle-Clip für den Menschen (langsamer Gehzyklus als Ersatz), keine Attack-/Hit-/Command-Clips (prozedurale Overlays). Der Pilot listet das als Diagnose im Screen.
+- **Behoben in v2**: Bundle 6 MB → 3,2 MB Build / 2,3 MB geladen (Subpfad-Importe); Texturen je Instanz → ein AssetContainer je Datei (Fall 2: 15,5 MB statt 39,5 MB); fehlende Clips waren still → Diagnosepanel, `?strict=1`, `check:assets` in CI.
+- **160 Chunks** im Build (Babylon-Shader als eigene Module). Nur 78 werden geladen; HTTP/2 auf Pages verkraftet das, ein Bundling der Shader in wenige Chunks ist Feinschliff.
+- **openPBR-Adapter (~140 KB)** hängt am glTF-Loader 9.x und wird geladen, obwohl der Pilot nur PBR nutzt. Kein Weg ohne Loader-Fork.
+- **Keine Draco/Meshopt/KTX2**: bewusst (Decoder-Dateien). Assets müssen unkomprimiert exportiert werden; das Prüfskript meldet `extensionsRequired`.
+- **Produktionsmodell ohne Pflichtclips bleibt in der Bind-Pose** (kein stiller Platzhalter-Clip). Absicht, siehe Diagnose.
+- **Governor stuft nur abwärts** und misst erst nach 4 s Warmlauf; ein kurzer Hänger (Laden, Shader-Kompilierung) kann in den ersten Sekunden noch nicht abstufen. Hochstufen nur per Reload oder Chip.
+- **Frame-Pacing** arbeitet mit rAF-Zeitstempeln; auf 120-Hz-Displays rendert `high` jeden zweiten Frame (Ziel 60). Safari iOS liefert rAF ohnehin mit 60 Hz.
+- **Texturspeicher** im Overlay ist eine Schätzung (Breite × Höhe × 4 je GPU-Textur, ohne Mipmaps, inkl. Shadow-Map und Glow-Targets).
 - **Keine Gerätemessung**; Software-WebKit-Werte in `docs/3D_PILOT.md` sind nur Funktionsnachweis.
 - **Kein Save im Pilot** (Zustand nur im Speicher); Reload = neuer Kampf. Store-Anbindung ist für Option 2 vorgesehen.
 - **HUD im Pilot ist ein Minimal-DOM** (kein Info-Overlay je Skill, keine Initiative-Leiste).
-- **Werkhalle prozedural**, kein gebackenes Licht; Fenster/LEDs/Fugen sind Boxen mit Emissive.
+- **Werkhalle prozedural**, kein gebackenes Licht; Fenster/LEDs/Fugen sind Boxen mit Emissive. Ein Arena-GLB wird geladen, sobald es liegt (Fixture-getestet); Schatten dann auf alle Arena-Meshes (Kosten je nach Modell).
 - **Menschmodell** steht hinter dem Brett ohne eigene Grundfläche; bei sehr breiten Viewports kann er außerhalb des Fits liegen.

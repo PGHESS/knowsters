@@ -9,14 +9,15 @@ Home → Lichtquell (Welt) → Eno (NPC) → Werkhalle (Encounter) → Taktikkam
      → Ergebnis → Wissen (Üben / Prüfung) → Entwicklung → Glutspur frei → nächster Kampf
 ```
 
-Live: https://pghess.github.io/knowsters/ · 3D-Pilot: https://pghess.github.io/knowsters/pilot/ (`?case=1|2|3`) · Referenzstände: https://pghess.github.io/knowsters/legacy/
+Live: https://pghess.github.io/knowsters/ · 3D-Pilot: https://pghess.github.io/knowsters/pilot/ (`?case=1|2|3`, `?quality=auto|high|balanced|fallback30`, Abnahme `?strict=1`) · Referenzstände: https://pghess.github.io/knowsters/legacy/
 
 ## Schnellstart
 
 ```bash
 npm ci            # Node >= 20
 npm run dev       # http://localhost:5173/knowsters/
-npm run verify    # typecheck + vitest + Legacy-Tests + Build (Slice + 3D-Pilot)
+npm run verify    # typecheck + vitest + Legacy-Tests + GLB-Vertragsprüfung + Build (Slice + 3D-Pilot)
+npm run check:glb -- <datei.glb> --role creature|human|arena   # geliefertes 3D-Asset gegen den Vertrag prüfen
 npm run dev:pilot # 3D-Pilot: http://localhost:5174/knowsters/pilot/
 ```
 
@@ -49,7 +50,7 @@ Verbindliches Muster: **Command → Rules → State + Events → Presenter**. Ph
 
 ## Dokumente
 
-- [docs/3D_PILOT.md](docs/3D_PILOT.md) – Babylon-Pilot: Aufbau, Messungen, Empfehlung
+- [docs/3D_PILOT.md](docs/3D_PILOT.md) – Babylon-Pilot: Aufbau, Messungen, Empfehlung, v2 (Bundle, Asset-Container, Manifest, Quality-Presets)
 - [docs/ASSET_STRUCTURE.md](docs/ASSET_STRUCTURE.md) – Content-/Runtime-/Source-Asset-Struktur nach Art & Asset Bible
 - [docs/BASIC_ATTACKS.md](docs/BASIC_ATTACKS.md) – Grundangriffe (Pilotwerte)
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) – Schichten, Datenfluss, Save, Turn-Order-Modi
