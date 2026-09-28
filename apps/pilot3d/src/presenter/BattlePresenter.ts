@@ -1,15 +1,12 @@
-import { PointerEventTypes, Vector3, type AbstractMesh, type ParticleSystem } from '@babylonjs/core';
+import { PointerEventTypes, Vector3, type AbstractMesh, type ParticleSystem } from '../babylon';
 import { ABILITIES, boardDef, encounterDef, guardianDef, type BoardConfig, type EncounterDef } from '@knowsters/content';
 import { nextEnemyAction, rally, select, setMode, tile, unitById, validTiles, wait, type BattleEvent, type BattleState } from '@knowsters/rules';
-import { Actor, type ModelSpec } from '../actors/Actor';
-import { buildWorkshopArena, type Arena } from '../scene/environment';
+import { Actor } from '../actors/Actor';
+import type { AssetRegistry } from '../assets/registry';
+import { loadArena, type Arena } from '../scene/environment';
 import { boardToWorld, type Stage } from '../scene/setup';
 import { VFX } from '../scene/vfx';
 import { Hud } from '../ui/hud';
-
-export interface Manifest {
-  models: Record<string, ModelSpec & { source?: string }>;
-}
 
 const key = (x: number, y: number) => `${x}:${y}`;
 
@@ -33,8 +30,7 @@ export class BattlePresenter {
   constructor(
     private readonly stage: Stage,
     private readonly hud: Hud,
-    private readonly manifest: Manifest,
-    private readonly assetBase: string,
+    private readonly registry: AssetRegistry,
     private readonly heavyVfx: boolean,
   ) {}
 
@@ -44,15 +40,12 @@ export class BattlePresenter {
     this.state = state;
     this.encounter = encounterDef(state.encounterId);
     this.board = boardDef(state.boardId);
-    this.arena = buildWorkshopArena(this.stage, this.board);
+    this.arena = await loadArena(this.stage, this.board, this.registry);
     const loads: Promise<void>[] = [];
     for (const u of state.units) if (u.alive && u.hp > 0) loads.push(this.spawnActor(u.id));
     // Beschwörer hinter dem Team
-    const spec = this.manifest.models['human.summoner'];
-    if (spec) {
-      this.summoner = new Actor(this.stage, 'summoner', spec, 1.2);
-      loads.push(this.summoner.load(this.assetBase));
-    }
+    this.summoner = new Actor(this.stage, 'summoner', 'human', 'human.summoner', this.registry, 1.2);
+    loads.push(this.summoner.load());
     await Promise.all(loads);
     if (this.summoner) {
       const p = boardToWorld(this.board.width, this.board.height, (this.board.width - 1) / 2, this.board.height + 0.35);
@@ -84,17 +77,18 @@ export class BattlePresenter {
       else if (meta.tile) this.onTile(meta.tile.x, meta.tile.y);
     });
     this.refresh();
-    this.log.push(`mount: ${this.actors.size} Wesen, Platzhalter-Clips fehlen: ${[...this.actors.values()].map((a) => `${a.id}[${a.missingClips.join(',')}]`).join(' ')}`);
+    const all = [...this.actors.values(), ...(this.summoner ? [this.summoner] : [])];
+    this.log.push(`mount: ${this.actors.size} Wesen · Arena ${this.arena.kind} (${this.arena.key}) · Modelle: ${all.map((a) => `${a.id}=${a.model?.key}${a.missingClips.length ? `[fehlt ${a.missingClips.join(',')}]` : ''}`).join(' ')}`);
+    for (const d of this.registry.diagnostics) this.log.push(`${d.level}: ${d.asset} – ${d.message}`);
   }
 
   private async spawnActor(id: string): Promise<void> {
     const u = unitById(this.state, id);
     if (!u) return;
-    const specKey = u.kind === 'guardian' ? `creature.${u.speciesId}` : `enemy.${u.speciesId}`;
-    const spec = this.manifest.models[specKey] ?? this.manifest.models['enemy.rush']!;
-    const actor = new Actor(this.stage, id, spec);
+    const modelKey = u.kind === 'guardian' ? `creature.${u.speciesId}` : `enemy.${u.speciesId}`;
+    const actor = new Actor(this.stage, id, 'creature', modelKey, this.registry);
     this.actors.set(id, actor);
-    await actor.load(this.assetBase);
+    await actor.load();
     actor.setPosition(this.pos(u.x, u.y));
     actor.faceToward(this.pos(u.x, u.kind === 'guardian' ? 0 : this.board.height - 1));
     if (this.heavyVfx || u.kind === 'guardian') {

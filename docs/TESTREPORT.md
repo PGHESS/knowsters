@@ -77,3 +77,19 @@ Playwright-WebKit läuft ohne GPU (Software-Rendering, ~28 fps im Labor) und ist
 ## Screenshots
 
 `docs/screenshots/`: home, world, world-dialog, battle, battle-move-range, battle-skills, battle-result, world-after-victory, battle-glutspur-unlocked, knowledge, knowledge-exam, team, rig-lab.
+
+## 3D-Pilot v2 (Issue #3, 28.09.2026, Branch `claude/3d-pilot-v2`)
+
+| Prüfung | Ergebnis |
+|---|---|
+| Typecheck (`tsc -b`, 4 Projekte) | ✅ |
+| vitest | ✅ 56 Tests in 8 Dateien (neu: `apps/pilot3d/tests/contract.test.ts`, 11 Tests: Vertragsauflösung Produktion/Platzhalter, `*`-Mapping, Manifest v2 gültig, Fallback-Ketten, Fehlererkennung, Prüfskript teilt Konstanten) |
+| Legacy-Tests | ✅ unverändert |
+| `check:assets` | ✅ 0 gelieferte Produktionsassets, 0 Fehler (Platzhalter aktiv) |
+| Build Slice + Pilot | ✅ Pilot 3,2 MB JS / 797 KB gzip, 160 Chunks, `bundle-info.json` |
+| WebKit (Playwright 18.2, iPhone-13-Profil), `?case=1|2|3` × `?quality=auto|high|balanced|fallback30` | ✅ ohne Konsolenfehler; Bewegen, Grundangriff, Sammeln laufen; Diagnosepanel zeigt 4 Hinweise (fehlende Produktionsdateien + Platzhalter) |
+| `?strict=1` | ✅ blockiert den Start mit der Diagnoseliste |
+| Fixture „Fox als pyro.glb“ | ✅ `error` „Pflichtclips fehlen … Abnahme blockiert“, Panel rot, strict blockiert; `check-glb.mjs` meldet 3 Fehler (Clips, Bodenlinie, Höhe 79 m) |
+| Fixture „Arena-GLB 8×9“ | ✅ Arena `glb`, Raster unsichtbar bis Bewegungsmodus (21 Felder), keine Abdeckungswarnung |
+| Auto-Governor (Software-GL 13 fps) | ✅ high → balanced (10,7 s) → fallback30 (20,7 s); bei fallback30 26–28 Bilder/2 s |
+| Texturteilung | ✅ Fall 2: 2 GLB-Dateien, 8 Instanzen, 19 GPU-Texturen (25 Referenzen), ≈ 15,5 MB (v1: 39,5 MB) |

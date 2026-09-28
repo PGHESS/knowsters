@@ -1,4 +1,4 @@
-import { Color3, Color4, MeshBuilder, ParticleSystem, Scene, StandardMaterial, Texture, Vector3 } from '@babylonjs/core';
+import { Color3, Color4, CreateSphere, ParticleSystem, StandardMaterial, Texture, Vector3, type Scene } from '../babylon';
 
 /** Weiche runde Partikeltextur, prozedural (kein Asset nötig). */
 let flare: Texture | null = null;
@@ -114,7 +114,7 @@ export const VFX = {
   },
   /** Projektil (Fokusstrahl u. ä.): leuchtende Kugel fliegt zum Ziel. */
   projectile(scene: Scene, from: Vector3, to: Vector3, color: string, onArrive: () => void): void {
-    const orb = MeshBuilder.CreateSphere('orb', { diameter: 0.18, segments: 8 }, scene);
+    const orb = CreateSphere('orb', { diameter: 0.18, segments: 8 }, scene);
     const m = new StandardMaterial('orbMat', scene);
     m.emissiveColor = Color3.FromHexString(color);
     m.disableLighting = true;
