@@ -8,3 +8,8 @@ Thumbs.db
 .vite/
 coverage/
 dist-types/
+
+# lokale Geheimnisse (Meshy-API-Key u. a.) – nie committen
+.env
+.env.*
+!.env.example
